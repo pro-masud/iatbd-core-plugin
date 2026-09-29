@@ -2,8 +2,8 @@
 *
 
 # Allow only this plugin
-!plugins/iatbd-core
-!plugins/iatbd-core/**
+!iatbd-core/
+!iatbd-core/**
 
 # Allow README
 !README.md
