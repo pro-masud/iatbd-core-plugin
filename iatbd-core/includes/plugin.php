@@ -212,17 +212,47 @@ final class Elementor_Test {
 	}
 
 	public function enqueue_frontend_assets() {
-		wp_enqueue_style( 'iatbd-core-style', plugin_dir_url( __DIR__ ) . 'assets/css/style.css', [], '1.0.0' );
-		wp_enqueue_script( 'iatbd-core-script', plugin_dir_url( __DIR__ ) . 'assets/js/script.js', [ 'jquery' ], '1.0.0', true );
-	}
+
+    wp_enqueue_style(
+        'iatbd-core-style',
+        plugin_dir_url(__DIR__) . 'assets/css/style.css',
+        [],
+        time()
+    );
+    wp_enqueue_style(
+        'iatbd-core-all-icon', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+        [],
+        time()
+    );
+
+    wp_enqueue_script(
+        'iatbd-core-script',
+        plugin_dir_url(__DIR__) . 'assets/js/custom.js',
+        [],
+        time(),
+        false
+    );
+}
 
 	public function enqueue_admin_assets( $hook ) {
 		if ( 'toplevel_page_iatbd-demo' !== $hook ) {
 			return;
 		}
 
-		wp_enqueue_style( 'iatbd-core-style', plugin_dir_url( __DIR__ ) . 'assets/css/style.css', [], '1.0.0' );
-		wp_enqueue_script( 'iatbd-core-script', plugin_dir_url( __DIR__ ) . 'assets/js/script.js', [ 'jquery' ], '1.0.0', true );
+		wp_enqueue_style(
+			'iatbd-core-style',
+			plugin_dir_url(__DIR__) . 'assets/css/style.css',
+			[],
+			time()
+		);
+
+		wp_enqueue_script(
+			'iatbd-core-script',
+			plugin_dir_url(__DIR__) . 'assets/js/custom.js',
+			[],
+			time(),
+			false
+		);
 	}
 
 	/**
@@ -237,9 +267,10 @@ final class Elementor_Test {
 	public function register_widgets( $widgets_manager ) {
 
 		require_once( __DIR__ . '/widgets/widget-1.php' );
+		require_once( __DIR__ . '/widgets/footer.php' );
 
 		$widgets_manager->register( new \Widget_1() );
-
+		$widgets_manager->register( new \Footer() );
 		
 
 	}
