@@ -240,37 +240,10 @@ class Widget_1 extends \Elementor\Widget_Base {
 		$this->add_inline_editing_attributes('description', 'basic');
 		?>
 		
-		<h2 <?php echo $this->get_render_attribute_string('heading') ?>><?php echo esc_html($heading) ; ?></h2>
-		<p <?php echo $this->get_render_attribute_string('description') ?> ><?php echo esc_html($description) ; ?></p>
+
 
 		<?php
 	}
 
-	/**
-	 * Render list widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 * @since 1.0.0
-	 * @access protected
-	 */
-	protected function content_template() {
-		?>
-			<#
-				view.addInlineEditingAttributes('heading', 'basic');
-				view.addRenderAttribute(
-				'heading',
-					{
-						'class': [ 'heading', settings.heading ],
-					}
-				);
-				view.addInlineEditingAttributes('description', 'basic');
-			#>
-			<h2 {{{view.getRenderAttributeString('heading')}}}>{{{settings.heading}}}</h2>
-			<p {{{view.getRenderAttributeString('description')}}}>
-				{{{settings.description}}}
-			</p>
-		<?php
-	}
 
 }

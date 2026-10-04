@@ -205,7 +205,7 @@ final class Elementor_Test {
 		add_action( 'elementor/controls/register', [ $this, 'register_controls' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_assets' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
-		add_action( 'admin_menu', [ $this, 'register_demo_page' ] );
+		
 
 		/* add action elementor test widgets */ 
 		add_action( 'elementor/elements/categories_registered', [$this, 'add_elementor_widget_categories'] );
@@ -223,30 +223,6 @@ final class Elementor_Test {
 
 		wp_enqueue_style( 'iatbd-core-style', plugin_dir_url( __DIR__ ) . 'assets/css/style.css', [], '1.0.0' );
 		wp_enqueue_script( 'iatbd-core-script', plugin_dir_url( __DIR__ ) . 'assets/js/script.js', [ 'jquery' ], '1.0.0', true );
-	}
-
-	public function register_demo_page() {
-		add_menu_page(
-			'IA TBD Demo',
-			'IA TBD Demo',
-			'manage_options',
-			'iatbd-demo',
-			[ $this, 'render_demo_page' ],
-			'dashicons-admin-generic',
-			26
-		);
-	}
-
-	public function render_demo_page() {
-		?>
-		<div class="wrap">
-			<div class="iatbd-demo-box">
-				<h2>IATBD Demo Page</h2>
-				<p>This is a demo page to check that the plugin CSS and JS are loading correctly.</p>
-				<button type="button" class="iatbd-demo-btn">Click Me</button>
-			</div>
-		</div>
-		<?php
 	}
 
 	/**
