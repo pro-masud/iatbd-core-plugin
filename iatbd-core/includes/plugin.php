@@ -266,7 +266,7 @@ final class Elementor_Test {
 	 */
 	public function register_widgets( $widgets_manager ) {
 
-		require_once( __DIR__ . '/widgets/widget-1.php' );
+		require_once( __DIR__ . '/widgets/header-one.php' );
 		require_once( __DIR__ . '/widgets/footer.php' );
 
 		$widgets_manager->register( new \Widget_1() );
