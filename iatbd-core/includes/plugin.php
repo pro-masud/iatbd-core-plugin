@@ -268,9 +268,11 @@ final class Elementor_Test {
 
 		require_once( __DIR__ . '/widgets/header-one.php' );
 		require_once( __DIR__ . '/widgets/footer.php' );
+		require_once( __DIR__ . '/widgets/hero-one.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \Footer() );
+		$widgets_manager->register( new \IATBD_Hero_Slider() );
 		
 
 	}
