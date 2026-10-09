@@ -280,6 +280,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/iatbd-overview-widget.php' );
 		require_once( __DIR__ . '/widgets/iatbd-services-widget.php' );
 		require_once( __DIR__ . '/widgets/iatbd-brands-widget.php' );
+		require_once( __DIR__ . '/widgets/iatbd-process-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -288,7 +289,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Overview() );
 		$widgets_manager->register( new \IATBD_Services() );
 		$widgets_manager->register( new \IATBD_Brands() );
-		
+		$widgets_manager->register( new \IATBD_Process() );
 
 	}
 	
