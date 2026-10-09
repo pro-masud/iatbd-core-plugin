@@ -287,6 +287,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Counter() );
 		$widgets_manager->register( new \IATBD_Overview() );
 		$widgets_manager->register( new \IATBD_Services() );
+		$widgets_manager->register( new \IATBD_Brands() );
 		
 
 	}
