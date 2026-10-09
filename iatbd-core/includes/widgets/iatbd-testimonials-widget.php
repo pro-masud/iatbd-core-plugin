@@ -1,14 +1,4 @@
 <?php
-/**
- * GC Testimonials Slider – Elementor widget (repeater based)
- *
- * Original HTML markup + Tailwind classes + existing theme JS are used as-is.
- * No CSS / JS is added by this widget — it only makes the content dynamic.
- *
- * Category : gc_widgets
- * Name     : gc_testimonials_slider
- */
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
