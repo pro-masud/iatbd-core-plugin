@@ -282,6 +282,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/iatbd-brands-widget.php' );
 		require_once( __DIR__ . '/widgets/iatbd-process-widget.php' );
 		require_once( __DIR__ . '/widgets/iatbd-benefits-widget.php' );
+		require_once( __DIR__ . '/widgets/iatbd-testimonials-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -292,6 +293,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Brands() );
 		$widgets_manager->register( new \IATBD_Process() );
 		$widgets_manager->register( new \IATBD_Benefits_Widget() );
+		$widgets_manager->register( new \GC_Testimonials_Slider_Widget() );
 
 	}
 	
