@@ -32,7 +32,7 @@ class GC_Related_Services_Widget extends Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons' ];
 	}
 
 	public function get_keywords() {
