@@ -277,11 +277,13 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/footer.php' );
 		require_once( __DIR__ . '/widgets/hero-one.php' );
 		require_once( __DIR__ . '/widgets/iatbd-counter-widget.php' );
+		require_once( __DIR__ . '/widgets/iatbd-overview-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
 		$widgets_manager->register( new \IATBD_Servo_Hero() );
 		$widgets_manager->register( new \IATBD_Counter() );
+		$widgets_manager->register( new \IATBD_Overview() );
 		
 
 	}
