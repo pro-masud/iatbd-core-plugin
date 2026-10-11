@@ -294,6 +294,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-plc-benefits-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-plc-testimonials-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-plc-faq-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-plc-related-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
