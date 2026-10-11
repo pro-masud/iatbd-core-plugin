@@ -295,6 +295,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-plc-testimonials-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-plc-faq-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-plc-related-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-store-hero-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -318,6 +319,8 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_PLC_Benefits_Widget () );
 		$widgets_manager->register( new \IATBD_PLC_Testimonials_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_FAQ_Widget() );
+		$widgets_manager->register( new \IATBD_PLC_Related_Widget() );
+		$widgets_manager->register( new \IATBD_Store_Hero_Widget() );
 	}
 	
 

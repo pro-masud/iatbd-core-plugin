@@ -98,8 +98,41 @@
     });
     initCounters();
     initTestimonials();
+    initStoreHeroSlider();
     initStoreShop();
   });
+
+  function initStoreHeroSlider() {
+    document.querySelectorAll(".store-hero-slider").forEach((slider) => {
+      const slides = [...slider.querySelectorAll(".store-hero-slide")];
+      const dots = [...slider.querySelectorAll(".store-hero-dot")];
+      if (!slides.length) return;
+
+      let slideIndex = 0;
+      const showSlide = (index) => {
+        slideIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) =>
+          slide.classList.toggle("active", i === slideIndex),
+        );
+        dots.forEach((dot, i) =>
+          dot.classList.toggle("active", i === slideIndex),
+        );
+      };
+
+      dots.forEach((dot, index) =>
+        dot.addEventListener("click", () => showSlide(index)),
+      );
+      slider
+        .querySelector("#store-hero-prev")
+        ?.addEventListener("click", () => showSlide(slideIndex - 1));
+      slider
+        .querySelector("#store-hero-next")
+        ?.addEventListener("click", () => showSlide(slideIndex + 1));
+
+      if (slides.length > 1)
+        window.setInterval(() => showSlide(slideIndex + 1), 5500);
+    });
+  }
 
   function initStoreShop() {
     const store = document.querySelector("[data-store-shop]");
@@ -306,30 +339,6 @@
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setCartOpen(false);
     });
-
-    const slides = [...store.querySelectorAll(".store-hero-slide")];
-    const dots = [...store.querySelectorAll(".store-hero-dot")];
-    let slideIndex = 0;
-    const showSlide = (index) => {
-      slideIndex = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) =>
-        slide.classList.toggle("active", i === slideIndex),
-      );
-      dots.forEach((dot, i) =>
-        dot.classList.toggle("active", i === slideIndex),
-      );
-    };
-    dots.forEach((dot, index) =>
-      dot.addEventListener("click", () => showSlide(index)),
-    );
-    store
-      .querySelector("#store-hero-prev")
-      ?.addEventListener("click", () => showSlide(slideIndex - 1));
-    store
-      .querySelector("#store-hero-next")
-      ?.addEventListener("click", () => showSlide(slideIndex + 1));
-    if (slides.length > 1)
-      window.setInterval(() => showSlide(slideIndex + 1), 5500);
 
     updateProducts();
     renderCart();
