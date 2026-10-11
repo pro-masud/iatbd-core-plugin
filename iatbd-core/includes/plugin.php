@@ -307,6 +307,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-store-products-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-store-cta-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-hmi-hero-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-hmi-stats-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -336,6 +337,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Store_Products_Widget () );
 		$widgets_manager->register( new \IATBD_Store_CTA_Widget () );
 		$widgets_manager->register( new \IATBD_HMI_Hero_Widget () );
+		$widgets_manager->register( new \IATBD_HMI_Stats_Widget  () );
 	}
 	
 
