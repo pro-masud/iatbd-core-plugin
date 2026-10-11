@@ -96,6 +96,13 @@
       dataKey: "index",
       interval: 4500,
     });
+    initHeroSlider({
+      containerSelector: ".hmi-hero",
+      slideSelector: ".hmi-slide",
+      dotSelector: ".hmi-dot",
+      dataKey: "slideTo",
+      interval: 5000,
+    });
     initCounters();
     initTestimonials();
     initStoreHeroSlider();

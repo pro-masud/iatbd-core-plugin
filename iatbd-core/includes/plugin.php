@@ -231,6 +231,13 @@ final class Elementor_Test {
         time()
     );
 
+    wp_enqueue_style(
+        'iatbd-core-custom-style',
+        plugin_dir_url(__DIR__) . 'assets/css/custom.css',
+        [ 'iatbd-core-style' ],
+        time()
+    );
+
 
     wp_enqueue_script(
         'iatbd-core-script',
@@ -299,6 +306,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-store-benefits-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-store-products-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-store-cta-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-hmi-hero-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -327,6 +335,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Store_Benefits_Widget () );
 		$widgets_manager->register( new \IATBD_Store_Products_Widget () );
 		$widgets_manager->register( new \IATBD_Store_CTA_Widget () );
+		$widgets_manager->register( new \IATBD_HMI_Hero_Widget () );
 	}
 	
 
