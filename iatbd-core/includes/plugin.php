@@ -286,6 +286,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-gc-faq-accordion.php' );
 		require_once( __DIR__ . '/widgets/class-gc-related-services.php' );
 		require_once( __DIR__ . '/widgets/class-gc-contact-cta.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-plc-hero-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -300,7 +301,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \GC_FAQ_Accordion_Widget() );
 		$widgets_manager->register( new \GC_Related_Services_Widget() );
 		$widgets_manager->register( new \GC_Contact_CTA_Widget() );
-
+		$widgets_manager->register( new \IATBD_PLC_Hero_Widget() );
 	}
 	
 

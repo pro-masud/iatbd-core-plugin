@@ -1,14 +1,4 @@
 <?php
-/**
- * GC Contact CTA – Elementor widget (repeater based)
- *
- * Original HTML markup + Tailwind classes + existing theme classes
- * (btn-cta, btn-cta-light, btn-cta-outline) are used as-is.
- * No CSS / JS is added by this widget — it only makes the content dynamic.
- *
- * Category : gc_widgets
- * Name     : gc_contact_cta
- */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
