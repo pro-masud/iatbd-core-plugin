@@ -311,6 +311,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-hmi-overview-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-hmi-services-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-hmi-process-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-hmi-benefits-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -345,6 +346,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_HMI_Overview_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Services_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Process_Widget() );
+		$widgets_manager->register( new \IATBD_HMI_Benefits_Widget() );
 	}
 	
 

@@ -88,7 +88,9 @@ class IATBD_PLC_Overview_Widget extends \Elementor\Widget_Base {
 					</div>
 					<div class="relative">
 						<div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-700">
-							<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s['image_alt'] ); ?>" class="w-full h-72 sm:h-80 object-cover" />
+							<div class="h-72 sm:h-80 overflow-hidden">
+								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s['image_alt'] ); ?>" class="iatbd-widget-image" />
+							</div>
 						</div>
 						<div class="absolute -bottom-4 -left-4 bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-slate-100 dark:border-slate-700 px-4 py-3 flex items-center gap-3">
 							<div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center">

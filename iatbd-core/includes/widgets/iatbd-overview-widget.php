@@ -184,11 +184,13 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 					<div class="lg:col-span-6 order-2 lg:order-1 relative">
 						<?php if ( ! empty( $s['image']['url'] ) ) : ?>
 							<div class="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
-								<img
-									src="<?php echo esc_url( $s['image']['url'] ); ?>"
-									alt="<?php echo esc_attr( $s['image_alt'] ); ?>"
-									class="w-full h-72 sm:h-[380px] object-cover"
-								/>
+								<div class="h-72 sm:h-[380px] overflow-hidden">
+									<img
+										src="<?php echo esc_url( $s['image']['url'] ); ?>"
+										alt="<?php echo esc_attr( $s['image_alt'] ); ?>"
+										class="iatbd-widget-image"
+									/>
+								</div>
 							</div>
 						<?php endif; ?>
 

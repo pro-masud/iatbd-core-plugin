@@ -136,7 +136,7 @@ class IATBD_PLC_Services_Widget extends \Elementor\Widget_Base {
 						?>
 						<div class="feature-card group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 shadow-sm">
 							<div class="relative h-44 overflow-hidden">
-								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s[ $p . 'title' ] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s[ $p . 'title' ] ); ?>" class="iatbd-widget-image group-hover:scale-105 transition duration-500" />
 								<div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent"></div>
 								<div class="absolute bottom-3 left-3 w-10 h-10 rounded-lg flex items-center justify-center <?php echo esc_attr( $col ); ?>">
 									<i class="<?php echo esc_attr( $s[ $p . 'icon' ] ); ?> text-white"></i>

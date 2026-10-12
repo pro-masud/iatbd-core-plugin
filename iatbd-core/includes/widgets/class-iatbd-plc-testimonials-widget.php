@@ -177,7 +177,9 @@ class IATBD_PLC_Testimonials_Widget extends \Elementor\Widget_Base {
 										<div class="flex gap-0.5 mb-4"><?php echo $stars; // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
 										<p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 flex-1"><?php echo esc_html( $r['quote'] ); ?></p>
 										<div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-700">
-											<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $r['name'] ); ?>" class="w-11 h-11 rounded-full object-cover ring-2 <?php echo esc_attr( $c['ring'] ); ?>" />
+											<div class="w-11 h-11 shrink-0 rounded-full overflow-hidden ring-2 <?php echo esc_attr( $c['ring'] ); ?>">
+												<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $r['name'] ); ?>" class="iatbd-widget-image rounded-full" />
+											</div>
 											<div>
 												<p class="font-semibold text-sm text-slate-900 dark:text-white"><?php echo esc_html( $r['name'] ); ?></p>
 												<p class="text-xs text-slate-500 dark:text-slate-400"><?php echo esc_html( $r['role'] ); ?></p>

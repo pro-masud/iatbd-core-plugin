@@ -97,7 +97,9 @@ class IATBD_HMI_Overview_Widget extends \Elementor\Widget_Base {
 					</div>
 					<div class="lg:col-span-7 relative pb-6">
 						<div class="rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-800">
-							<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s['image_alt'] ); ?>" class="w-full h-72 sm:h-[380px] object-cover" />
+							<div class="h-72 sm:h-[380px] overflow-hidden">
+								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s['image_alt'] ); ?>" class="iatbd-widget-image" />
+							</div>
 						</div>
 						<div class="absolute bottom-0 left-6 right-6 sm:left-auto sm:right-8 sm:w-64 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-xl p-4 flex items-center gap-3">
 							<span class="w-11 h-11 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shrink-0"><i class="<?php echo esc_attr( $s['card_icon'] ); ?> text-white"></i></span><span><span class="block text-sm font-bold text-slate-900 dark:text-white"><?php echo esc_html( $s['card_title'] ); ?></span><span class="block text-xs text-slate-500 dark:text-slate-400"><?php echo esc_html( $s['card_sub'] ); ?></span></span>

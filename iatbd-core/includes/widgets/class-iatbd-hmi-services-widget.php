@@ -136,7 +136,7 @@ class IATBD_HMI_Services_Widget extends \Elementor\Widget_Base {
 						?>
 						<article class="svc-card bg-white dark:bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700/80">
 							<div class="relative h-44 overflow-hidden">
-								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s[ $p . 'alt' ] ); ?>" class="w-full h-full object-cover" />
+								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $s[ $p . 'alt' ] ); ?>" class="iatbd-widget-image" />
 								<div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
 								<span class="absolute bottom-3 left-3 w-9 h-9 rounded-lg flex items-center justify-center text-white <?php echo esc_attr( $col ); ?>"><i class="<?php echo esc_attr( $s[ $p . 'icon' ] ); ?>"></i></span>
 							</div>

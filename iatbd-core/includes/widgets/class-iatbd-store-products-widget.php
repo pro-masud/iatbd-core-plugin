@@ -260,7 +260,7 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 						?>
 						<article class="store-product-card bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col" data-cat="<?php echo esc_attr( $p['cat'] ); ?>" data-brand="<?php echo esc_attr( $p['brand'] ); ?>" data-name="<?php echo esc_attr( $p['full_name'] ); ?>" data-price="<?php echo esc_attr( $price ); ?>" data-order="<?php echo esc_attr( $i + 1 ); ?>">
 							<div class="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $p['alt'] ); ?>" class="w-full h-full object-cover" loading="lazy" /><span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-white text-[11px] font-bold <?php echo esc_attr( $bc ); ?>"><?php echo esc_html( $p['badge'] ); ?></span><span class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-emerald-600 text-white text-[11px] font-bold"><?php echo esc_html( $s['cod_text'] ); ?></span>
+								<img src="<?php echo esc_url( $img ); ?>" alt="<?php echo esc_attr( $p['alt'] ); ?>" class="iatbd-widget-image" loading="lazy" /><span class="absolute top-3 left-3 px-2.5 py-1 rounded-md text-white text-[11px] font-bold <?php echo esc_attr( $bc ); ?>"><?php echo esc_html( $p['badge'] ); ?></span><span class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-emerald-600 text-white text-[11px] font-bold"><?php echo esc_html( $s['cod_text'] ); ?></span>
 							</div>
 							<div class="p-4 flex flex-col flex-1">
 								<p class="text-xs text-slate-400 mb-1"><?php echo esc_html( $p['brand'] ); ?></p>

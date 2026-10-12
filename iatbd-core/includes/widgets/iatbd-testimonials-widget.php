@@ -232,7 +232,9 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 
 									<div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-700">
 										<?php if ( ! empty( $item['image']['url'] ) ) : ?>
-											<img src="<?php echo esc_url( $item['image']['url'] ); ?>" class="w-10 h-10 rounded-full object-cover" alt="<?php echo esc_attr( $item['name'] ); ?>">
+											<div class="w-10 h-10 shrink-0 rounded-full overflow-hidden">
+												<img src="<?php echo esc_url( $item['image']['url'] ); ?>" class="iatbd-widget-image rounded-full" alt="<?php echo esc_attr( $item['name'] ); ?>">
+											</div>
 										<?php endif; ?>
 										<div>
 											<p class="text-sm font-semibold text-slate-900 dark:text-white"><?php echo esc_html( $item['name'] ); ?></p>

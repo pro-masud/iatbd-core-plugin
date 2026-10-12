@@ -168,6 +168,12 @@ html.dark {
   border-left-color: #59aeff;
   box-shadow: 0 20px 40px -12px rgba(26, 106, 245, 0.2);
 }
+.iatbd-widget-image {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
 .svc-card img {
   transition: transform 0.5s ease;
 }
