@@ -316,6 +316,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-stats-bar.php' );
 		require_once( __DIR__ . '/widgets/iatbd-solutions-widget.php' );
 		require_once( __DIR__ . '/widgets/class-gc-ai-automation.php' );
+		require_once( __DIR__ . '/widgets/class-gc-industrial-cta.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -356,6 +357,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Stats_Bar_Widget() );
 		$widgets_manager->register( new \IATBD_Solutions_Widget() );
 		$widgets_manager->register( new \GC_AI_Automation_Widget() );
+		$widgets_manager->register( new \GC_Industrial_CTA_Widget() );
 	}
 	
 
