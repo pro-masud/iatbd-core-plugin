@@ -44,6 +44,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Eyebrow Text', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Built around your plant',
 			]
 		);
@@ -53,6 +54,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Heading', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'AI that works with your automation',
 			]
 		);
@@ -168,6 +170,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Image Alt Text', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Engineer monitoring industrial automation equipment',
 			]
 		);
@@ -177,6 +180,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Image Caption', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'From sensor signals to clearer production decisions',
 			]
 		);

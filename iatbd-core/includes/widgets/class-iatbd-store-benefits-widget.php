@@ -36,14 +36,14 @@ class IATBD_Store_Benefits_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'sec_items', [ 'label' => 'Benefits' ] );
 
 		$rep = new \Elementor\Repeater();
-		$rep->add_control( 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => '', 'placeholder' => 'fas fa-truck' ] );
+		$rep->add_control( 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => '', 'placeholder' => 'fas fa-truck' ] );
 		$rep->add_control( 'color', [
 			'label'   => 'Icon Color',
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'emerald',
 			'options' => [ 'emerald' => 'Emerald', 'primary' => 'Primary', 'accent' => 'Accent' ],
 		] );
-		$rep->add_control( 'text', [ 'label' => 'Text', 'type' => $T, 'default' => '' ] );
+		$rep->add_control( 'text', [ 'label' => 'Text', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 
 		$this->add_control( 'items', [
 			'label'       => 'Items',

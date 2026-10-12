@@ -83,23 +83,23 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 
 		/* Heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'IATBD Store' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Shop automation products' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'IATBD Store' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Shop automation products' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => $TA, 'default' => 'Genuine components for industrial systems and machine builders.' ] );
 		$this->end_controls_section();
 
 		/* Filter bar */
 		$this->start_controls_section( 'sec_filters', [ 'label' => 'Search, Sort & Price' ] );
-		$this->add_control( 'search_label', [ 'label' => 'Search Screen-reader Label', 'type' => $T, 'default' => 'Search products' ] );
-		$this->add_control( 'search_placeholder', [ 'label' => 'Search Placeholder', 'type' => $T, 'default' => 'Search PLC, HMI, VFD, cable...' ] );
-		$this->add_control( 'sort_label', [ 'label' => 'Sort Screen-reader Label', 'type' => $T, 'default' => 'Sort products' ] );
-		$this->add_control( 'sort_default', [ 'label' => 'Sort: Default', 'type' => $T, 'default' => 'Featured', 'separator' => 'before' ] );
-		$this->add_control( 'sort_price_asc', [ 'label' => 'Sort: Price Low to High', 'type' => $T, 'default' => 'Price: Low to High' ] );
-		$this->add_control( 'sort_price_desc', [ 'label' => 'Sort: Price High to Low', 'type' => $T, 'default' => 'Price: High to Low' ] );
-		$this->add_control( 'sort_name', [ 'label' => 'Sort: Name', 'type' => $T, 'default' => 'Name A to Z' ] );
-		$this->add_control( 'currency', [ 'label' => 'Currency Symbol', 'type' => $T, 'default' => '৳', 'separator' => 'before' ] );
-		$this->add_control( 'min_label', [ 'label' => 'Minimum Price Label', 'type' => $T, 'default' => 'Minimum price' ] );
-		$this->add_control( 'max_label', [ 'label' => 'Maximum Price Label', 'type' => $T, 'default' => 'Maximum price' ] );
+		$this->add_control( 'search_label', [ 'label' => 'Search Screen-reader Label', 'type' => $T, 'label_block' => true, 'default' => 'Search products' ] );
+		$this->add_control( 'search_placeholder', [ 'label' => 'Search Placeholder', 'type' => $T, 'label_block' => true, 'default' => 'Search PLC, HMI, VFD, cable...' ] );
+		$this->add_control( 'sort_label', [ 'label' => 'Sort Screen-reader Label', 'type' => $T, 'label_block' => true, 'default' => 'Sort products' ] );
+		$this->add_control( 'sort_default', [ 'label' => 'Sort: Default', 'type' => $T, 'label_block' => true, 'default' => 'Featured', 'separator' => 'before' ] );
+		$this->add_control( 'sort_price_asc', [ 'label' => 'Sort: Price Low to High', 'type' => $T, 'label_block' => true, 'default' => 'Price: Low to High' ] );
+		$this->add_control( 'sort_price_desc', [ 'label' => 'Sort: Price High to Low', 'type' => $T, 'label_block' => true, 'default' => 'Price: High to Low' ] );
+		$this->add_control( 'sort_name', [ 'label' => 'Sort: Name', 'type' => $T, 'label_block' => true, 'default' => 'Name A to Z' ] );
+		$this->add_control( 'currency', [ 'label' => 'Currency Symbol', 'type' => $T, 'label_block' => true, 'default' => '৳', 'separator' => 'before' ] );
+		$this->add_control( 'min_label', [ 'label' => 'Minimum Price Label', 'type' => $T, 'label_block' => true, 'default' => 'Minimum price' ] );
+		$this->add_control( 'max_label', [ 'label' => 'Maximum Price Label', 'type' => $T, 'label_block' => true, 'default' => 'Maximum price' ] );
 		$this->add_control( 'price_min', [ 'label' => 'Slider Minimum', 'type' => $N, 'default' => 1000 ] );
 		$this->add_control( 'price_max', [ 'label' => 'Slider Maximum', 'type' => $N, 'default' => 200000 ] );
 		$this->add_control( 'price_step', [ 'label' => 'Slider Step', 'type' => $N, 'default' => 500 ] );
@@ -108,8 +108,8 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 		/* Categories repeater */
 		$this->start_controls_section( 'sec_cats', [ 'label' => 'Categories' ] );
 		$crep = new \Elementor\Repeater();
-		$crep->add_control( 'slug', [ 'label' => 'Slug (used in products, e.g. plc)', 'type' => $T, 'default' => '' ] );
-		$crep->add_control( 'label', [ 'label' => 'Button Label', 'type' => $T, 'default' => '' ] );
+		$crep->add_control( 'slug', [ 'label' => 'Slug (used in products, e.g. plc)', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$crep->add_control( 'label', [ 'label' => 'Button Label', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 		$this->add_control( 'cats', [
 			'label'       => 'Category Buttons (first one = All, slug: all)',
 			'type'        => \Elementor\Controls_Manager::REPEATER,
@@ -121,14 +121,14 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 
 		/* Products repeater */
 		$this->start_controls_section( 'sec_products', [ 'label' => 'Products' ] );
-		$this->add_control( 'cod_text', [ 'label' => 'Top-right Badge Text (all products)', 'type' => $T, 'default' => 'COD' ] );
-		$this->add_control( 'btn_text', [ 'label' => 'Add Button Text', 'type' => $T, 'default' => 'Add' ] );
-		$this->add_control( 'btn_icon', [ 'label' => 'Add Button Icon Class', 'type' => $T, 'default' => 'fas fa-cart-plus' ] );
+		$this->add_control( 'cod_text', [ 'label' => 'Top-right Badge Text (all products)', 'type' => $T, 'label_block' => true, 'default' => 'COD' ] );
+		$this->add_control( 'btn_text', [ 'label' => 'Add Button Text', 'type' => $T, 'label_block' => true, 'default' => 'Add' ] );
+		$this->add_control( 'btn_icon', [ 'label' => 'Add Button Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-cart-plus' ] );
 
 		$prep = new \Elementor\Repeater();
-		$prep->add_control( 'pid', [ 'label' => 'Product ID (cart id, e.g. plc-1)', 'type' => $T, 'default' => '' ] );
-		$prep->add_control( 'cat', [ 'label' => 'Category Slug', 'type' => $T, 'default' => '' ] );
-		$prep->add_control( 'badge', [ 'label' => 'Badge Text (top-left)', 'type' => $T, 'default' => '' ] );
+		$prep->add_control( 'pid', [ 'label' => 'Product ID (cart id, e.g. plc-1)', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$prep->add_control( 'cat', [ 'label' => 'Category Slug', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$prep->add_control( 'badge', [ 'label' => 'Badge Text (top-left)', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 		$prep->add_control( 'badge_color', [
 			'label'   => 'Badge Color',
 			'type'    => \Elementor\Controls_Manager::SELECT,
@@ -143,10 +143,10 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 			],
 		] );
 		$prep->add_control( 'image', [ 'label' => 'Image', 'type' => \Elementor\Controls_Manager::MEDIA, 'default' => [ 'url' => '' ] ] );
-		$prep->add_control( 'alt', [ 'label' => 'Image Alt', 'type' => $T, 'default' => '' ] );
-		$prep->add_control( 'brand', [ 'label' => 'Brand', 'type' => $T, 'default' => '' ] );
-		$prep->add_control( 'full_name', [ 'label' => 'Full Name (search, sort & cart)', 'type' => $T, 'default' => '' ] );
-		$prep->add_control( 'title', [ 'label' => 'Card Title', 'type' => $T, 'default' => '' ] );
+		$prep->add_control( 'alt', [ 'label' => 'Image Alt', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$prep->add_control( 'brand', [ 'label' => 'Brand', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$prep->add_control( 'full_name', [ 'label' => 'Full Name (search, sort & cart)', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$prep->add_control( 'title', [ 'label' => 'Card Title', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 		$prep->add_control( 'desc', [ 'label' => 'Description', 'type' => $TA, 'default' => '' ] );
 		$prep->add_control( 'price', [ 'label' => 'Price (number only)', 'type' => $N, 'default' => 0 ] );
 
@@ -178,9 +178,9 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 
 		/* Empty state */
 		$this->start_controls_section( 'sec_empty', [ 'label' => 'Empty State' ] );
-		$this->add_control( 'empty_icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => 'fas fa-box-open' ] );
-		$this->add_control( 'empty_title', [ 'label' => 'Title', 'type' => $T, 'default' => 'No products match these filters.' ] );
-		$this->add_control( 'empty_text', [ 'label' => 'Text', 'type' => $T, 'default' => 'Try another category, search term or price range.' ] );
+		$this->add_control( 'empty_icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-box-open' ] );
+		$this->add_control( 'empty_title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => 'No products match these filters.' ] );
+		$this->add_control( 'empty_text', [ 'label' => 'Text', 'type' => $T, 'label_block' => true, 'default' => 'Try another category, search term or price range.' ] );
 		$this->end_controls_section();
 	}
 

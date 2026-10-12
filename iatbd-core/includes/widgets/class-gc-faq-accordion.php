@@ -39,12 +39,14 @@ class GC_FAQ_Accordion_Widget extends Widget_Base {
 		$this->add_control( 'eyebrow', [
 			'label'   => esc_html__( 'Small Title', 'softro-core' ),
 			'type'    => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'FAQ',
 		] );
 
 		$this->add_control( 'heading', [
 			'label'   => esc_html__( 'Heading', 'softro-core' ),
 			'type'    => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Common questions',
 		] );
 

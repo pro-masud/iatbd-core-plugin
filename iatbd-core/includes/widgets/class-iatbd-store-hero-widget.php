@@ -57,11 +57,11 @@ class IATBD_Store_Hero_Widget extends \Elementor\Widget_Base {
 
 		$rep = new \Elementor\Repeater();
 		$rep->add_control( 'image', [ 'label' => 'Background Image', 'type' => \Elementor\Controls_Manager::MEDIA, 'default' => [ 'url' => '' ] ] );
-		$rep->add_control( 'icon', [ 'label' => 'Badge Icon Class', 'type' => $T, 'default' => '', 'placeholder' => 'fas fa-cog' ] );
-		$rep->add_control( 'badge', [ 'label' => 'Badge Text', 'type' => $T, 'default' => '' ] );
+		$rep->add_control( 'icon', [ 'label' => 'Badge Icon Class', 'type' => $T, 'label_block' => true, 'default' => '', 'placeholder' => 'fas fa-cog' ] );
+		$rep->add_control( 'badge', [ 'label' => 'Badge Text', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 		$rep->add_control( 'title', [ 'label' => 'Heading', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => '' ] );
 		$rep->add_control( 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => '' ] );
-		$rep->add_control( 'btn', [ 'label' => 'Button Text', 'type' => $T, 'default' => '' ] );
+		$rep->add_control( 'btn', [ 'label' => 'Button Text', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 		$rep->add_control( 'link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#store-products' ] ] );
 
 		$defaults = [];

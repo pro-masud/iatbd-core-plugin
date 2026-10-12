@@ -85,8 +85,8 @@ class IATBD_HMI_Services_Widget extends \Elementor\Widget_Base {
 
 		/* Heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Services' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Everything your HMI needs' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Services' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Everything your HMI needs' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'From first screen to ongoing support, one partner for the full lifecycle.' ] );
 		$this->end_controls_section();
 
@@ -95,7 +95,7 @@ class IATBD_HMI_Services_Widget extends \Elementor\Widget_Base {
 			$p = 'c' . $i . '_';
 			$this->start_controls_section( 'sec_card_' . $i, [ 'label' => 'Service ' . $i ] );
 			$this->add_control( $p . 'img', [ 'label' => 'Image', 'type' => \Elementor\Controls_Manager::MEDIA, 'default' => [ 'url' => $d['img'] ] ] );
-			$this->add_control( $p . 'alt', [ 'label' => 'Image Alt (empty = decorative)', 'type' => $T, 'default' => '' ] );
+			$this->add_control( $p . 'alt', [ 'label' => 'Image Alt (empty = decorative)', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 			$this->add_control( $p . 'color', [
 				'label'   => 'Icon Box Color',
 				'type'    => \Elementor\Controls_Manager::SELECT,
@@ -109,8 +109,8 @@ class IATBD_HMI_Services_Widget extends \Elementor\Widget_Base {
 					'rose'    => 'Rose',
 				],
 			] );
-			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => $d['icon'], 'placeholder' => 'fas fa-cog' ] );
-			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'default' => $d['title'] ] );
+			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d['icon'], 'placeholder' => 'fas fa-cog' ] );
+			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d['title'] ] );
 			$this->add_control( $p . 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => $d['desc'] ] );
 			$this->end_controls_section();
 		}

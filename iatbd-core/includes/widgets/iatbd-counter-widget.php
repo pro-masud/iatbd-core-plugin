@@ -53,6 +53,7 @@ class IATBD_Counter extends \Elementor\Widget_Base {
 		$r->add_control( 'suffix', [
 			'label'       => esc_html__( 'Suffix', 'elementor-test' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => '+',
 			'placeholder' => '+  or  /7  or  %',
 		] );

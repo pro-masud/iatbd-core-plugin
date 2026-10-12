@@ -57,8 +57,8 @@ class IATBD_HMI_Process_Widget extends \Elementor\Widget_Base {
 
 		/* Heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Process' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'How we deliver' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Process' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'How we deliver' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Four clear steps from brief to operator training.' ] );
 		$this->end_controls_section();
 
@@ -72,9 +72,9 @@ class IATBD_HMI_Process_Widget extends \Elementor\Widget_Base {
 				'default' => $d[0],
 				'options' => [ 'primary' => 'Primary', 'orange' => 'Orange', 'emerald' => 'Emerald', 'violet' => 'Violet' ],
 			] );
-			$this->add_control( $p . 'num', [ 'label' => 'Step Number', 'type' => $T, 'default' => $d[1] ] );
-			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => $d[2], 'placeholder' => 'fas fa-cog' ] );
-			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'default' => $d[3] ] );
+			$this->add_control( $p . 'num', [ 'label' => 'Step Number', 'type' => $T, 'label_block' => true, 'default' => $d[1] ] );
+			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d[2], 'placeholder' => 'fas fa-cog' ] );
+			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d[3] ] );
 			$this->add_control( $p . 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => $d[4] ] );
 			$this->end_controls_section();
 		}

@@ -57,7 +57,7 @@ class IATBD_PLC_Related_Widget extends \Elementor\Widget_Base {
 
 		/* Heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Related Services' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Related Services' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'PLC-এর সাথে আরও যেসব সার্ভিস নিতে পারেন' ] );
 		$this->end_controls_section();
 
@@ -71,9 +71,9 @@ class IATBD_PLC_Related_Widget extends \Elementor\Widget_Base {
 				'default' => $d[0],
 				'options' => [ 'orange' => 'Orange', 'emerald' => 'Emerald', 'cyan' => 'Cyan', 'rose' => 'Rose' ],
 			] );
-			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => $d[1], 'placeholder' => 'fas fa-cog' ] );
-			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'default' => $d[2] ] );
-			$this->add_control( $p . 'sub', [ 'label' => 'Subtitle', 'type' => $T, 'default' => $d[3] ] );
+			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d[1], 'placeholder' => 'fas fa-cog' ] );
+			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d[2] ] );
+			$this->add_control( $p . 'sub', [ 'label' => 'Subtitle', 'type' => $T, 'label_block' => true, 'default' => $d[3] ] );
 			$this->add_control( $p . 'link', [ 'label' => 'Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => $d[4] ] ] );
 			$this->end_controls_section();
 		}

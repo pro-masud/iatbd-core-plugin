@@ -73,8 +73,8 @@ class IATBD_PLC_Benefits_Widget extends \Elementor\Widget_Base {
 
 		/* Section heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Why Choose Us' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Benefits of IATBD PLC Service' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Why Choose Us' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Benefits of IATBD PLC Service' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'শুধু ইনস্টল নয় — দীর্ঘমেয়াদী নির্ভরযোগ্যতা, স্বচ্ছ ডকুমেন্টেশন ও দ্রুত সাপোর্ট' ] );
 		$this->end_controls_section();
 
@@ -83,23 +83,23 @@ class IATBD_PLC_Benefits_Widget extends \Elementor\Widget_Base {
 			$p = 'b' . $i . '_';
 			$this->start_controls_section( 'sec_benefit_' . $i, [ 'label' => 'Benefit ' . $i ] );
 			$this->add_control( $p . 'img', [ 'label' => 'Image', 'type' => \Elementor\Controls_Manager::MEDIA, 'default' => [ 'url' => $d['img'] ] ] );
-			$this->add_control( $p . 'alt', [ 'label' => 'Image Alt', 'type' => $T, 'default' => $d['alt'] ] );
+			$this->add_control( $p . 'alt', [ 'label' => 'Image Alt', 'type' => $T, 'label_block' => true, 'default' => $d['alt'] ] );
 			$this->add_control( $p . 'color', [
 				'label'   => 'Icon Box Color',
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'default' => $d['color'],
 				'options' => [ 'primary' => 'Primary', 'emerald' => 'Emerald', 'orange' => 'Orange', 'purple' => 'Purple' ],
 			] );
-			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => $d['icon'], 'placeholder' => 'fas fa-cog' ] );
-			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'default' => $d['title'] ] );
+			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d['icon'], 'placeholder' => 'fas fa-cog' ] );
+			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d['title'] ] );
 			$this->add_control( $p . 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => $d['desc'] ] );
 			$this->end_controls_section();
 		}
 
 		/* CTA button */
 		$this->start_controls_section( 'sec_cta', [ 'label' => 'Button' ] );
-		$this->add_control( 'cta_text', [ 'label' => 'Button Text', 'type' => $T, 'default' => 'Discuss Your Project' ] );
-		$this->add_control( 'cta_icon', [ 'label' => 'Button Icon Class', 'type' => $T, 'default' => 'fas fa-arrow-right', 'placeholder' => 'fas fa-arrow-right' ] );
+		$this->add_control( 'cta_text', [ 'label' => 'Button Text', 'type' => $T, 'label_block' => true, 'default' => 'Discuss Your Project' ] );
+		$this->add_control( 'cta_icon', [ 'label' => 'Button Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-arrow-right', 'placeholder' => 'fas fa-arrow-right' ] );
 		$this->add_control( 'cta_link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#contact' ] ] );
 		$this->end_controls_section();
 	}

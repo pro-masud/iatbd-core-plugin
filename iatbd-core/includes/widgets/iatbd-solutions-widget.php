@@ -25,12 +25,14 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
         $this->add_control( "c{$n}_image_alt", [
             'label'   => __( 'Image Alt Text', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $defaults['alt'],
         ] );
 
         $this->add_control( "c{$n}_icon", [
             'label'       => __( 'Icon (Font Awesome class)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['icon'],
             'description' => 'e.g. fas fa-wave-square',
         ] );
@@ -38,6 +40,7 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
         $this->add_control( "c{$n}_icon_bg", [
             'label'       => __( 'Icon Badge BG (Tailwind)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['icon_bg'],
             'description' => 'e.g. bg-primary-600 / bg-accent-500 / bg-emerald-600',
         ] );
@@ -45,6 +48,7 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
         $this->add_control( "c{$n}_title", [
             'label'   => __( 'Title', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $defaults['title'],
         ] );
 
@@ -69,18 +73,21 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
         $this->add_control( 'section_id', [
             'label'   => __( 'Section ID', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => 'solutions',
         ] );
 
         $this->add_control( 'eyebrow', [
             'label'   => __( 'Eyebrow Text', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => 'AI Applications',
         ] );
 
         $this->add_control( 'heading', [
             'label'   => __( 'Heading', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => 'Make machine data useful',
         ] );
 

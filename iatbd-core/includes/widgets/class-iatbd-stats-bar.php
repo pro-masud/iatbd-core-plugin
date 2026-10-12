@@ -19,6 +19,7 @@ class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control( "i{$n}_icon", [
             'label'       => __( 'Icon (Font Awesome class)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $icon,
             'description' => __( 'e.g. fas fa-microchip', 'iatbd' ),
         ] );
@@ -26,12 +27,14 @@ class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control( "i{$n}_title", [
             'label'   => __( 'Title', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $title,
         ] );
 
         $this->add_control( "i{$n}_subtitle", [
             'label'   => __( 'Subtitle', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $subtitle,
         ] );
 
@@ -49,6 +52,7 @@ class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
         $this->add_control( 'gradient_classes', [
             'label'       => __( 'Background Gradient (Tailwind)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => 'from-primary-700 via-primary-600 to-primary-500',
             'description' => 'Tailwind gradient classes (without bg-gradient-to-r)',
         ] );

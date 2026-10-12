@@ -20,12 +20,14 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
         $this->add_control( 'eyebrow', [
             'label'   => __( 'Eyebrow Text', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => 'Benefits',
         ] );
 
         $this->add_control( 'heading', [
             'label'   => __( 'Heading', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => 'Why teams trust our servo work',
         ] );
 
@@ -94,6 +96,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
         $this->add_control( "card_{$n}_icon", [
             'label'       => __( 'Icon Class (Font Awesome)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $default_icon,
             'description' => __( 'e.g. fas fa-crosshairs', 'iatbd' ),
         ] );
@@ -101,6 +104,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
         $this->add_control( "card_{$n}_icon_class", [
             'label'       => __( 'Icon Wrapper Tailwind Classes', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $default_icon_class,
             'description' => __( 'Tailwind classes for icon bg/color', 'iatbd' ),
         ] );
@@ -108,6 +112,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
         $this->add_control( "card_{$n}_hover_class", [
             'label'       => __( 'Card Hover Border Classes', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $default_hover_class,
             'description' => __( 'Tailwind hover border classes', 'iatbd' ),
         ] );
@@ -115,6 +120,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
         $this->add_control( "card_{$n}_title", [
             'label'   => __( 'Title', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $default_title,
         ] );
 

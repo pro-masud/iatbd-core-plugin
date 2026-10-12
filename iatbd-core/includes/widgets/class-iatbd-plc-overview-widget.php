@@ -26,10 +26,10 @@ class IATBD_PLC_Overview_Widget extends \Elementor\Widget_Base {
 
 		/* Content */
 		$this->start_controls_section( 'sec_content', [ 'label' => 'Content' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Overview' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Overview' ] );
 		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Complete PLC Solutions for Your Industry' ] );
-		$this->add_control( 'p1_before', [ 'label' => 'Paragraph 1 (before bold)', 'type' => $T, 'default' => 'IATBD ইন্ডাস্ট্রিয়াল অটোমেশনের হার্ট —' ] );
-		$this->add_control( 'p1_strong', [ 'label' => 'Paragraph 1 (bold text)', 'type' => $T, 'default' => 'Programmable Logic Controller (PLC)' ] );
+		$this->add_control( 'p1_before', [ 'label' => 'Paragraph 1 (before bold)', 'type' => $T, 'label_block' => true, 'default' => 'IATBD ইন্ডাস্ট্রিয়াল অটোমেশনের হার্ট —' ] );
+		$this->add_control( 'p1_strong', [ 'label' => 'Paragraph 1 (bold text)', 'type' => $T, 'label_block' => true, 'default' => 'Programmable Logic Controller (PLC)' ] );
 		$this->add_control( 'p1_after', [ 'label' => 'Paragraph 1 (after bold)', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => '— এর সম্পূর্ণ সার্ভিস প্রদান করে। নতুন সিস্টেম ডিজাইন থেকে পুরনো সিস্টেম আপগ্রেড, প্রোগ্রামিং, ইনস্টলেশন, কমিশনিং ও রক্ষণাবেক্ষণ — সব এক জায়গায়।' ] );
 		$this->add_control( 'p2', [ 'label' => 'Paragraph 2', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'আমাদের এক্সপার্ট ইঞ্জিনিয়ার টিম Siemens, Rockwell (Allen-Bradley), Mitsubishi, Delta, Omron, Schneider সহ সব প্রধান ব্র্যান্ডের PLC-এ দক্ষ।' ] );
 		$this->end_controls_section();
@@ -43,7 +43,7 @@ class IATBD_PLC_Overview_Widget extends \Elementor\Widget_Base {
 		];
 		foreach ( $items as $i => $text ) {
 			$this->start_controls_section( 'sec_item_' . $i, [ 'label' => 'List Item ' . $i ] );
-			$this->add_control( 'item' . $i, [ 'label' => 'Text', 'type' => $T, 'default' => $text ] );
+			$this->add_control( 'item' . $i, [ 'label' => 'Text', 'type' => $T, 'label_block' => true, 'default' => $text ] );
 			$this->end_controls_section();
 		}
 
@@ -54,10 +54,10 @@ class IATBD_PLC_Overview_Widget extends \Elementor\Widget_Base {
 			'type'    => \Elementor\Controls_Manager::MEDIA,
 			'default' => [ 'url' => 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80' ],
 		] );
-		$this->add_control( 'image_alt', [ 'label' => 'Image Alt', 'type' => $T, 'default' => 'PLC Control Panel' ] );
-		$this->add_control( 'badge_icon', [ 'label' => 'Badge Icon Class', 'type' => $T, 'default' => 'fas fa-certificate', 'placeholder' => 'fas fa-cog', 'separator' => 'before' ] );
-		$this->add_control( 'badge_title', [ 'label' => 'Badge Title', 'type' => $T, 'default' => 'Certified Engineers' ] );
-		$this->add_control( 'badge_sub', [ 'label' => 'Badge Subtitle', 'type' => $T, 'default' => 'Brand-trained technicians' ] );
+		$this->add_control( 'image_alt', [ 'label' => 'Image Alt', 'type' => $T, 'label_block' => true, 'default' => 'PLC Control Panel' ] );
+		$this->add_control( 'badge_icon', [ 'label' => 'Badge Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-certificate', 'placeholder' => 'fas fa-cog', 'separator' => 'before' ] );
+		$this->add_control( 'badge_title', [ 'label' => 'Badge Title', 'type' => $T, 'label_block' => true, 'default' => 'Certified Engineers' ] );
+		$this->add_control( 'badge_sub', [ 'label' => 'Badge Subtitle', 'type' => $T, 'label_block' => true, 'default' => 'Brand-trained technicians' ] );
 		$this->end_controls_section();
 	}
 

@@ -40,6 +40,7 @@ class GC_Contact_CTA_Widget extends Widget_Base {
 		$this->add_control( 'section_id', [
 			'label'       => esc_html__( 'Section ID (anchor)', 'softro-core' ),
 			'type'        => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'contact',
 			'description' => esc_html__( 'Used for #contact style links. Leave empty for none.', 'softro-core' ),
 		] );

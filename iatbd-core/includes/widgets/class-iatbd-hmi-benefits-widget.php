@@ -51,8 +51,8 @@ class IATBD_HMI_Benefits_Widget extends \Elementor\Widget_Base {
 
 		/* Heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Benefits' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Why plants choose IATBD' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Benefits' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Why plants choose IATBD' ] );
 		$this->end_controls_section();
 
 		/* 4 fixed benefit sections */
@@ -60,8 +60,8 @@ class IATBD_HMI_Benefits_Widget extends \Elementor\Widget_Base {
 			$p = 'b' . $i . '_';
 			$this->start_controls_section( 'sec_benefit_' . $i, [ 'label' => 'Benefit ' . $i ] );
 			$this->add_control( $p . 'img', [ 'label' => 'Image', 'type' => \Elementor\Controls_Manager::MEDIA, 'default' => [ 'url' => $d[0] ] ] );
-			$this->add_control( $p . 'alt', [ 'label' => 'Image Alt (empty = decorative)', 'type' => $T, 'default' => '' ] );
-			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'default' => $d[1] ] );
+			$this->add_control( $p . 'alt', [ 'label' => 'Image Alt (empty = decorative)', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d[1] ] );
 			$this->add_control( $p . 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => $d[2] ] );
 			$this->end_controls_section();
 		}

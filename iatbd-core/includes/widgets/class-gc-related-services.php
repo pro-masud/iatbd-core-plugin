@@ -49,6 +49,7 @@ class GC_Related_Services_Widget extends Widget_Base {
 		$this->add_control( 'heading', [
 			'label'   => esc_html__( 'Small Title', 'softro-core' ),
 			'type'    => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Related services',
 		] );
 

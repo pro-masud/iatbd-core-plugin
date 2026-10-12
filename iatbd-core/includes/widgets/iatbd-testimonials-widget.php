@@ -40,12 +40,14 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 		$this->add_control( 'eyebrow', [
 			'label'   => esc_html__( 'Small Title', 'softro-core' ),
 			'type'    => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Testimonials',
 		] );
 
 		$this->add_control( 'heading', [
 			'label'   => esc_html__( 'Heading', 'softro-core' ),
 			'type'    => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'What clients say',
 		] );
 
@@ -60,6 +62,7 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 		$this->add_control( 'badge_rating', [
 			'label'     => esc_html__( 'Rating Number', 'softro-core' ),
 			'type'      => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => '4.9',
 			'condition' => [ 'show_badge' => 'yes' ],
 		] );
@@ -67,6 +70,7 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 		$this->add_control( 'badge_label', [
 			'label'     => esc_html__( 'Rating Label', 'softro-core' ),
 			'type'      => Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => '· Servo clients',
 			'condition' => [ 'show_badge' => 'yes' ],
 		] );

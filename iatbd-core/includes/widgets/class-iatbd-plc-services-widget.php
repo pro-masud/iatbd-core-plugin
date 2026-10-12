@@ -85,8 +85,8 @@ class IATBD_PLC_Services_Widget extends \Elementor\Widget_Base {
 
 		/* Section heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'What We Offer' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Our PLC Services' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'What We Offer' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Our PLC Services' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'ডিজাইন থেকে দৈনন্দিন সাপোর্ট পর্যন্ত — আপনার ফ্যাক্টরির জন্য সম্পূর্ণ PLC সমাধান' ] );
 		$this->end_controls_section();
 
@@ -108,8 +108,8 @@ class IATBD_PLC_Services_Widget extends \Elementor\Widget_Base {
 					'rose'    => 'Rose',
 				],
 			] );
-			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'default' => $d['icon'], 'placeholder' => 'fas fa-cog' ] );
-			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'default' => $d['title'] ] );
+			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d['icon'], 'placeholder' => 'fas fa-cog' ] );
+			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d['title'] ] );
 			$this->add_control( $p . 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => $d['desc'] ] );
 			$this->end_controls_section();
 		}

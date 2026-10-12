@@ -33,8 +33,8 @@ class IATBD_HMI_Stats_Widget extends \Elementor\Widget_Base {
 	protected function register_controls() {
 		foreach ( $this->defaults() as $i => $d ) {
 			$this->start_controls_section( 'sec_stat_' . $i, [ 'label' => 'Stat ' . $i ] );
-			$this->add_control( 's' . $i . '_number', [ 'label' => 'Number', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => $d[0] ] );
-			$this->add_control( 's' . $i . '_label', [ 'label' => 'Label', 'type' => \Elementor\Controls_Manager::TEXT, 'default' => $d[1] ] );
+			$this->add_control( 's' . $i . '_number', [ 'label' => 'Number', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => $d[0] ] );
+			$this->add_control( 's' . $i . '_label', [ 'label' => 'Label', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => $d[1] ] );
 			$this->end_controls_section();
 		}
 	}

@@ -44,6 +44,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'       => esc_html__( 'Section ID', 'softro-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default'     => 'contact',
 				'description' => esc_html__( 'Used for anchor links, e.g. #contact', 'softro-core' ),
 			]
@@ -54,6 +55,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'       => esc_html__( 'Badge Icon Class', 'softro-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default'     => 'fas fa-bolt',
 				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-bolt', 'softro-core' ),
 			]
@@ -64,6 +66,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Badge Text', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Start with one use case',
 			]
 		);
@@ -73,6 +76,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Heading', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Bring practical AI to your production line',
 			]
 		);
@@ -105,6 +109,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Text', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Button',
 			]
 		);
@@ -114,6 +119,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'       => esc_html__( 'Icon Class', 'softro-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default'     => 'fas fa-envelope',
 				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-envelope', 'softro-core' ),
 			]
@@ -196,6 +202,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Background Image Alt', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Industrial automation equipment in a factory',
 			]
 		);
@@ -217,6 +224,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Side Image Alt', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'Engineer reviewing industrial control equipment',
 			]
 		);
@@ -226,6 +234,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'   => esc_html__( 'Side Image Caption', 'softro-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
+				'label_block' => true,
 				'default' => 'PLC · HMI · VFD · AI',
 			]
 		);

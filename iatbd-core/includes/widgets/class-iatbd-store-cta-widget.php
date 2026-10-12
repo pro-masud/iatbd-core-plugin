@@ -25,14 +25,14 @@ class IATBD_Store_CTA_Widget extends \Elementor\Widget_Base {
 		$T = \Elementor\Controls_Manager::TEXT;
 
 		$this->start_controls_section( 'sec_content', [ 'label' => 'Content' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Need help selecting?' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'Talk to an automation specialist.' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Need help selecting?' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'Talk to an automation specialist.' ] );
 		$this->add_control( 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'Get help matching components to your machine and application.' ] );
 		$this->end_controls_section();
 
 		$this->start_controls_section( 'sec_button', [ 'label' => 'Button' ] );
-		$this->add_control( 'btn_icon', [ 'label' => 'Button Icon Class', 'type' => $T, 'default' => 'fas fa-comment-dots', 'placeholder' => 'fas fa-comment-dots' ] );
-		$this->add_control( 'btn_text', [ 'label' => 'Button Text', 'type' => $T, 'default' => 'Contact IATBD' ] );
+		$this->add_control( 'btn_icon', [ 'label' => 'Button Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-comment-dots', 'placeholder' => 'fas fa-comment-dots' ] );
+		$this->add_control( 'btn_text', [ 'label' => 'Button Text', 'type' => $T, 'label_block' => true, 'default' => 'Contact IATBD' ] );
 		$this->add_control( 'btn_link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => 'index.html#contact' ] ] );
 		$this->end_controls_section();
 	}

@@ -27,6 +27,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_gradient", [
             'label'       => __( 'Overlay Gradient (Tailwind classes)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['gradient'],
             'description' => 'e.g. from-slate-950/90 via-slate-900/70 to-primary-900/45',
         ] );
@@ -34,6 +35,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_badge_icon", [
             'label'       => __( 'Badge Icon (Font Awesome class)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['badge_icon'],
             'description' => 'e.g. fas fa-brain',
         ] );
@@ -41,6 +43,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_badge_icon_color", [
             'label'       => __( 'Badge Icon Color (Tailwind)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['badge_icon_color'],
             'description' => 'e.g. text-accent-400',
         ] );
@@ -48,6 +51,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_badge_text", [
             'label'   => __( 'Badge Text', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $defaults['badge_text'],
         ] );
 
@@ -61,6 +65,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_highlight", [
             'label'       => __( 'Highlighted Word(s) in Heading', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['highlight'],
             'description' => 'This exact text in the heading will be wrapped in a colored span.',
         ] );
@@ -68,6 +73,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_highlight_color", [
             'label'       => __( 'Highlight Color (Tailwind)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['highlight_color'],
             'description' => 'e.g. text-primary-300 / text-emerald-300',
         ] );
@@ -83,18 +89,21 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_btn1_text", [
             'label'   => __( 'Button 1 Text', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $defaults['btn1_text'],
         ] );
 
         $this->add_control( "s{$n}_btn1_url", [
             'label'   => __( 'Button 1 URL', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $defaults['btn1_url'],
         ] );
 
         $this->add_control( "s{$n}_btn1_icon", [
             'label'       => __( 'Button 1 Icon (Font Awesome)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => 'fas fa-arrow-right',
             'description' => 'Leave blank to hide icon.',
         ] );
@@ -102,6 +111,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_btn1_classes", [
             'label'       => __( 'Button 1 Tailwind Classes', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['btn1_classes'],
             'description' => 'Full class string for the primary button.',
         ] );
@@ -110,6 +120,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_btn2_text", [
             'label'       => __( 'Button 2 Text (optional)', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['btn2_text'] ?? '',
             'description' => 'Leave blank to hide.',
         ] );
@@ -117,12 +128,14 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         $this->add_control( "s{$n}_btn2_url", [
             'label'   => __( 'Button 2 URL', 'iatbd' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default' => $defaults['btn2_url'] ?? '#contact',
         ] );
 
         $this->add_control( "s{$n}_btn2_classes", [
             'label'       => __( 'Button 2 Tailwind Classes', 'iatbd' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
+            'label_block' => true,
             'default'     => $defaults['btn2_classes'] ?? 'inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold rounded-full backdrop-blur btn-cta-outline',
         ] );
 

@@ -93,16 +93,16 @@ class IATBD_PLC_Testimonials_Widget extends \Elementor\Widget_Base {
 
 		/* Heading */
 		$this->start_controls_section( 'sec_head', [ 'label' => 'Heading' ] );
-		$this->add_control( 'eyebrow_icon', [ 'label' => 'Small Title Icon Class', 'type' => $T, 'default' => 'fas fa-quote-left', 'placeholder' => 'fas fa-quote-left' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Testimonials' ] );
-		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'default' => 'What Our Clients Say' ] );
+		$this->add_control( 'eyebrow_icon', [ 'label' => 'Small Title Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-quote-left', 'placeholder' => 'fas fa-quote-left' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Testimonials' ] );
+		$this->add_control( 'heading', [ 'label' => 'Heading', 'type' => $T, 'label_block' => true, 'default' => 'What Our Clients Say' ] );
 		$this->add_control( 'subtitle', [ 'label' => 'Subtitle', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => 'যারা IATBD PLC সার্ভিস নিয়েছেন — তাদের অভিজ্ঞতা' ] );
 		$this->end_controls_section();
 
 		/* Rating pill */
 		$this->start_controls_section( 'sec_rating', [ 'label' => 'Rating Pill' ] );
-		$this->add_control( 'rating', [ 'label' => 'Rating', 'type' => $T, 'default' => '4.9/5' ] );
-		$this->add_control( 'rating_label', [ 'label' => 'Rating Label', 'type' => $T, 'default' => 'PLC Clients' ] );
+		$this->add_control( 'rating', [ 'label' => 'Rating', 'type' => $T, 'label_block' => true, 'default' => '4.9/5' ] );
+		$this->add_control( 'rating_label', [ 'label' => 'Rating Label', 'type' => $T, 'label_block' => true, 'default' => 'PLC Clients' ] );
 		$this->end_controls_section();
 
 		/* Reviews (repeater) */
@@ -111,9 +111,9 @@ class IATBD_PLC_Testimonials_Widget extends \Elementor\Widget_Base {
 		$rep = new \Elementor\Repeater();
 		$rep->add_control( 'quote', [ 'label' => 'Review Text', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => '' ] );
 		$rep->add_control( 'image', [ 'label' => 'Photo', 'type' => \Elementor\Controls_Manager::MEDIA, 'default' => [ 'url' => '' ] ] );
-		$rep->add_control( 'name', [ 'label' => 'Name', 'type' => $T, 'default' => '' ] );
-		$rep->add_control( 'role', [ 'label' => 'Role', 'type' => $T, 'default' => '' ] );
-		$rep->add_control( 'company', [ 'label' => 'Company', 'type' => $T, 'default' => '' ] );
+		$rep->add_control( 'name', [ 'label' => 'Name', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$rep->add_control( 'role', [ 'label' => 'Role', 'type' => $T, 'label_block' => true, 'default' => '' ] );
+		$rep->add_control( 'company', [ 'label' => 'Company', 'type' => $T, 'label_block' => true, 'default' => '' ] );
 		$rep->add_control( 'color', [
 			'label'   => 'Accent Color',
 			'type'    => \Elementor\Controls_Manager::SELECT,

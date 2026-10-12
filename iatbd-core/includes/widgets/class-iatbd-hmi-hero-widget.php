@@ -100,7 +100,7 @@ class IATBD_HMI_Hero_Widget extends \Elementor\Widget_Base {
 
 		/* Breadcrumb (same on all slides) */
 		$this->start_controls_section( 'sec_crumb', [ 'label' => 'Breadcrumb' ] );
-		$this->add_control( 'crumb_home_text', [ 'label' => 'Home Text', 'type' => $T, 'default' => 'Home' ] );
+		$this->add_control( 'crumb_home_text', [ 'label' => 'Home Text', 'type' => $T, 'label_block' => true, 'default' => 'Home' ] );
 		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => 'index.html' ] ] );
 		$this->end_controls_section();
 
@@ -116,23 +116,24 @@ class IATBD_HMI_Hero_Widget extends \Elementor\Widget_Base {
 				'default' => $d['theme'],
 				'options' => [ 'primary' => 'Primary', 'accent' => 'Accent (Orange)', 'emerald' => 'Emerald' ],
 			] );
-			$this->add_control( $p . 'crumb', [ 'label' => 'Breadcrumb Current Text', 'type' => $T, 'default' => $d['crumb'] ] );
+			$this->add_control( $p . 'crumb', [ 'label' => 'Breadcrumb Current Text', 'type' => $T, 'label_block' => true, 'default' => $d['crumb'] ] );
 			$this->add_control( $p . 'icon', [
 				'label'       => 'Badge Icon Class (empty = pulsing dot)',
 				'type'        => $T,
+				'label_block' => true,
 				'default'     => $d['icon'],
 				'placeholder' => 'fas fa-cog',
 			] );
-			$this->add_control( $p . 'badge', [ 'label' => 'Badge Text', 'type' => $T, 'default' => $d['badge'] ] );
-			$this->add_control( $p . 'h1', [ 'label' => 'Heading (line 1)', 'type' => $T, 'default' => $d['h1'] ] );
-			$this->add_control( $p . 'h2', [ 'label' => 'Heading (line 2, highlighted)', 'type' => $T, 'default' => $d['h2'] ] );
+			$this->add_control( $p . 'badge', [ 'label' => 'Badge Text', 'type' => $T, 'label_block' => true, 'default' => $d['badge'] ] );
+			$this->add_control( $p . 'h1', [ 'label' => 'Heading (line 1)', 'type' => $T, 'label_block' => true, 'default' => $d['h1'] ] );
+			$this->add_control( $p . 'h2', [ 'label' => 'Heading (line 2, highlighted)', 'type' => $T, 'label_block' => true, 'default' => $d['h2'] ] );
 			$this->add_control( $p . 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => $d['desc'] ] );
 
-			$this->add_control( $p . 'b1_icon', [ 'label' => 'Button 1 Icon Class', 'type' => $T, 'default' => $d['b1_icon'], 'separator' => 'before' ] );
-			$this->add_control( $p . 'b1_text', [ 'label' => 'Button 1 Text', 'type' => $T, 'default' => $d['b1_text'] ] );
+			$this->add_control( $p . 'b1_icon', [ 'label' => 'Button 1 Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d['b1_icon'], 'separator' => 'before' ] );
+			$this->add_control( $p . 'b1_text', [ 'label' => 'Button 1 Text', 'type' => $T, 'label_block' => true, 'default' => $d['b1_text'] ] );
 			$this->add_control( $p . 'b1_link', [ 'label' => 'Button 1 Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#contact' ] ] );
 
-			$this->add_control( $p . 'b2_text', [ 'label' => 'Button 2 Text', 'type' => $T, 'default' => $d['b2_text'], 'separator' => 'before' ] );
+			$this->add_control( $p . 'b2_text', [ 'label' => 'Button 2 Text', 'type' => $T, 'label_block' => true, 'default' => $d['b2_text'], 'separator' => 'before' ] );
 			$this->add_control( $p . 'b2_link', [ 'label' => 'Button 2 Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#services' ] ] );
 
 			$this->end_controls_section();

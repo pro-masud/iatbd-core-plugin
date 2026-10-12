@@ -27,9 +27,9 @@ class IATBD_HMI_Overview_Widget extends \Elementor\Widget_Base {
 
 		/* Content */
 		$this->start_controls_section( 'sec_content', [ 'label' => 'Content' ] );
-		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'default' => 'Overview' ] );
-		$this->add_control( 'h1', [ 'label' => 'Heading (line 1)', 'type' => $T, 'default' => 'HMI that makes' ] );
-		$this->add_control( 'h2', [ 'label' => 'Heading (line 2)', 'type' => $T, 'default' => 'complex simple' ] );
+		$this->add_control( 'eyebrow', [ 'label' => 'Small Title', 'type' => $T, 'label_block' => true, 'default' => 'Overview' ] );
+		$this->add_control( 'h1', [ 'label' => 'Heading (line 1)', 'type' => $T, 'label_block' => true, 'default' => 'HMI that makes' ] );
+		$this->add_control( 'h2', [ 'label' => 'Heading (line 2)', 'type' => $T, 'label_block' => true, 'default' => 'complex simple' ] );
 		$this->add_control( 'desc', [ 'label' => 'Description', 'type' => $TA, 'default' => 'Human Machine Interface is where your operators meet the machine. We design screens that reduce mistakes, speed up decisions and stay reliable under real factory pressure.' ] );
 		$this->end_controls_section();
 
@@ -41,14 +41,14 @@ class IATBD_HMI_Overview_Widget extends \Elementor\Widget_Base {
 		];
 		foreach ( $items as $i => $text ) {
 			$this->start_controls_section( 'sec_item_' . $i, [ 'label' => 'List Item ' . $i ] );
-			$this->add_control( 'item' . $i, [ 'label' => 'Text', 'type' => $T, 'default' => $text ] );
+			$this->add_control( 'item' . $i, [ 'label' => 'Text', 'type' => $T, 'label_block' => true, 'default' => $text ] );
 			$this->end_controls_section();
 		}
 
 		/* Link */
 		$this->start_controls_section( 'sec_link', [ 'label' => 'Link' ] );
-		$this->add_control( 'link_text', [ 'label' => 'Link Text', 'type' => $T, 'default' => 'Start a project' ] );
-		$this->add_control( 'link_icon', [ 'label' => 'Link Icon Class', 'type' => $T, 'default' => 'fas fa-arrow-right', 'placeholder' => 'fas fa-arrow-right' ] );
+		$this->add_control( 'link_text', [ 'label' => 'Link Text', 'type' => $T, 'label_block' => true, 'default' => 'Start a project' ] );
+		$this->add_control( 'link_icon', [ 'label' => 'Link Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-arrow-right', 'placeholder' => 'fas fa-arrow-right' ] );
 		$this->add_control( 'link_url', [ 'label' => 'Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#contact' ] ] );
 		$this->end_controls_section();
 
@@ -59,10 +59,10 @@ class IATBD_HMI_Overview_Widget extends \Elementor\Widget_Base {
 			'type'    => \Elementor\Controls_Manager::MEDIA,
 			'default' => [ 'url' => 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1000&q=80' ],
 		] );
-		$this->add_control( 'image_alt', [ 'label' => 'Image Alt', 'type' => $T, 'default' => 'Engineer working with industrial control equipment' ] );
-		$this->add_control( 'card_icon', [ 'label' => 'Card Icon Class', 'type' => $T, 'default' => 'fas fa-desktop', 'placeholder' => 'fas fa-cog', 'separator' => 'before' ] );
-		$this->add_control( 'card_title', [ 'label' => 'Card Title', 'type' => $T, 'default' => 'Operator-first' ] );
-		$this->add_control( 'card_sub', [ 'label' => 'Card Subtitle', 'type' => $T, 'default' => 'Fewer errors. Faster action.' ] );
+		$this->add_control( 'image_alt', [ 'label' => 'Image Alt', 'type' => $T, 'label_block' => true, 'default' => 'Engineer working with industrial control equipment' ] );
+		$this->add_control( 'card_icon', [ 'label' => 'Card Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-desktop', 'placeholder' => 'fas fa-cog', 'separator' => 'before' ] );
+		$this->add_control( 'card_title', [ 'label' => 'Card Title', 'type' => $T, 'label_block' => true, 'default' => 'Operator-first' ] );
+		$this->add_control( 'card_sub', [ 'label' => 'Card Subtitle', 'type' => $T, 'label_block' => true, 'default' => 'Fewer errors. Faster action.' ] );
 		$this->end_controls_section();
 	}
 
