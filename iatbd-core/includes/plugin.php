@@ -314,6 +314,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-iatbd-hmi-benefits-widget.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-hero-slider.php' );
 		require_once( __DIR__ . '/widgets/class-iatbd-stats-bar.php' );
+		require_once( __DIR__ . '/widgets/iatbd-solutions-widget.php' );
 
 		$widgets_manager->register( new \Widget_1() );
 		$widgets_manager->register( new \IATBD_Footer() );
@@ -349,8 +350,10 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_HMI_Services_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Process_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Benefits_Widget() );
+		
 		$widgets_manager->register( new \IATBD_Hero_Slider_Widget() );
 		$widgets_manager->register( new \IATBD_Stats_Bar_Widget() );
+		$widgets_manager->register( new \IATBD_Solutions_Widget() );
 	}
 	
 
