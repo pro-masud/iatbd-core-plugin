@@ -202,7 +202,14 @@ final class Elementor_Test {
 		add_action( 'elementor/controls/register', [ $this, 'register_controls' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_assets' ] );
 		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_assets' ] );
+		add_action( 'elementor/preview/enqueue_styles', [ $this, 'enqueue_frontend_assets' ] );
+
+		/* Ensure Elementor template shortcode [elementor-template id="..."] styles are loaded */
+		add_filter( 'do_shortcode_tag', [ $this, 'enqueue_elementor_template_shortcode_styles' ], 10, 3 );
 		
+		/* Disable Contact Form 7 autop (<p> & <br>) to preserve custom grid layouts */
+		add_filter( 'wpcf7_autop_or_not', '__return_false' );
+
 		/* Register elementor widget categories */ 
 		add_action( 'elementor/elements/categories_registered', [ $this, 'add_elementor_widget_categories' ] );
 	}
@@ -277,6 +284,19 @@ final class Elementor_Test {
 			[ 'iatbd-core-style' ],
 			self::VERSION
 		);
+	}
+
+	/**
+	 * Automatically enqueue Elementor template CSS when [elementor-template id="..."] shortcode is evaluated
+	 */
+	public function enqueue_elementor_template_shortcode_styles( $output, $tag, $attr ) {
+		if ( 'elementor-template' === $tag && ! empty( $attr['id'] ) ) {
+			if ( class_exists( '\Elementor\Core\Files\CSS\Post' ) ) {
+				$css_file = new \Elementor\Core\Files\CSS\Post( absint( $attr['id'] ) );
+				$css_file->enqueue();
+			}
+		}
+		return $output;
 	}
 
 	/**

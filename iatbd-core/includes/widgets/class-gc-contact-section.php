@@ -15,7 +15,7 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Contact Section', 'softro-core' );
+		return esc_html__( 'IATBD Contact Section', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -57,23 +57,23 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Intro ---------- */
 		$this->start_controls_section( 'section_intro', [
-			'label' => esc_html__( 'Intro', 'softro-core' ),
+			'label' => esc_html__( 'Intro', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'   => esc_html__( 'Eyebrow', 'softro-core' ),
+			'label'   => esc_html__( 'Eyebrow', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'GET IN TOUCH',
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Heading', 'softro-core' ),
+			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'How can we help?',
 		] );
 
 		$this->add_control( 'description', [
-			'label'   => esc_html__( 'Description', 'softro-core' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'default' => 'For service, repair, or product enquiries, choose the channel that works best for you.',
 		] );
@@ -82,38 +82,38 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Contact channels ---------- */
 		$this->start_controls_section( 'section_channels', [
-			'label' => esc_html__( 'Contact Channels', 'softro-core' ),
+			'label' => esc_html__( 'Contact Channels', 'iatbd-core' ),
 		] );
 
 		$channels = new \Elementor\Repeater();
 
 		$channels->add_control( 'icon', [
-			'label'       => esc_html__( 'Icon Class (Font Awesome)', 'softro-core' ),
+			'label'       => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'fas fa-phone-alt',
 			'placeholder' => 'fas fa-phone-alt',
 		] );
 
 		$channels->add_control( 'label', [
-			'label'   => esc_html__( 'Label', 'softro-core' ),
+			'label'   => esc_html__( 'Label', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Call us',
 		] );
 
 		$channels->add_control( 'title', [
-			'label'   => esc_html__( 'Title', 'softro-core' ),
+			'label'   => esc_html__( 'Title', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => '+880 1XXX-XXXXXX',
 		] );
 
 		$channels->add_control( 'text', [
-			'label'   => esc_html__( 'Small Text', 'softro-core' ),
+			'label'   => esc_html__( 'Small Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Speak with our service team',
 		] );
 
 		$channels->add_control( 'link', [
-			'label'         => esc_html__( 'Link', 'softro-core' ),
+			'label'         => esc_html__( 'Link', 'iatbd-core' ),
 			'type'          => \Elementor\Controls_Manager::URL,
 			'placeholder'   => 'tel:+8801XXXXXXXXX',
 			'default'       => [ 'url' => 'tel:+8801XXXXXXXXX' ],
@@ -121,18 +121,18 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		] );
 
 		$channels->add_control( 'style', [
-			'label'   => esc_html__( 'Color Style', 'softro-core' ),
+			'label'   => esc_html__( 'Color Style', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'primary',
 			'options' => [
-				'primary' => esc_html__( 'Primary', 'softro-core' ),
-				'orange'  => esc_html__( 'Orange', 'softro-core' ),
-				'emerald' => esc_html__( 'Emerald (WhatsApp)', 'softro-core' ),
+				'primary' => esc_html__( 'Primary', 'iatbd-core' ),
+				'orange'  => esc_html__( 'Orange', 'iatbd-core' ),
+				'emerald' => esc_html__( 'Emerald (WhatsApp)', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'channels', [
-			'label'       => esc_html__( 'Channels', 'softro-core' ),
+			'label'       => esc_html__( 'Channels', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $channels->get_controls(),
 			'title_field' => '{{{ label }}} - {{{ title }}}',
@@ -172,24 +172,24 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Tips box ---------- */
 		$this->start_controls_section( 'section_tips', [
-			'label' => esc_html__( 'Helpful Details Box', 'softro-core' ),
+			'label' => esc_html__( 'Helpful Details Box', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'tips_show', [
-			'label'        => esc_html__( 'Show Box', 'softro-core' ),
+			'label'        => esc_html__( 'Show Box', 'iatbd-core' ),
 			'type'         => \Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default'      => 'yes',
 		] );
 
 		$this->add_control( 'tips_icon', [
-			'label'   => esc_html__( 'Icon Class (Font Awesome)', 'softro-core' ),
+			'label'   => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'fas fa-gears',
 		] );
 
 		$this->add_control( 'tips_title', [
-			'label'   => esc_html__( 'Title', 'softro-core' ),
+			'label'   => esc_html__( 'Title', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Helpful details to include',
 		] );
@@ -197,13 +197,13 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$tips = new \Elementor\Repeater();
 
 		$tips->add_control( 'text', [
-			'label'   => esc_html__( 'Text', 'softro-core' ),
+			'label'   => esc_html__( 'Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => '',
 		] );
 
 		$this->add_control( 'tips', [
-			'label'       => esc_html__( 'Items', 'softro-core' ),
+			'label'       => esc_html__( 'Items', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $tips->get_controls(),
 			'title_field' => '{{{ text }}}',
@@ -218,44 +218,44 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Form card ---------- */
 		$this->start_controls_section( 'section_form', [
-			'label' => esc_html__( 'Form Card', 'softro-core' ),
+			'label' => esc_html__( 'Form Card', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'form_eyebrow', [
-			'label'   => esc_html__( 'Eyebrow', 'softro-core' ),
+			'label'   => esc_html__( 'Eyebrow', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'SEND A MESSAGE',
 		] );
 
 		$this->add_control( 'form_heading', [
-			'label'   => esc_html__( 'Heading', 'softro-core' ),
+			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Tell us about your project',
 		] );
 
 		$this->add_control( 'form_note', [
-			'label'       => esc_html__( 'Note under heading', 'softro-core' ),
+			'label'       => esc_html__( 'Note under heading', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXTAREA,
 			'default'     => 'Fields marked <span class="text-accent-500">*</span> are required.',
-			'description' => esc_html__( 'Leave empty to hide. Basic HTML allowed.', 'softro-core' ),
+			'description' => esc_html__( 'Leave empty to hide. Basic HTML allowed.', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'form_icon', [
-			'label'       => esc_html__( 'Header Icon Class (Font Awesome)', 'softro-core' ),
+			'label'       => esc_html__( 'Header Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'fas fa-paper-plane',
-			'description' => esc_html__( 'Leave empty to hide the icon badge.', 'softro-core' ),
+			'description' => esc_html__( 'Leave empty to hide the icon badge.', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'form_anchor', [
-			'label'       => esc_html__( 'Anchor ID', 'softro-core' ),
+			'label'       => esc_html__( 'Anchor ID', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'message',
-			'description' => esc_html__( 'Used for #message links. No # sign.', 'softro-core' ),
+			'description' => esc_html__( 'Used for #message links. No # sign.', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'cf7_shortcode', [
-			'label'       => esc_html__( 'Contact Form 7 Shortcode', 'softro-core' ),
+			'label'       => esc_html__( 'Contact Form 7 Shortcode', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXTAREA,
 			'default'     => '[contact-form-7 id="123" title="Contact form"]',
 			'placeholder' => '[contact-form-7 id="123" title="Contact form"]',
@@ -364,9 +364,11 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 						</div>
 
 						<?php if ( ! empty( $s['cf7_shortcode'] ) ) : ?>
-							<?php echo do_shortcode( shortcode_unautop( trim( $s['cf7_shortcode'] ) ) ); ?>
+							<div class="iatbd-cf7-container">
+								<?php echo do_shortcode( shortcode_unautop( trim( $s['cf7_shortcode'] ) ) ); ?>
+							</div>
 						<?php elseif ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) : ?>
-							<p class="text-sm text-slate-500 dark:text-slate-400"><?php esc_html_e( 'Add your Contact Form 7 shortcode in the widget settings.', 'softro-core' ); ?></p>
+							<p class="text-sm text-slate-500 dark:text-slate-400"><?php esc_html_e( 'Add your Contact Form 7 shortcode in the widget settings.', 'iatbd-core' ); ?></p>
 						<?php endif; ?>
 					</div>
 

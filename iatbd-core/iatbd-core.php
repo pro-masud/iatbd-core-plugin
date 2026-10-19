@@ -39,4 +39,3 @@ if ( ! function_exists( 'iatbd_core_load_plugin' ) ) {
 	}
 	add_action( 'plugins_loaded', 'iatbd_core_load_plugin' );
 }
-
