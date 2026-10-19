@@ -349,6 +349,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-gc-industrial-cta.php' );
 		require_once( __DIR__ . '/widgets/class-gc-contact-section.php' );
 		require_once( __DIR__ . '/widgets/class-gc-blog-archive.php' );
+		require_once( __DIR__ . '/widgets/class-gc-blog-single.php' );
 
 		// Header & Footer
 		if ( class_exists( '\IATBD_Header_Widget' ) ) {
@@ -411,6 +412,7 @@ final class Elementor_Test {
 		// Register the GC_Contact_Section_Widget if it exists
 		$widgets_manager->register( new \GC_Contact_Section_Widget() );
 		$widgets_manager->register( new \GC_Blog_Archive_Widget() );
+		$widgets_manager->register( new \GC_Blog_Single_Widget() );
 	}
 
 	/**
