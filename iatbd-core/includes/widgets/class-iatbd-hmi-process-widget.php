@@ -10,9 +10,8 @@ class IATBD_HMI_Process_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'HMI Process';
+		return esc_html__( 'IATBD HMI Process', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-flow';
 	}

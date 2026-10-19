@@ -17,7 +17,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC AI Automation', 'softro-core' );
+		return esc_html__( 'IATBD AI Automation', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons' ];
 	}
 
 	protected function register_controls() {
@@ -34,7 +34,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Content', 'softro-core' ),
+				'label' => esc_html__( 'Content', 'iatbd-core' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -42,7 +42,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'eyebrow',
 			[
-				'label'   => esc_html__( 'Eyebrow Text', 'softro-core' ),
+				'label'   => esc_html__( 'Eyebrow Text', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Built around your plant',
@@ -52,7 +52,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'heading',
 			[
-				'label'   => esc_html__( 'Heading', 'softro-core' ),
+				'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'AI that works with your automation',
@@ -62,7 +62,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'description',
 			[
-				'label'   => esc_html__( 'Description', 'softro-core' ),
+				'label'   => esc_html__( 'Description', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'    => 5,
 				'default' => 'Your equipment and process come first. We assess the available signals, define a useful pilot and integrate the result with your PLC, HMI, VFD or existing monitoring workflow.',
@@ -75,7 +75,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'list_section',
 			[
-				'label' => esc_html__( 'Checklist', 'softro-core' ),
+				'label' => esc_html__( 'Checklist', 'iatbd-core' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -85,11 +85,11 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'icon_class',
 			[
-				'label'       => esc_html__( 'Icon Class', 'softro-core' ),
+				'label'       => esc_html__( 'Icon Class', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => 'fas fa-check',
 				'placeholder' => 'fas fa-check',
-				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-check', 'softro-core' ),
+				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-check', 'iatbd-core' ),
 				'label_block' => true,
 			]
 		);
@@ -97,7 +97,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'icon_color',
 			[
-				'label'       => esc_html__( 'Icon Color Class', 'softro-core' ),
+				'label'       => esc_html__( 'Icon Color Class', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => 'text-emerald-500',
 				'placeholder' => 'text-emerald-500',
@@ -108,7 +108,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'text',
 			[
-				'label'       => esc_html__( 'Text', 'softro-core' ),
+				'label'       => esc_html__( 'Text', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'        => 2,
 				'default'     => 'List item text',
@@ -119,7 +119,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'items',
 			[
-				'label'       => esc_html__( 'Items', 'softro-core' ),
+				'label'       => esc_html__( 'Items', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
@@ -149,7 +149,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'image_section',
 			[
-				'label' => esc_html__( 'Image', 'softro-core' ),
+				'label' => esc_html__( 'Image', 'iatbd-core' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -157,7 +157,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'image',
 			[
-				'label'   => esc_html__( 'Image', 'softro-core' ),
+				'label'   => esc_html__( 'Image', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1100&q=85',
@@ -168,7 +168,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'image_alt',
 			[
-				'label'   => esc_html__( 'Image Alt Text', 'softro-core' ),
+				'label'   => esc_html__( 'Image Alt Text', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Engineer monitoring industrial automation equipment',
@@ -178,7 +178,7 @@ class GC_AI_Automation_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'image_caption',
 			[
-				'label'   => esc_html__( 'Image Caption', 'softro-core' ),
+				'label'   => esc_html__( 'Image Caption', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'From sensor signals to clearer production decisions',

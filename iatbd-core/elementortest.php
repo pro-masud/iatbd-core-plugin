@@ -1,27 +1,18 @@
 <?php
 /**
- * Plugin Name: Elementor Test
- * Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
- * Plugin URI:  https://promasudbd.com/
+ * Plugin Name: IATBD Core
+ * Description: Core Elementor widgets and functionality for Industrial Automation & Technology Bangladesh (IATBD).
+ * Plugin URI:  https://iatbd.com/
  * Version:     1.0.0
- * Author:      masud rana
- * Author URI:  https://promasudbd.com/
- * Text Domain: elementor-test
+ * Author:      IATBD
+ * Author URI:  https://iatbd.com/
+ * Text Domain: iatbd-core
+ * Domain Path: /languages
  */
-use \Elementor_Test\Elementor_Test as Elementor_Test;
 
- if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-function elementor_test_addon() {
-
-	// Load plugin file
-	require_once( __DIR__ . '/includes/plugin.php' );
-
-	// Run the plugin
-	Elementor_Test::instance();
-
-}
-add_action( 'plugins_loaded', 'elementor_test_addon' );
-
+// Delegate loading to iatbd-core.php
+require_once __DIR__ . '/iatbd-core.php';

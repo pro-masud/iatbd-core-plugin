@@ -59,7 +59,12 @@
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       const href = link.getAttribute("href");
       if (!href || href === "#") return;
-      const target = document.querySelector(href);
+      let target = null;
+      try {
+        target = document.querySelector(href);
+      } catch {
+        return;
+      }
       if (!target) return;
 
       link.addEventListener("click", (event) => {
@@ -72,6 +77,7 @@
     document.querySelectorAll(".faq-btn").forEach((button) => {
       button.addEventListener("click", () => {
         const item = button.closest(".faq-item");
+        if (!item) return;
         const wasOpen = item.classList.contains("open");
         document
           .querySelectorAll(".faq-item")
@@ -97,49 +103,48 @@
       interval: 4500,
     });
     initHeroSlider({
+      containerSelector: ".repair-hero",
+      slideSelector: ".repair-slide",
+      dotSelector: ".repair-dot",
+      dataKey: "i",
+      interval: 5500,
+    });
+    initHeroSlider({
+      containerSelector: ".maintenance-hero",
+      slideSelector: ".maintenance-slide",
+      dotSelector: ".maintenance-dot",
+      dataKey: "i",
+      interval: 5500,
+    });
+    initHeroSlider({
+      containerSelector: ".troubleshoot-hero",
+      slideSelector: ".troubleshoot-slide",
+      dotSelector: ".troubleshoot-dot",
+      dataKey: "i",
+      interval: 5500,
+    });
+    initHeroSlider({
+      containerSelector: ".vfd-hero",
+      slideSelector: ".vfd-slide",
+      dotSelector: ".vfd-dot",
+      dataKey: "i",
+      interval: 5000,
+    });
+    initHeroSlider({
       containerSelector: ".hmi-hero",
       slideSelector: ".hmi-slide",
       dotSelector: ".hmi-dot",
       dataKey: "slideTo",
       interval: 5000,
     });
+    initDesktopDropdowns();
     initCounters();
     initTestimonials();
-    initStoreHeroSlider();
     initStoreShop();
+    initBlogPagination();
+    initContactForm();
+    initBlogSingle();
   });
-
-  function initStoreHeroSlider() {
-    document.querySelectorAll(".store-hero-slider").forEach((slider) => {
-      const slides = [...slider.querySelectorAll(".store-hero-slide")];
-      const dots = [...slider.querySelectorAll(".store-hero-dot")];
-      if (!slides.length) return;
-
-      let slideIndex = 0;
-      const showSlide = (index) => {
-        slideIndex = (index + slides.length) % slides.length;
-        slides.forEach((slide, i) =>
-          slide.classList.toggle("active", i === slideIndex),
-        );
-        dots.forEach((dot, i) =>
-          dot.classList.toggle("active", i === slideIndex),
-        );
-      };
-
-      dots.forEach((dot, index) =>
-        dot.addEventListener("click", () => showSlide(index)),
-      );
-      slider
-        .querySelector("#store-hero-prev")
-        ?.addEventListener("click", () => showSlide(slideIndex - 1));
-      slider
-        .querySelector("#store-hero-next")
-        ?.addEventListener("click", () => showSlide(slideIndex + 1));
-
-      if (slides.length > 1)
-        window.setInterval(() => showSlide(slideIndex + 1), 5500);
-    });
-  }
 
   function initStoreShop() {
     const store = document.querySelector("[data-store-shop]");
@@ -347,6 +352,74 @@
       if (event.key === "Escape") setCartOpen(false);
     });
 
+    const slides = [...store.querySelectorAll(".store-hero-slide")];
+    const dots = [...store.querySelectorAll(".store-hero-dot")];
+    let slideIndex = 0;
+    let storeHeroTimer = null;
+    const showSlide = (index) => {
+      slideIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) =>
+        slide.classList.toggle("active", i === slideIndex),
+      );
+      dots.forEach((dot, i) =>
+        dot.classList.toggle("active", i === slideIndex),
+      );
+    };
+    const stopStoreHero = () => clearInterval(storeHeroTimer);
+    const startStoreHero = () => {
+      stopStoreHero();
+      if (slides.length > 1) {
+        storeHeroTimer = setInterval(() => showSlide(slideIndex + 1), 5500);
+      }
+    };
+    dots.forEach((dot, index) =>
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        startStoreHero();
+      }),
+    );
+    store
+      .querySelector("#store-hero-prev")
+      ?.addEventListener("click", () => {
+        showSlide(slideIndex - 1);
+        startStoreHero();
+      });
+    store
+      .querySelector("#store-hero-next")
+      ?.addEventListener("click", () => {
+        showSlide(slideIndex + 1);
+        startStoreHero();
+      });
+
+    const storeHeroSection = store.querySelector(".store-hero-slide")?.parentElement;
+    if (storeHeroSection) {
+      storeHeroSection.addEventListener("mouseenter", stopStoreHero);
+      storeHeroSection.addEventListener("mouseleave", startStoreHero);
+      let storeTouchStartX = 0;
+      storeHeroSection.addEventListener(
+        "touchstart",
+        (e) => {
+          storeTouchStartX = e.changedTouches[0].screenX;
+          stopStoreHero();
+        },
+        { passive: true },
+      );
+      storeHeroSection.addEventListener(
+        "touchend",
+        (e) => {
+          const storeTouchEndX = e.changedTouches[0].screenX;
+          const diff = storeTouchStartX - storeTouchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) showSlide(slideIndex + 1);
+            else showSlide(slideIndex - 1);
+          }
+          startStoreHero();
+        },
+        { passive: true },
+      );
+    }
+    startStoreHero();
+
     updateProducts();
     renderCart();
   }
@@ -356,60 +429,173 @@
     slideSelector,
     dotSelector,
     dataKey,
-    interval,
+    interval = 5000,
     previousSelector,
     nextSelector,
   }) {
-    const container = document.querySelector(containerSelector);
-    if (!container) return;
+    const containers = document.querySelectorAll(containerSelector);
+    if (!containers.length) return;
 
-    const slides = [...container.querySelectorAll(slideSelector)];
-    const dots = [...container.querySelectorAll(dotSelector)];
-    if (!slides.length) return;
+    containers.forEach((container) => {
+      const slides = [...container.querySelectorAll(slideSelector)];
+      if (!slides.length) return;
 
-    let currentIndex = 0;
-    let timer;
-    const show = (index) => {
-      currentIndex = (index + slides.length) % slides.length;
-      slides.forEach((slide, slideIndex) => {
-        slide.classList.toggle("active", slideIndex === currentIndex);
+      const dots = [
+        ...(container.querySelectorAll(dotSelector).length
+          ? container.querySelectorAll(dotSelector)
+          : document.querySelectorAll(dotSelector)),
+      ];
+
+      let currentIndex = 0;
+      let timer = null;
+      const show = (index) => {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          const active = slideIndex === currentIndex;
+          slide.classList.toggle("active", active);
+          slide.setAttribute("aria-hidden", String(!active));
+        });
+        dots.forEach((dot, dotIndex) => {
+          const active = dotIndex === currentIndex;
+          dot.classList.toggle("active", active);
+          dot.setAttribute("aria-pressed", String(active));
+        });
+      };
+      const stop = () => clearInterval(timer);
+      const start = () => {
+        stop();
+        if (slides.length > 1) {
+          timer = setInterval(() => show(currentIndex + 1), interval);
+        }
+      };
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const raw =
+            dot.dataset[dataKey] ??
+            dot.dataset.slideTo ??
+            dot.dataset.i ??
+            dot.dataset.index;
+          const index = Number(raw);
+          show(Number.isNaN(index) ? 0 : index);
+          start();
+        });
       });
-      dots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("active", dotIndex === currentIndex);
-      });
-    };
-    const stop = () => clearInterval(timer);
-    const start = () => {
-      stop();
-      timer = setInterval(() => show(currentIndex + 1), interval);
-    };
 
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const index = Number(dot.dataset[dataKey]);
-        show(Number.isNaN(index) ? 0 : index);
+      const previousButton = previousSelector
+        ? container.querySelector(previousSelector) ||
+          document.querySelector(previousSelector)
+        : null;
+      const nextButton = nextSelector
+        ? container.querySelector(nextSelector) ||
+          document.querySelector(nextSelector)
+        : null;
+
+      previousButton?.addEventListener("click", () => {
+        show(currentIndex - 1);
         start();
       });
+      nextButton?.addEventListener("click", () => {
+        show(currentIndex + 1);
+        start();
+      });
+
+      container.addEventListener("mouseenter", stop);
+      container.addEventListener("mouseleave", start);
+      container.addEventListener("focusin", stop);
+      container.addEventListener("focusout", start);
+
+      let touchStartX = 0;
+      container.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stop();
+        },
+        { passive: true },
+      );
+      container.addEventListener(
+        "touchend",
+        (e) => {
+          const touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) show(currentIndex + 1);
+            else show(currentIndex - 1);
+          }
+          start();
+        },
+        { passive: true },
+      );
+
+      show(0);
+      start();
+    });
+  }
+
+  function initDesktopDropdowns() {
+    document.querySelectorAll(".relative.group").forEach((group) => {
+      const button = group.querySelector("button");
+      const menu = group.querySelector(".dropdown-menu");
+      if (!button || !menu) return;
+
+      button.setAttribute("aria-haspopup", "true");
+      button.setAttribute("aria-expanded", "false");
+
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const isOpen = menu.classList.toggle("open");
+        group.classList.toggle("open", isOpen);
+        button.setAttribute("aria-expanded", String(isOpen));
+        const icon = button.querySelector(".fa-chevron-down");
+        if (icon) {
+          icon.style.transition = "transform 0.2s ease";
+          icon.style.transform = isOpen ? "rotate(180deg)" : "";
+        }
+      });
+
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.remove("open");
+          group.classList.remove("open");
+          button.setAttribute("aria-expanded", "false");
+          const icon = button.querySelector(".fa-chevron-down");
+          if (icon) icon.style.transform = "";
+        });
+      });
     });
 
-    const previousButton = previousSelector
-      ? document.querySelector(previousSelector)
-      : null;
-    const nextButton = nextSelector
-      ? document.querySelector(nextSelector)
-      : null;
-    previousButton?.addEventListener("click", () => {
-      show(currentIndex - 1);
-      start();
+    document.addEventListener("click", (event) => {
+      document.querySelectorAll(".relative.group").forEach((group) => {
+        if (!group.contains(event.target)) {
+          const menu = group.querySelector(".dropdown-menu");
+          const button = group.querySelector("button");
+          if (menu) menu.classList.remove("open");
+          group.classList.remove("open");
+          if (button) {
+            button.setAttribute("aria-expanded", "false");
+            const icon = button.querySelector(".fa-chevron-down");
+            if (icon) icon.style.transform = "";
+          }
+        }
+      });
     });
-    nextButton?.addEventListener("click", () => {
-      show(currentIndex + 1);
-      start();
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        document.querySelectorAll(".relative.group").forEach((group) => {
+          const menu = group.querySelector(".dropdown-menu");
+          const button = group.querySelector("button");
+          if (menu) menu.classList.remove("open");
+          group.classList.remove("open");
+          if (button) {
+            button.setAttribute("aria-expanded", "false");
+            const icon = button.querySelector(".fa-chevron-down");
+            if (icon) icon.style.transform = "";
+          }
+        });
+      }
     });
-    container.addEventListener("mouseenter", stop);
-    container.addEventListener("mouseleave", start);
-    show(0);
-    start();
   }
 
   function initCounters() {
@@ -454,60 +640,365 @@
     const dotsWrap = document.getElementById("testimonial-dots");
     if (!track || !dotsWrap) return;
 
-    const total = track.querySelectorAll(".testimonial-card").length;
+    const cards = [...track.querySelectorAll(".testimonial-card")];
+    const total = cards.length;
+    if (!total) return;
+
     const isPlcPage = Boolean(document.querySelector(".plc-hero-slider"));
     let index = 0;
-    let timer;
-    const perView = () => (window.innerWidth >= 768 ? 3 : 1);
+    let timer = null;
+
+    const perView = () => {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 640) return 2;
+      return 1;
+    };
     const maxIndex = () => Math.max(0, total - perView());
+
+    let currentPerView = perView();
+    let dots = [];
 
     const buildDots = () => {
       dotsWrap.innerHTML = "";
-      for (let dotIndex = 0; dotIndex <= maxIndex(); dotIndex += 1) {
+      dots = [];
+      const mIndex = maxIndex();
+      for (let dotIndex = 0; dotIndex <= mIndex; dotIndex += 1) {
         const dot = document.createElement("button");
+        dot.type = "button";
         dot.setAttribute("aria-label", `Page ${dotIndex + 1}`);
         if (isPlcPage) {
           dot.className =
-            "w-2.5 h-2.5 rounded-full transition " +
+            "w-2.5 h-2.5 rounded-full transition-all duration-300 " +
             (dotIndex === index
               ? "bg-primary-500 scale-125"
               : "bg-slate-300 dark:bg-slate-600");
         } else {
           dot.className =
-            "h-2 rounded-full transition-all " +
+            "h-2 rounded-full transition-all duration-300 " +
             (dotIndex === index
               ? "w-6 bg-primary-500"
               : "w-2 bg-slate-300 dark:bg-slate-600");
         }
         dot.addEventListener("click", () => {
           index = dotIndex;
-          update();
+          update(false);
           start();
         });
         dotsWrap.appendChild(dot);
+        dots.push(dot);
       }
     };
 
-    const update = () => {
-      if (index > maxIndex()) index = 0;
-      track.style.transform = `translateX(-${(100 / perView()) * index}%)`;
-      buildDots();
+    const updateDots = () => {
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index;
+        if (isPlcPage) {
+          dot.classList.toggle("bg-primary-500", isActive);
+          dot.classList.toggle("scale-125", isActive);
+          dot.classList.toggle("bg-slate-300", !isActive);
+          dot.classList.toggle("dark:bg-slate-600", !isActive);
+        } else {
+          dot.classList.toggle("w-6", isActive);
+          dot.classList.toggle("bg-primary-500", isActive);
+          dot.classList.toggle("w-2", !isActive);
+          dot.classList.toggle("bg-slate-300", !isActive);
+          dot.classList.toggle("dark:bg-slate-600", !isActive);
+        }
+      });
     };
+
+    const update = (checkRebuild = true) => {
+      const pv = perView();
+      if (checkRebuild && pv !== currentPerView) {
+        currentPerView = pv;
+        buildDots();
+      }
+      if (index > maxIndex()) index = maxIndex();
+      track.style.transform = `translateX(-${(100 / pv) * index}%)`;
+      updateDots();
+    };
+
     const next = () => {
       index = index >= maxIndex() ? 0 : index + 1;
-      update();
+      update(false);
     };
+    const prev = () => {
+      index = index <= 0 ? maxIndex() : index - 1;
+      update(false);
+    };
+
     const start = () => {
       clearInterval(timer);
-      timer = setInterval(next, 2000);
+      timer = setInterval(next, 5000);
     };
 
-    window.addEventListener("resize", update);
-    update();
+    buildDots();
+    update(false);
     start();
 
+    window.addEventListener("resize", () => update(true));
+
     const viewport = document.getElementById("testimonial-viewport");
-    viewport?.addEventListener("mouseenter", () => clearInterval(timer));
-    viewport?.addEventListener("mouseleave", start);
+    if (viewport) {
+      viewport.addEventListener("mouseenter", () => clearInterval(timer));
+      viewport.addEventListener("mouseleave", start);
+
+      let touchStartX = 0;
+      viewport.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          clearInterval(timer);
+        },
+        { passive: true },
+      );
+      viewport.addEventListener(
+        "touchend",
+        (e) => {
+          const touchEndX = e.changedTouches[0].screenX;
+          const diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) next();
+            else prev();
+          }
+          start();
+        },
+        { passive: true },
+      );
+    }
   }
+
+  function initBlogPagination() {
+    document.querySelectorAll(".page-num-btn").forEach((pBtn) => {
+      pBtn.addEventListener("click", () => {
+        if (pBtn.textContent.trim().includes("Next")) {
+          window.scrollTo({ top: 300, behavior: "smooth" });
+          return;
+        }
+        document.querySelectorAll(".page-num-btn").forEach((b) => {
+          b.classList.remove(
+            "active",
+            "bg-primary-600",
+            "text-white",
+            "shadow-lg",
+            "shadow-primary-500/25",
+          );
+          b.classList.add(
+            "bg-white",
+            "dark:bg-slate-900",
+            "border",
+            "border-slate-200",
+            "dark:border-slate-800",
+            "text-slate-700",
+            "dark:text-slate-300",
+          );
+        });
+        pBtn.classList.add(
+          "active",
+          "bg-primary-600",
+          "text-white",
+          "shadow-lg",
+          "shadow-primary-500/25",
+        );
+        pBtn.classList.remove(
+          "bg-white",
+          "dark:bg-slate-900",
+          "border",
+          "border-slate-200",
+          "dark:border-slate-800",
+          "text-slate-700",
+          "dark:text-slate-300",
+        );
+        window.scrollTo({ top: 300, behavior: "smooth" });
+      });
+    });
+  }
+
+  function initContactForm() {
+    const previewForm = document.getElementById("contact-preview-form");
+    previewForm?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      document
+        .getElementById("form-preview-notice")
+        ?.classList.remove("hidden");
+    });
+  }
+
+  const blogDatabase = {
+    1: {
+      title: "PPC Management Cost for Small Businesses in 2026",
+      category: "Digital Marketing & Automation",
+      date: "Oct 14, 2026",
+      readTime: "6 Min Read",
+      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    2: {
+      title: "AI vs Human Graphic Designers: Which One Do You Need?",
+      category: "AI & Innovation",
+      date: "Oct 13, 2026",
+      readTime: "5 Min Read",
+      img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    3: {
+      title: "SEO for Real Estate Agents and Brokers: A Complete Guide",
+      category: "Search Engine Optimization",
+      date: "Oct 10, 2026",
+      readTime: "7 Min Read",
+      img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    4: {
+      title: "3D Product Modelling vs Product Photography: Which Is Better",
+      category: "3D CGI & Product Design",
+      date: "Oct 08, 2026",
+      readTime: "5 Min Read",
+      img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    5: {
+      title: "Ecommerce Website Development for Small Businesses",
+      category: "Web & Ecommerce Engineering",
+      date: "Oct 06, 2026",
+      readTime: "8 Min Read",
+      img: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    6: {
+      title: "How to Use Facebook Ads to Generate Leads for a Small Business",
+      category: "Meta Advertising",
+      date: "Oct 02, 2026",
+      readTime: "6 Min Read",
+      img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    7: {
+      title: "Background Removal vs Clipping Path: Key Differences (2026)",
+      category: "Graphic Production",
+      date: "Sep 30, 2026",
+      readTime: "4 Min Read",
+      img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    8: {
+      title: "Video & 3D Services Pricing: 2026 Cost Guide",
+      category: "Video & 3D Production",
+      date: "Sep 28, 2026",
+      readTime: "6 Min Read",
+      img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+    9: {
+      title: "What Is PPC Management and Is It Worth It for Small Businesses?",
+      category: "Paid Search Strategy",
+      date: "Sep 25, 2026",
+      readTime: "5 Min Read",
+      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
+      author: "Engr. Masud Alam",
+    },
+  };
+
+  function initBlogSingle() {
+    const articleTitle = document.getElementById("article-main-title");
+    if (!articleTitle) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = parseInt(urlParams.get("id"), 10) || 1;
+    const currentPost = blogDatabase[postId] || blogDatabase[1];
+
+    if (postId !== 1 && blogDatabase[postId]) {
+      document.title = `${currentPost.title} | IATBD Blog`;
+      const breadcrumb = document.getElementById("breadcrumb-current");
+      if (breadcrumb) breadcrumb.textContent = currentPost.title;
+
+      const categoryText = document.getElementById("article-category-text");
+      if (categoryText) categoryText.textContent = currentPost.category;
+
+      articleTitle.textContent = currentPost.title;
+
+      const dateText = document.getElementById("article-date-text");
+      if (dateText) dateText.textContent = currentPost.date;
+
+      const readTime = document.getElementById("article-read-time");
+      if (readTime) readTime.textContent = currentPost.readTime;
+
+      const heroImg = document.getElementById("article-hero-img");
+      if (heroImg) {
+        heroImg.src = currentPost.img;
+        heroImg.alt = currentPost.title;
+      }
+    }
+
+    const prevId = postId > 1 ? postId - 1 : 9;
+    const nextId = postId < 9 ? postId + 1 : 1;
+    const prevPost = blogDatabase[prevId];
+    const nextPost = blogDatabase[nextId];
+
+    const prevLink = document.getElementById("prev-post-link");
+    const prevTitle = document.getElementById("prev-post-title");
+    if (prevLink && prevPost) {
+      prevLink.href = `blog-single.html?id=${prevId}`;
+      if (prevTitle) prevTitle.textContent = prevPost.title;
+    }
+
+    const nextLink = document.getElementById("next-post-link");
+    const nextTitle = document.getElementById("next-post-title");
+    if (nextLink && nextPost) {
+      nextLink.href = `blog-single.html?id=${nextId}`;
+      if (nextTitle) nextTitle.textContent = nextPost.title;
+    }
+  }
+
+  function shareArticle(platform) {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    let shareUrl = "";
+
+    switch (platform) {
+      case "facebook":
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        break;
+      case "linkedin":
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+        break;
+      case "twitter":
+        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+        break;
+      case "whatsapp":
+        shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+        break;
+    }
+    if (shareUrl) {
+      window.open(shareUrl, "_blank", "width=600,height=450");
+    }
+  }
+
+  function copyArticleLink() {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => {
+        const toast = document.getElementById("copy-toast");
+        if (!toast) return;
+        toast.classList.remove(
+          "translate-y-20",
+          "opacity-0",
+          "pointer-events-none",
+        );
+        setTimeout(() => {
+          toast.classList.add(
+            "translate-y-20",
+            "opacity-0",
+            "pointer-events-none",
+          );
+        }, 2500);
+      })
+      .catch(() => {
+        alert("Link copied to clipboard: " + window.location.href);
+      });
+  }
+
+  window.shareArticle = shareArticle;
+  window.copyArticleLink = copyArticleLink;
 })();
+

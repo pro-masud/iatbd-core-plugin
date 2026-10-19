@@ -10,9 +10,8 @@ class IATBD_PLC_FAQ_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC FAQ';
+		return esc_html__( 'IATBD PLC FAQ', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-help-o';
 	}
@@ -82,7 +81,7 @@ class IATBD_PLC_FAQ_Widget extends \Elementor\Widget_Base {
 					<?php if ( ! empty( $s['faqs'] ) ) : ?>
 						<?php foreach ( $s['faqs'] as $f ) : ?>
 							<div class="faq-item bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-								<button class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
+								<button type="button" class="faq-btn w-full flex items-center justify-between px-5 py-4 text-left">
 									<span class="font-medium text-slate-900 dark:text-white text-sm sm:text-base"><?php echo esc_html( $f['q'] ); ?></span>
 									<i class="fas fa-chevron-down faq-icon text-slate-400 text-sm transition-transform"></i>
 								</button>

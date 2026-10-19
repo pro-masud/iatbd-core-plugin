@@ -10,9 +10,8 @@ class IATBD_HMI_Services_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'HMI Services';
+		return esc_html__( 'IATBD HMI Services', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-gallery-grid';
 	}

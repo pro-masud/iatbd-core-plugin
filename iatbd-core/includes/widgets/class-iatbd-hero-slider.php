@@ -4,7 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
 
     public function get_name()       { return 'iatbd_hero_slider'; }
-    public function get_title()      { return 'IATBD Hero Slider'; }
+    public function get_title() {
+		return esc_html__( 'IATBD Hero Slider', 'iatbd-core' );
+	}
     public function get_icon()       { return 'eicon-slides'; }
     public function get_categories() { return [ 'iatbd-addons' ]; }
 
@@ -14,18 +16,18 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
     private function slide_controls( $n, $defaults ) {
 
         $this->start_controls_section( "slide_{$n}", [
-            'label' => __( "Slide {$n}", 'iatbd' ),
+            'label' => __( "Slide {$n}", 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( "s{$n}_bg_image", [
-            'label'   => __( 'Background Image', 'iatbd' ),
+            'label'   => __( 'Background Image', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::MEDIA,
             'default' => [ 'url' => $defaults['bg'] ],
         ] );
 
         $this->add_control( "s{$n}_gradient", [
-            'label'       => __( 'Overlay Gradient (Tailwind classes)', 'iatbd' ),
+            'label'       => __( 'Overlay Gradient (Tailwind classes)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['gradient'],
@@ -33,7 +35,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_badge_icon", [
-            'label'       => __( 'Badge Icon (Font Awesome class)', 'iatbd' ),
+            'label'       => __( 'Badge Icon (Font Awesome class)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['badge_icon'],
@@ -41,7 +43,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_badge_icon_color", [
-            'label'       => __( 'Badge Icon Color (Tailwind)', 'iatbd' ),
+            'label'       => __( 'Badge Icon Color (Tailwind)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['badge_icon_color'],
@@ -49,21 +51,21 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_badge_text", [
-            'label'   => __( 'Badge Text', 'iatbd' ),
+            'label'   => __( 'Badge Text', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $defaults['badge_text'],
         ] );
 
         $this->add_control( "s{$n}_heading", [
-            'label'   => __( 'Heading', 'iatbd' ),
+            'label'   => __( 'Heading', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXTAREA,
             'rows'    => 2,
             'default' => $defaults['heading'],
         ] );
 
         $this->add_control( "s{$n}_highlight", [
-            'label'       => __( 'Highlighted Word(s) in Heading', 'iatbd' ),
+            'label'       => __( 'Highlighted Word(s) in Heading', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['highlight'],
@@ -71,7 +73,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_highlight_color", [
-            'label'       => __( 'Highlight Color (Tailwind)', 'iatbd' ),
+            'label'       => __( 'Highlight Color (Tailwind)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['highlight_color'],
@@ -79,7 +81,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_desc", [
-            'label'   => __( 'Description', 'iatbd' ),
+            'label'   => __( 'Description', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXTAREA,
             'rows'    => 3,
             'default' => $defaults['desc'],
@@ -87,21 +89,21 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
 
         /* Primary button */
         $this->add_control( "s{$n}_btn1_text", [
-            'label'   => __( 'Button 1 Text', 'iatbd' ),
+            'label'   => __( 'Button 1 Text', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $defaults['btn1_text'],
         ] );
 
         $this->add_control( "s{$n}_btn1_url", [
-            'label'   => __( 'Button 1 URL', 'iatbd' ),
+            'label'   => __( 'Button 1 URL', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $defaults['btn1_url'],
         ] );
 
         $this->add_control( "s{$n}_btn1_icon", [
-            'label'       => __( 'Button 1 Icon (Font Awesome)', 'iatbd' ),
+            'label'       => __( 'Button 1 Icon (Font Awesome)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => 'fas fa-arrow-right',
@@ -109,7 +111,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_btn1_classes", [
-            'label'       => __( 'Button 1 Tailwind Classes', 'iatbd' ),
+            'label'       => __( 'Button 1 Tailwind Classes', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['btn1_classes'],
@@ -118,7 +120,7 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
 
         /* Secondary button (optional) */
         $this->add_control( "s{$n}_btn2_text", [
-            'label'       => __( 'Button 2 Text (optional)', 'iatbd' ),
+            'label'       => __( 'Button 2 Text (optional)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['btn2_text'] ?? '',
@@ -126,14 +128,14 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "s{$n}_btn2_url", [
-            'label'   => __( 'Button 2 URL', 'iatbd' ),
+            'label'   => __( 'Button 2 URL', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $defaults['btn2_url'] ?? '#contact',
         ] );
 
         $this->add_control( "s{$n}_btn2_classes", [
-            'label'       => __( 'Button 2 Tailwind Classes', 'iatbd' ),
+            'label'       => __( 'Button 2 Tailwind Classes', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['btn2_classes'] ?? 'inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold rounded-full backdrop-blur btn-cta-outline',
@@ -149,12 +151,12 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
 
         /* ── Global settings ── */
         $this->start_controls_section( 'section_global', [
-            'label' => __( 'Slider Settings', 'iatbd' ),
+            'label' => __( 'Slider Settings', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( 'autoplay', [
-            'label'        => __( 'Autoplay', 'iatbd' ),
+            'label'        => __( 'Autoplay', 'iatbd-core' ),
             'type'         => \Elementor\Controls_Manager::SWITCHER,
             'label_on'     => 'Yes',
             'label_off'    => 'No',
@@ -163,14 +165,14 @@ class IATBD_Hero_Slider_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( 'autoplay_speed', [
-            'label'     => __( 'Autoplay Speed (ms)', 'iatbd' ),
+            'label'     => __( 'Autoplay Speed (ms)', 'iatbd-core' ),
             'type'      => \Elementor\Controls_Manager::NUMBER,
             'default'   => 5000,
             'condition' => [ 'autoplay' => 'yes' ],
         ] );
 
         $this->add_control( 'transition_speed', [
-            'label'   => __( 'Transition Speed (ms)', 'iatbd' ),
+            'label'   => __( 'Transition Speed (ms)', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::NUMBER,
             'default' => 700,
         ] );

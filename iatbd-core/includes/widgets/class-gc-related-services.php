@@ -24,7 +24,7 @@ class GC_Related_Services_Widget extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Related Services', 'softro-core' );
+		return esc_html__( 'IATBD Related Services', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -43,11 +43,11 @@ class GC_Related_Services_Widget extends Widget_Base {
 
 		/* ---------- Header ---------- */
 		$this->start_controls_section( 'section_header', [
-			'label' => esc_html__( 'Header', 'softro-core' ),
+			'label' => esc_html__( 'Header', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Small Title', 'softro-core' ),
+			'label'   => esc_html__( 'Small Title', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default' => 'Related services',
@@ -57,35 +57,35 @@ class GC_Related_Services_Widget extends Widget_Base {
 
 		/* ---------- Services (repeater) ---------- */
 		$this->start_controls_section( 'section_items', [
-			'label' => esc_html__( 'Services', 'softro-core' ),
+			'label' => esc_html__( 'Services', 'iatbd-core' ),
 		] );
 
 		$repeater = new Repeater();
 
 		$repeater->add_control( 'icon', [
-			'label'       => esc_html__( 'Icon Class', 'softro-core' ),
-			'description' => esc_html__( 'Font Awesome class, e.g. fas fa-microchip', 'softro-core' ),
+			'label'       => esc_html__( 'Icon Class', 'iatbd-core' ),
+			'description' => esc_html__( 'Font Awesome class, e.g. fas fa-microchip', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'fas fa-microchip',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'title', [
-			'label'       => esc_html__( 'Title', 'softro-core' ),
+			'label'       => esc_html__( 'Title', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Service Name',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'subtitle', [
-			'label'       => esc_html__( 'Short Text', 'softro-core' ),
+			'label'       => esc_html__( 'Short Text', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Short description',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'link', [
-			'label'         => esc_html__( 'Link', 'softro-core' ),
+			'label'         => esc_html__( 'Link', 'iatbd-core' ),
 			'type'          => Controls_Manager::URL,
 			'placeholder'   => 'https://your-link.com',
 			'default'       => [ 'url' => '#' ],
@@ -93,23 +93,23 @@ class GC_Related_Services_Widget extends Widget_Base {
 		] );
 
 		$repeater->add_control( 'tone', [
-			'label'   => esc_html__( 'Icon Color', 'softro-core' ),
+			'label'   => esc_html__( 'Icon Color', 'iatbd-core' ),
 			'type'    => Controls_Manager::SELECT,
 			'default' => 'primary',
 			'options' => [
-				'primary' => esc_html__( 'Primary', 'softro-core' ),
-				'orange'  => esc_html__( 'Orange', 'softro-core' ),
-				'emerald' => esc_html__( 'Green', 'softro-core' ),
-				'rose'    => esc_html__( 'Rose', 'softro-core' ),
+				'primary' => esc_html__( 'Primary', 'iatbd-core' ),
+				'orange'  => esc_html__( 'Orange', 'iatbd-core' ),
+				'emerald' => esc_html__( 'Green', 'iatbd-core' ),
+				'rose'    => esc_html__( 'Rose', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'items', [
-			'label'       => esc_html__( 'Items', 'softro-core' ),
+			'label'       => esc_html__( 'Items', 'iatbd-core' ),
 			'type'        => Controls_Manager::REPEATER,
 			'fields'      => $repeater->get_controls(),
 			'title_field' => '{{{ title }}}',
-			'button_text' => esc_html__( 'Add Service', 'softro-core' ),
+			'button_text' => esc_html__( 'Add Service', 'iatbd-core' ),
 			'default'     => [
 				[
 					'icon'     => 'fas fa-microchip',

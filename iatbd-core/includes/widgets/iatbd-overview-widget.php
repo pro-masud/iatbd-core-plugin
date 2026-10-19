@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * IATBD Overview Section (fixed fields, no repeater, no Elementor icon picker)
  *
@@ -12,7 +16,7 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'IATBD Overview', 'elementor-test' );
+		return esc_html__( 'IATBD Overview', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -38,25 +42,25 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 
 		// ---- Image ----
 		$this->start_controls_section( 'image_section', [
-			'label' => esc_html__( 'Image', 'elementor-test' ),
+			'label' => esc_html__( 'Image', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'image', [
-			'label'   => esc_html__( 'Image', 'elementor-test' ),
+			'label'   => esc_html__( 'Image', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::MEDIA,
 			'default' => [ 'url' => 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1000&q=80' ],
 		] );
 
 		$this->add_control( 'image_alt', [
-			'label'       => esc_html__( 'Image Alt Text', 'elementor-test' ),
+			'label'       => esc_html__( 'Image Alt Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Servo Drive System',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'badge_text', [
-			'label'       => esc_html__( 'Badge Text (on image)', 'elementor-test' ),
+			'label'       => esc_html__( 'Badge Text (on image)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Closed-loop control',
 			'label_block' => true,
@@ -67,27 +71,27 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 
 		// ---- Text ----
 		$this->start_controls_section( 'text_section', [
-			'label' => esc_html__( 'Text', 'elementor-test' ),
+			'label' => esc_html__( 'Text', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'       => esc_html__( 'Small Title', 'elementor-test' ),
+			'label'       => esc_html__( 'Small Title', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Overview',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'heading', [
-			'label'       => esc_html__( 'Heading', 'elementor-test' ),
-			'description' => esc_html__( 'New line = line break.', 'elementor-test' ),
+			'label'       => esc_html__( 'Heading', 'iatbd-core' ),
+			'description' => esc_html__( 'New line = line break.', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXTAREA,
 			'rows'        => 2,
 			'default'     => "Precision motion\nfor modern machines",
 		] );
 
 		$this->add_control( 'description', [
-			'label'   => esc_html__( 'Description', 'elementor-test' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'rows'    => 5,
 			'default' => 'Servo systems deliver exact position, speed and torque. IATBD covers motor–drive matching, wiring, auto-tuning, multi-axis coordination and long-term support — so your axes stay accurate under real production loads.',
@@ -97,12 +101,12 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 
 		// ---- Checklist ----
 		$this->start_controls_section( 'list_section', [
-			'label' => esc_html__( 'Checklist', 'elementor-test' ),
+			'label' => esc_html__( 'Checklist', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'list_icon', [
-			'label'       => esc_html__( 'List Icon (Font Awesome class)', 'elementor-test' ),
+			'label'       => esc_html__( 'List Icon (Font Awesome class)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'fas fa-check',
 			'placeholder' => 'fas fa-check',
@@ -117,7 +121,7 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 
 		foreach ( $list_defaults as $n => $text ) {
 			$this->add_control( "list{$n}", [
-				'label'       => sprintf( esc_html__( 'Item %d', 'elementor-test' ), $n ),
+				'label'       => sprintf( esc_html__( 'Item %d', 'iatbd-core' ), $n ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $text,
 				'label_block' => true,
@@ -128,25 +132,25 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 
 		// ---- Link ----
 		$this->start_controls_section( 'link_section', [
-			'label' => esc_html__( 'Bottom Link', 'elementor-test' ),
+			'label' => esc_html__( 'Bottom Link', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'link_text', [
-			'label'       => esc_html__( 'Link Text', 'elementor-test' ),
+			'label'       => esc_html__( 'Link Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Discuss your axes',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'link_url', [
-			'label'   => esc_html__( 'Link URL', 'elementor-test' ),
+			'label'   => esc_html__( 'Link URL', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
 			'default' => [ 'url' => '#contact' ],
 		] );
 
 		$this->add_control( 'link_icon', [
-			'label'       => esc_html__( 'Link Icon (Font Awesome class)', 'elementor-test' ),
+			'label'       => esc_html__( 'Link Icon (Font Awesome class)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'fas fa-arrow-right',
 			'placeholder' => 'fas fa-arrow-right',
@@ -182,35 +186,51 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 				<div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
 					<div class="lg:col-span-6 order-2 lg:order-1 relative">
-						<?php if ( ! empty( $s['image']['url'] ) ) : ?>
+						<?php
+ if ( ! empty( $s['image']['url'] ) ) : ?>
 							<div class="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800">
 								<div class="h-72 sm:h-[380px] overflow-hidden">
 									<img
-										src="<?php echo esc_url( $s['image']['url'] ); ?>"
-										alt="<?php echo esc_attr( $s['image_alt'] ); ?>"
+										src="<?php
+ echo esc_url( $s['image']['url'] ); ?>"
+										alt="<?php
+ echo esc_attr( $s['image_alt'] ); ?>"
 										class="iatbd-widget-image"
 									/>
 								</div>
 							</div>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 
-						<?php if ( ! empty( $s['badge_text'] ) ) : ?>
-							<div class="absolute -top-4 -right-2 sm:right-4 bg-accent-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"><?php echo esc_html( $s['badge_text'] ); ?></div>
-						<?php endif; ?>
+						<?php
+ if ( ! empty( $s['badge_text'] ) ) : ?>
+							<div class="absolute -top-4 -right-2 sm:right-4 bg-accent-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"><?php
+ echo esc_html( $s['badge_text'] ); ?></div>
+						<?php
+ endif; ?>
 					</div>
 
 					<div class="lg:col-span-6 order-1 lg:order-2">
-						<?php if ( ! empty( $s['eyebrow'] ) ) : ?>
-							<p class="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3"><?php echo esc_html( $s['eyebrow'] ); ?></p>
-						<?php endif; ?>
+						<?php
+ if ( ! empty( $s['eyebrow'] ) ) : ?>
+							<p class="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-3"><?php
+ echo esc_html( $s['eyebrow'] ); ?></p>
+						<?php
+ endif; ?>
 
-						<?php if ( ! empty( $s['heading'] ) ) : ?>
-							<h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-5"><?php echo wp_kses_post( nl2br( esc_html( $s['heading'] ) ) ); ?></h2>
-						<?php endif; ?>
+						<?php
+ if ( ! empty( $s['heading'] ) ) : ?>
+							<h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-5"><?php
+ echo wp_kses_post( nl2br( esc_html( $s['heading'] ) ) ); ?></h2>
+						<?php
+ endif; ?>
 
-						<?php if ( ! empty( $s['description'] ) ) : ?>
-							<p class="text-[17px] text-slate-600 dark:text-slate-300 leading-relaxed mb-6"><?php echo esc_html( $s['description'] ); ?></p>
-						<?php endif; ?>
+						<?php
+ if ( ! empty( $s['description'] ) ) : ?>
+							<p class="text-[17px] text-slate-600 dark:text-slate-300 leading-relaxed mb-6"><?php
+ echo esc_html( $s['description'] ); ?></p>
+						<?php
+ endif; ?>
 
 						<ul class="space-y-3 mb-8">
 							<?php
@@ -221,23 +241,35 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 								?>
 								<li class="flex items-center gap-3 text-[17px] text-slate-700 dark:text-slate-300">
 									<span class="w-6 h-6 rounded-lg bg-primary-100 dark:bg-primary-900/40 flex items-center justify-center shrink-0">
-										<?php if ( ! empty( $s['list_icon'] ) ) : ?>
-											<i class="<?php echo $this->icon_class( $s['list_icon'] ); ?> text-[10px] text-primary-600"></i>
-										<?php endif; ?>
+										<?php
+ if ( ! empty( $s['list_icon'] ) ) : ?>
+											<i class="<?php
+ echo $this->icon_class( $s['list_icon'] ); ?> text-[10px] text-primary-600"></i>
+										<?php
+ endif; ?>
 									</span>
-									<?php echo esc_html( $s[ "list{$n}" ] ); ?>
+									<?php
+ echo esc_html( $s[ "list{$n}" ] ); ?>
 								</li>
-							<?php endfor; ?>
+							<?php
+ endfor; ?>
 						</ul>
 
-						<?php if ( ! empty( $s['link_text'] ) ) : ?>
-							<a <?php $this->print_render_attribute_string( 'link_a' ); ?>>
-								<?php echo esc_html( $s['link_text'] ); ?>
-								<?php if ( ! empty( $s['link_icon'] ) ) : ?>
-									<i class="<?php echo $this->icon_class( $s['link_icon'] ); ?> text-xs"></i>
-								<?php endif; ?>
+						<?php
+ if ( ! empty( $s['link_text'] ) ) : ?>
+							<a <?php
+ $this->print_render_attribute_string( 'link_a' ); ?>>
+								<?php
+ echo esc_html( $s['link_text'] ); ?>
+								<?php
+ if ( ! empty( $s['link_icon'] ) ) : ?>
+									<i class="<?php
+ echo $this->icon_class( $s['link_icon'] ); ?> text-xs"></i>
+								<?php
+ endif; ?>
 							</a>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 					</div>
 
 				</div>

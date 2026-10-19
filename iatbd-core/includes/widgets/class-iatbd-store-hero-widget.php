@@ -10,9 +10,8 @@ class IATBD_Store_Hero_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'Store Hero Slider';
+		return esc_html__( 'IATBD Store Hero Slider', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-slider-full-screen';
 	}

@@ -17,7 +17,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Industrial CTA', 'softro-core' );
+		return esc_html__( 'IATBD Industrial CTA', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons' ];
 	}
 
 	protected function register_controls() {
@@ -34,7 +34,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'content_section',
 			[
-				'label' => esc_html__( 'Content', 'softro-core' ),
+				'label' => esc_html__( 'Content', 'iatbd-core' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -42,29 +42,29 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'section_id',
 			[
-				'label'       => esc_html__( 'Section ID', 'softro-core' ),
+				'label'       => esc_html__( 'Section ID', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => 'contact',
-				'description' => esc_html__( 'Used for anchor links, e.g. #contact', 'softro-core' ),
+				'description' => esc_html__( 'Used for anchor links, e.g. #contact', 'iatbd-core' ),
 			]
 		);
 
 		$this->add_control(
 			'badge_icon',
 			[
-				'label'       => esc_html__( 'Badge Icon Class', 'softro-core' ),
+				'label'       => esc_html__( 'Badge Icon Class', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => 'fas fa-bolt',
-				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-bolt', 'softro-core' ),
+				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-bolt', 'iatbd-core' ),
 			]
 		);
 
 		$this->add_control(
 			'badge_text',
 			[
-				'label'   => esc_html__( 'Badge Text', 'softro-core' ),
+				'label'   => esc_html__( 'Badge Text', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Start with one use case',
@@ -74,7 +74,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'heading',
 			[
-				'label'   => esc_html__( 'Heading', 'softro-core' ),
+				'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Bring practical AI to your production line',
@@ -84,7 +84,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'description',
 			[
-				'label'   => esc_html__( 'Description', 'softro-core' ),
+				'label'   => esc_html__( 'Description', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'    => 4,
 				'default' => 'Tell us about your equipment and process. Our automation team can help identify a focused first step.',
@@ -97,7 +97,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'buttons_section',
 			[
-				'label' => esc_html__( 'Buttons', 'softro-core' ),
+				'label' => esc_html__( 'Buttons', 'iatbd-core' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -107,7 +107,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'text',
 			[
-				'label'   => esc_html__( 'Text', 'softro-core' ),
+				'label'   => esc_html__( 'Text', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Button',
@@ -117,18 +117,18 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'icon_class',
 			[
-				'label'       => esc_html__( 'Icon Class', 'softro-core' ),
+				'label'       => esc_html__( 'Icon Class', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default'     => 'fas fa-envelope',
-				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-envelope', 'softro-core' ),
+				'description' => esc_html__( 'Font Awesome class, e.g. fas fa-envelope', 'iatbd-core' ),
 			]
 		);
 
 		$repeater->add_control(
 			'link',
 			[
-				'label'       => esc_html__( 'Link', 'softro-core' ),
+				'label'       => esc_html__( 'Link', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::URL,
 				'placeholder' => 'https://your-link.com',
 				'default'     => [
@@ -141,12 +141,12 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'style',
 			[
-				'label'   => esc_html__( 'Style', 'softro-core' ),
+				'label'   => esc_html__( 'Style', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'default' => 'primary',
 				'options' => [
-					'primary' => esc_html__( 'Primary (solid)', 'softro-core' ),
-					'outline' => esc_html__( 'Outline', 'softro-core' ),
+					'primary' => esc_html__( 'Primary (solid)', 'iatbd-core' ),
+					'outline' => esc_html__( 'Outline', 'iatbd-core' ),
 				],
 			]
 		);
@@ -154,7 +154,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'buttons',
 			[
-				'label'       => esc_html__( 'Buttons', 'softro-core' ),
+				'label'       => esc_html__( 'Buttons', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::REPEATER,
 				'fields'      => $repeater->get_controls(),
 				'title_field' => '{{{ text }}}',
@@ -181,7 +181,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'images_section',
 			[
-				'label' => esc_html__( 'Images', 'softro-core' ),
+				'label' => esc_html__( 'Images', 'iatbd-core' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -189,7 +189,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'bg_image',
 			[
-				'label'   => esc_html__( 'Background Image', 'softro-core' ),
+				'label'   => esc_html__( 'Background Image', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::MEDIA,
 				'default' => [
 					'url' => 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1920&q=85',
@@ -200,7 +200,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'bg_image_alt',
 			[
-				'label'   => esc_html__( 'Background Image Alt', 'softro-core' ),
+				'label'   => esc_html__( 'Background Image Alt', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Industrial automation equipment in a factory',
@@ -210,7 +210,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'side_image',
 			[
-				'label'     => esc_html__( 'Side Image (desktop only)', 'softro-core' ),
+				'label'     => esc_html__( 'Side Image (desktop only)', 'iatbd-core' ),
 				'type'      => \Elementor\Controls_Manager::MEDIA,
 				'separator' => 'before',
 				'default'   => [
@@ -222,7 +222,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'side_image_alt',
 			[
-				'label'   => esc_html__( 'Side Image Alt', 'softro-core' ),
+				'label'   => esc_html__( 'Side Image Alt', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'Engineer reviewing industrial control equipment',
@@ -232,7 +232,7 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'side_caption',
 			[
-				'label'   => esc_html__( 'Side Image Caption', 'softro-core' ),
+				'label'   => esc_html__( 'Side Image Caption', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
 				'default' => 'PLC · HMI · VFD · AI',

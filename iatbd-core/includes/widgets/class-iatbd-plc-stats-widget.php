@@ -10,9 +10,8 @@ class IATBD_PLC_Stats_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Stats';
+		return esc_html__( 'IATBD PLC Stats', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-counter';
 	}

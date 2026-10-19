@@ -15,7 +15,7 @@ class GC_Contact_CTA_Widget extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Contact CTA', 'softro-core' );
+		return esc_html__( 'IATBD Contact CTA', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -34,26 +34,26 @@ class GC_Contact_CTA_Widget extends Widget_Base {
 
 		/* ---------- Content ---------- */
 		$this->start_controls_section( 'section_content', [
-			'label' => esc_html__( 'Content', 'softro-core' ),
+			'label' => esc_html__( 'Content', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'section_id', [
-			'label'       => esc_html__( 'Section ID (anchor)', 'softro-core' ),
+			'label'       => esc_html__( 'Section ID (anchor)', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default'     => 'contact',
-			'description' => esc_html__( 'Used for #contact style links. Leave empty for none.', 'softro-core' ),
+			'description' => esc_html__( 'Used for #contact style links. Leave empty for none.', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'heading', [
-			'label'       => esc_html__( 'Heading', 'softro-core' ),
+			'label'       => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Need precise motion control?',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'description', [
-			'label'   => esc_html__( 'Description', 'softro-core' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXTAREA,
 			'rows'    => 3,
 			'default' => 'Tell us about your axes — sizing, tuning or repair. We respond fast.',
@@ -63,28 +63,28 @@ class GC_Contact_CTA_Widget extends Widget_Base {
 
 		/* ---------- Buttons (repeater) ---------- */
 		$this->start_controls_section( 'section_buttons', [
-			'label' => esc_html__( 'Buttons', 'softro-core' ),
+			'label' => esc_html__( 'Buttons', 'iatbd-core' ),
 		] );
 
 		$repeater = new Repeater();
 
 		$repeater->add_control( 'text', [
-			'label'       => esc_html__( 'Button Text', 'softro-core' ),
+			'label'       => esc_html__( 'Button Text', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Button',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'icon', [
-			'label'       => esc_html__( 'Icon Class (optional)', 'softro-core' ),
-			'description' => esc_html__( 'Font Awesome class, e.g. fas fa-phone-alt or fab fa-whatsapp', 'softro-core' ),
+			'label'       => esc_html__( 'Icon Class (optional)', 'iatbd-core' ),
+			'description' => esc_html__( 'Font Awesome class, e.g. fas fa-phone-alt or fab fa-whatsapp', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => '',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'link', [
-			'label'         => esc_html__( 'Link', 'softro-core' ),
+			'label'         => esc_html__( 'Link', 'iatbd-core' ),
 			'type'          => Controls_Manager::URL,
 			'placeholder'   => 'tel:+8801XXXXXXXXX',
 			'default'       => [ 'url' => '#' ],
@@ -92,22 +92,22 @@ class GC_Contact_CTA_Widget extends Widget_Base {
 		] );
 
 		$repeater->add_control( 'style', [
-			'label'   => esc_html__( 'Style', 'softro-core' ),
+			'label'   => esc_html__( 'Style', 'iatbd-core' ),
 			'type'    => Controls_Manager::SELECT,
 			'default' => 'light',
 			'options' => [
-				'light'   => esc_html__( 'White (Call)', 'softro-core' ),
-				'success' => esc_html__( 'Green (WhatsApp)', 'softro-core' ),
-				'outline' => esc_html__( 'Outline (Message)', 'softro-core' ),
+				'light'   => esc_html__( 'White (Call)', 'iatbd-core' ),
+				'success' => esc_html__( 'Green (WhatsApp)', 'iatbd-core' ),
+				'outline' => esc_html__( 'Outline (Message)', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'buttons', [
-			'label'       => esc_html__( 'Buttons', 'softro-core' ),
+			'label'       => esc_html__( 'Buttons', 'iatbd-core' ),
 			'type'        => Controls_Manager::REPEATER,
 			'fields'      => $repeater->get_controls(),
 			'title_field' => '{{{ text }}}',
-			'button_text' => esc_html__( 'Add Button', 'softro-core' ),
+			'button_text' => esc_html__( 'Add Button', 'iatbd-core' ),
 			'default'     => [
 				[
 					'text'  => 'Call Now',

@@ -4,7 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
 
     public function get_name()       { return 'iatbd_solutions'; }
-    public function get_title()      { return 'IATBD Solutions'; }
+    public function get_title() {
+		return esc_html__( 'IATBD Solutions', 'iatbd-core' );
+	}
     public function get_icon()       { return 'eicon-gallery-grid'; }
     public function get_categories() { return [ 'iatbd-addons' ]; }
 
@@ -12,25 +14,25 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
     private function card_controls( $n, $defaults ) {
 
         $this->start_controls_section( "card_{$n}", [
-            'label' => __( "Card {$n}", 'iatbd' ),
+            'label' => __( "Card {$n}", 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( "c{$n}_image", [
-            'label'   => __( 'Image', 'iatbd' ),
+            'label'   => __( 'Image', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::MEDIA,
             'default' => [ 'url' => $defaults['image'] ],
         ] );
 
         $this->add_control( "c{$n}_image_alt", [
-            'label'   => __( 'Image Alt Text', 'iatbd' ),
+            'label'   => __( 'Image Alt Text', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $defaults['alt'],
         ] );
 
         $this->add_control( "c{$n}_icon", [
-            'label'       => __( 'Icon (Font Awesome class)', 'iatbd' ),
+            'label'       => __( 'Icon (Font Awesome class)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['icon'],
@@ -38,7 +40,7 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "c{$n}_icon_bg", [
-            'label'       => __( 'Icon Badge BG (Tailwind)', 'iatbd' ),
+            'label'       => __( 'Icon Badge BG (Tailwind)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $defaults['icon_bg'],
@@ -46,14 +48,14 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( "c{$n}_title", [
-            'label'   => __( 'Title', 'iatbd' ),
+            'label'   => __( 'Title', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $defaults['title'],
         ] );
 
         $this->add_control( "c{$n}_desc", [
-            'label'   => __( 'Description', 'iatbd' ),
+            'label'   => __( 'Description', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXTAREA,
             'rows'    => 3,
             'default' => $defaults['desc'],
@@ -66,33 +68,33 @@ class IATBD_Solutions_Widget extends \Elementor\Widget_Base {
 
         /* ── Section Header ── */
         $this->start_controls_section( 'section_header', [
-            'label' => __( 'Section Header', 'iatbd' ),
+            'label' => __( 'Section Header', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( 'section_id', [
-            'label'   => __( 'Section ID', 'iatbd' ),
+            'label'   => __( 'Section ID', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'solutions',
         ] );
 
         $this->add_control( 'eyebrow', [
-            'label'   => __( 'Eyebrow Text', 'iatbd' ),
+            'label'   => __( 'Eyebrow Text', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'AI Applications',
         ] );
 
         $this->add_control( 'heading', [
-            'label'   => __( 'Heading', 'iatbd' ),
+            'label'   => __( 'Heading', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Make machine data useful',
         ] );
 
         $this->add_control( 'description', [
-            'label'   => __( 'Description', 'iatbd' ),
+            'label'   => __( 'Description', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXTAREA,
             'rows'    => 3,
             'default' => 'Practical AI starts with reliable signals from your equipment. We help identify the right use case and connect it to your existing automation systems.',

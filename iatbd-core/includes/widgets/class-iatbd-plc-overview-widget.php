@@ -10,9 +10,8 @@ class IATBD_PLC_Overview_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Overview';
+		return esc_html__( 'IATBD PLC Overview', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-image-box';
 	}

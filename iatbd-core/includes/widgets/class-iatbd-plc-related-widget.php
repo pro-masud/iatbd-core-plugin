@@ -10,9 +10,8 @@ class IATBD_PLC_Related_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Related Services';
+		return esc_html__( 'IATBD PLC Related Services', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-posts-grid';
 	}

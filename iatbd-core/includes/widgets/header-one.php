@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * IATBD Header (simple: WordPress menu, no repeater, no Elementor icon picker)
  *
@@ -6,14 +10,14 @@
  * (#theme-toggle, #mobile-menu-btn, #mobile-menu), so your existing
  * global JS keeps working. Only the content is made editable.
  */
-class Widget_1 extends \Elementor\Widget_Base {
+class IATBD_Header_Widget extends \Elementor\Widget_Base {
 
 	public function get_name() {
 		return 'iatbd_header';
 	}
 
 	public function get_title() {
-		return esc_html__( 'IATBD Header', 'elementor-test' );
+		return esc_html__( 'IATBD Header', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -39,12 +43,12 @@ class Widget_1 extends \Elementor\Widget_Base {
 
 		// ---- Logo ----
 		$this->start_controls_section( 'logo_section', [
-			'label' => esc_html__( 'Logo', 'elementor-test' ),
+			'label' => esc_html__( 'Logo', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'logo_icon', [
-			'label'       => esc_html__( 'Logo Icon (Font Awesome class)', 'elementor-test' ),
+			'label'       => esc_html__( 'Logo Icon (Font Awesome class)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'fas fa-microchip',
 			'placeholder' => 'fas fa-microchip',
@@ -52,21 +56,21 @@ class Widget_1 extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'logo_text', [
-			'label'       => esc_html__( 'Logo Text', 'elementor-test' ),
+			'label'       => esc_html__( 'Logo Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'IATBD',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'logo_tagline', [
-			'label'       => esc_html__( 'Tagline', 'elementor-test' ),
+			'label'       => esc_html__( 'Tagline', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Industrial Automation',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'logo_link', [
-			'label'   => esc_html__( 'Logo Link', 'elementor-test' ),
+			'label'   => esc_html__( 'Logo Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
 			'default' => [ 'url' => '#' ],
 		] );
@@ -75,7 +79,7 @@ class Widget_1 extends \Elementor\Widget_Base {
 
 		// ---- Menu ----
 		$this->start_controls_section( 'menu_section', [
-			'label' => esc_html__( 'Menu', 'elementor-test' ),
+			'label' => esc_html__( 'Menu', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
@@ -83,15 +87,15 @@ class Widget_1 extends \Elementor\Widget_Base {
 		$menu_keys    = array_keys( $menu_options );
 
 		$this->add_control( 'wp_menu', [
-			'label'       => esc_html__( 'Select Menu', 'elementor-test' ),
+			'label'       => esc_html__( 'Select Menu', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::SELECT,
 			'options'     => $menu_options,
 			'default'     => count( $menu_options ) > 1 ? $menu_keys[1] : '',
 			'label_block' => true,
 			'description' => sprintf(
 				/* translators: %s: link to Menus screen */
-				esc_html__( 'Sub menus become the dropdown automatically. Create or edit menus from %s.', 'elementor-test' ),
-				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" target="_blank">' . esc_html__( 'Appearance → Menus', 'elementor-test' ) . '</a>'
+				esc_html__( 'Sub menus become the dropdown automatically. Create or edit menus from %s.', 'iatbd-core' ),
+				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" target="_blank">' . esc_html__( 'Appearance → Menus', 'iatbd-core' ) . '</a>'
 			),
 		] );
 
@@ -99,19 +103,19 @@ class Widget_1 extends \Elementor\Widget_Base {
 
 		// ---- Contact button ----
 		$this->start_controls_section( 'cta_section', [
-			'label' => esc_html__( 'Contact Button', 'elementor-test' ),
+			'label' => esc_html__( 'Contact Button', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'cta_text', [
-			'label'       => esc_html__( 'Button Text', 'elementor-test' ),
+			'label'       => esc_html__( 'Button Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Contact',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'cta_link', [
-			'label'   => esc_html__( 'Button Link', 'elementor-test' ),
+			'label'   => esc_html__( 'Button Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
 			'default' => [ 'url' => '#contact' ],
 		] );
@@ -125,7 +129,7 @@ class Widget_1 extends \Elementor\Widget_Base {
 
 	/** All WordPress menus for the select control. */
 	private function get_menu_options() {
-		$options = [ '' => esc_html__( '— Select Menu —', 'elementor-test' ) ];
+		$options = [ '' => esc_html__( '— Select Menu —', 'iatbd-core' ) ];
 		$menus   = wp_get_nav_menus();
 		if ( ! empty( $menus ) && ! is_wp_error( $menus ) ) {
 			foreach ( $menus as $menu ) {
@@ -176,6 +180,9 @@ class Widget_1 extends \Elementor\Widget_Base {
 	/** Desktop nav (top level + dropdown for items that have sub menus). */
 	private function render_desktop( $tree ) {
 		if ( empty( $tree[0] ) ) {
+			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
+				echo '<span class="text-xs text-amber-500 font-medium px-2 py-1 bg-amber-50 dark:bg-amber-900/30 rounded border border-amber-200 dark:border-amber-800">' . esc_html__( 'Please select a menu in Header settings', 'iatbd-core' ) . '</span>';
+			}
 			return;
 		}
 		foreach ( $tree[0] as $item ) {
@@ -256,23 +263,32 @@ class Widget_1 extends \Elementor\Widget_Base {
 				<div class="flex items-center justify-between h-16 lg:h-[70px]">
 
 					<!-- Logo -->
-					<a <?php $this->print_render_attribute_string( 'logo_a' ); ?>>
-						<?php if ( ! empty( $s['logo_icon'] ) ) : ?>
+					<a <?php
+ $this->print_render_attribute_string( 'logo_a' ); ?>>
+						<?php
+ if ( ! empty( $s['logo_icon'] ) ) : ?>
 							<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-md shadow-primary-500/20">
-								<i class="<?php echo $this->icon_class( $s['logo_icon'] ); ?> text-white text-sm"></i>
+								<i class="<?php
+ echo $this->icon_class( $s['logo_icon'] ); ?> text-white text-sm"></i>
 							</div>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 						<div>
-							<span class="font-display font-bold text-lg text-slate-900 dark:text-white tracking-tight"><?php echo esc_html( $s['logo_text'] ); ?></span>
-							<?php if ( ! empty( $s['logo_tagline'] ) ) : ?>
-								<p class="text-[9px] text-slate-400 tracking-[0.2em] uppercase -mt-0.5"><?php echo esc_html( $s['logo_tagline'] ); ?></p>
-							<?php endif; ?>
+							<span class="font-display font-bold text-lg text-slate-900 dark:text-white tracking-tight"><?php
+ echo esc_html( $s['logo_text'] ); ?></span>
+							<?php
+ if ( ! empty( $s['logo_tagline'] ) ) : ?>
+								<p class="text-[9px] text-slate-400 tracking-[0.2em] uppercase -mt-0.5"><?php
+ echo esc_html( $s['logo_tagline'] ); ?></p>
+							<?php
+ endif; ?>
 						</div>
 					</a>
 
 					<!-- Desktop Navigation -->
 					<nav class="hidden lg:flex items-center gap-1">
-						<?php $this->render_desktop( $tree ); ?>
+						<?php
+ $this->render_desktop( $tree ); ?>
 					</nav>
 
 					<!-- Actions -->
@@ -288,9 +304,13 @@ class Widget_1 extends \Elementor\Widget_Base {
 							<i class="fas fa-moon theme-icon-moon text-xs text-slate-200"></i>
 						</button>
 
-						<?php if ( $has_cta ) : ?>
-							<a <?php $this->print_render_attribute_string( 'cta_a' ); ?>><?php echo esc_html( $s['cta_text'] ); ?></a>
-						<?php endif; ?>
+						<?php
+ if ( $has_cta ) : ?>
+							<a <?php
+ $this->print_render_attribute_string( 'cta_a' ); ?>><?php
+ echo esc_html( $s['cta_text'] ); ?></a>
+						<?php
+ endif; ?>
 
 						<button
 							id="mobile-menu-btn"
@@ -309,14 +329,23 @@ class Widget_1 extends \Elementor\Widget_Base {
 			<!-- Mobile Navigation Menu -->
 			<div id="mobile-menu" class="lg:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
 				<div class="px-4 py-3 space-y-1">
-					<?php $this->render_mobile( $tree, 0, 0 ); ?>
-					<?php if ( $has_cta ) : ?>
-						<a <?php $this->print_render_attribute_string( 'cta_mob' ); ?>><?php echo esc_html( $s['cta_text'] ); ?></a>
-					<?php endif; ?>
+					<?php
+ $this->render_mobile( $tree, 0, 0 ); ?>
+					<?php
+ if ( $has_cta ) : ?>
+						<a <?php
+ $this->print_render_attribute_string( 'cta_mob' ); ?>><?php
+ echo esc_html( $s['cta_text'] ); ?></a>
+					<?php
+ endif; ?>
 				</div>
 			</div>
 		</header>
 
 		<?php
 	}
+}
+
+if ( ! class_exists( 'Widget_1' ) ) {
+	class_alias( 'IATBD_Header_Widget', 'Widget_1' );
 }

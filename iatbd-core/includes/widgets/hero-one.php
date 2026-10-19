@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * IATBD Servo Hero (3 fixed slides, no repeater)
  *
@@ -13,7 +17,7 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Servo Hero Slider', 'elementor-test' );
+		return esc_html__( 'Servo Hero Slider', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -94,18 +98,18 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 		foreach ( $defaults as $n => $d ) {
 
 			$this->start_controls_section( "slide{$n}_section", [
-				'label' => sprintf( esc_html__( 'Slide %d', 'elementor-test' ), $n ),
+				'label' => sprintf( esc_html__( 'Slide %d', 'iatbd-core' ), $n ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			] );
 
 			$this->add_control( "s{$n}_bg", [
-				'label'   => esc_html__( 'Background Image', 'elementor-test' ),
+				'label'   => esc_html__( 'Background Image', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::MEDIA,
 				'default' => [ 'url' => $d['bg'] ],
 			] );
 
 			$this->add_control( "s{$n}_badge_icon", [
-				'label'       => esc_html__( 'Badge Icon (Font Awesome class)', 'elementor-test' ),
+				'label'       => esc_html__( 'Badge Icon (Font Awesome class)', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['badge_icon'],
 				'placeholder' => 'fas fa-cog',
@@ -114,29 +118,29 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			] );
 
 			$this->add_control( "s{$n}_badge_text", [
-				'label'       => esc_html__( 'Badge Text', 'elementor-test' ),
+				'label'       => esc_html__( 'Badge Text', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['badge_text'],
 				'label_block' => true,
 			] );
 
 			$this->add_control( "s{$n}_heading", [
-				'label'       => esc_html__( 'Heading', 'elementor-test' ),
-				'description' => esc_html__( 'New line = line break. Put {accent}text{/accent} around the colored part.', 'elementor-test' ),
+				'label'       => esc_html__( 'Heading', 'iatbd-core' ),
+				'description' => esc_html__( 'New line = line break. Put {accent}text{/accent} around the colored part.', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'        => 3,
 				'default'     => $d['heading'],
 			] );
 
 			$this->add_control( "s{$n}_desc", [
-				'label'   => esc_html__( 'Description', 'elementor-test' ),
+				'label'   => esc_html__( 'Description', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'    => 4,
 				'default' => $d['desc'],
 			] );
 
 			$this->add_control( "s{$n}_btn1_text", [
-				'label'       => esc_html__( 'Button 1 Text', 'elementor-test' ),
+				'label'       => esc_html__( 'Button 1 Text', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['btn1_text'],
 				'label_block' => true,
@@ -144,13 +148,13 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			] );
 
 			$this->add_control( "s{$n}_btn1_link", [
-				'label'   => esc_html__( 'Button 1 Link', 'elementor-test' ),
+				'label'   => esc_html__( 'Button 1 Link', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::URL,
 				'default' => [ 'url' => $d['btn1_url'] ],
 			] );
 
 			$this->add_control( "s{$n}_btn1_icon", [
-				'label'       => esc_html__( 'Button 1 Icon (Font Awesome class)', 'elementor-test' ),
+				'label'       => esc_html__( 'Button 1 Icon (Font Awesome class)', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['btn1_icon'],
 				'placeholder' => 'fas fa-arrow-right',
@@ -158,7 +162,7 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			] );
 
 			$this->add_control( "s{$n}_btn2_text", [
-				'label'       => esc_html__( 'Button 2 Text', 'elementor-test' ),
+				'label'       => esc_html__( 'Button 2 Text', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['btn2_text'],
 				'label_block' => true,
@@ -166,7 +170,7 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			] );
 
 			$this->add_control( "s{$n}_btn2_link", [
-				'label'   => esc_html__( 'Button 2 Link', 'elementor-test' ),
+				'label'   => esc_html__( 'Button 2 Link', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::URL,
 				'default' => [ 'url' => $d['btn2_url'] ],
 			] );
@@ -175,27 +179,27 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			if ( 1 === $n ) {
 				foreach ( $features as $k => $f ) {
 					$this->add_control( "s1_f{$k}_heading", [
-						'label'     => sprintf( esc_html__( 'Card Item %d', 'elementor-test' ), $k ),
+						'label'     => sprintf( esc_html__( 'Card Item %d', 'iatbd-core' ), $k ),
 						'type'      => \Elementor\Controls_Manager::HEADING,
 						'separator' => 'before',
 					] );
 
 					$this->add_control( "s1_f{$k}_icon", [
-						'label'       => esc_html__( 'Icon (Font Awesome class)', 'elementor-test' ),
+						'label'       => esc_html__( 'Icon (Font Awesome class)', 'iatbd-core' ),
 						'type'        => \Elementor\Controls_Manager::TEXT,
 						'default'     => $f['icon'],
 						'label_block' => true,
 					] );
 
 					$this->add_control( "s1_f{$k}_title", [
-						'label'       => esc_html__( 'Title', 'elementor-test' ),
+						'label'       => esc_html__( 'Title', 'iatbd-core' ),
 						'type'        => \Elementor\Controls_Manager::TEXT,
 						'default'     => $f['title'],
 						'label_block' => true,
 					] );
 
 					$this->add_control( "s1_f{$k}_text", [
-						'label'       => esc_html__( 'Text', 'elementor-test' ),
+						'label'       => esc_html__( 'Text', 'iatbd-core' ),
 						'type'        => \Elementor\Controls_Manager::TEXT,
 						'default'     => $f['text'],
 						'label_block' => true,
@@ -239,36 +243,61 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			$this->add_link_attributes( "s{$n}_b2", $s[ "s{$n}_btn2_link" ] );
 		}
 		?>
-		<?php if ( ! empty( $s[ "s{$n}_badge_text" ] ) ) : ?>
-			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border <?php echo esc_attr( $t['badge'] ); ?> text-xs font-semibold mb-6 tracking-wide">
-				<?php if ( ! empty( $s[ "s{$n}_badge_icon" ] ) ) : ?>
-					<i class="<?php echo $this->icon_class( $s[ "s{$n}_badge_icon" ] ); ?>" style="animation-duration: 3s"></i>
-				<?php endif; ?>
-				<?php echo esc_html( $s[ "s{$n}_badge_text" ] ); ?>
+		<?php
+ if ( ! empty( $s[ "s{$n}_badge_text" ] ) ) : ?>
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border <?php
+ echo esc_attr( $t['badge'] ); ?> text-xs font-semibold mb-6 tracking-wide">
+				<?php
+ if ( ! empty( $s[ "s{$n}_badge_icon" ] ) ) : ?>
+					<i class="<?php
+ echo $this->icon_class( $s[ "s{$n}_badge_icon" ] ); ?>" style="animation-duration: 3s"></i>
+				<?php
+ endif; ?>
+				<?php
+ echo esc_html( $s[ "s{$n}_badge_text" ] ); ?>
 			</div>
-		<?php endif; ?>
+		<?php
+ endif; ?>
 
-		<?php if ( ! empty( $s[ "s{$n}_heading" ] ) ) : ?>
-			<h1 class="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.12] mb-5"><?php echo wp_kses_post( $this->format_heading( $s[ "s{$n}_heading" ], $t['accent'] ) ); ?></h1>
-		<?php endif; ?>
+		<?php
+ if ( ! empty( $s[ "s{$n}_heading" ] ) ) : ?>
+			<h1 class="font-display text-4xl sm:text-5xl font-bold text-white leading-[1.12] mb-5"><?php
+ echo wp_kses_post( $this->format_heading( $s[ "s{$n}_heading" ], $t['accent'] ) ); ?></h1>
+		<?php
+ endif; ?>
 
-		<?php if ( ! empty( $s[ "s{$n}_desc" ] ) ) : ?>
-			<p class="text-slate-300 text-[17px] leading-relaxed mb-8 <?php echo esc_attr( $t['desc'] ); ?>"><?php echo esc_html( $s[ "s{$n}_desc" ] ); ?></p>
-		<?php endif; ?>
+		<?php
+ if ( ! empty( $s[ "s{$n}_desc" ] ) ) : ?>
+			<p class="text-slate-300 text-[17px] leading-relaxed mb-8 <?php
+ echo esc_attr( $t['desc'] ); ?>"><?php
+ echo esc_html( $s[ "s{$n}_desc" ] ); ?></p>
+		<?php
+ endif; ?>
 
 		<div class="flex flex-wrap gap-3">
-			<?php if ( ! empty( $s[ "s{$n}_btn1_text" ] ) ) : ?>
-				<a <?php $this->print_render_attribute_string( "s{$n}_b1" ); ?>>
-					<?php echo esc_html( $s[ "s{$n}_btn1_text" ] ); ?>
-					<?php if ( ! empty( $s[ "s{$n}_btn1_icon" ] ) ) : ?>
-						<i class="<?php echo $this->icon_class( $s[ "s{$n}_btn1_icon" ] ); ?> text-xs"></i>
-					<?php endif; ?>
+			<?php
+ if ( ! empty( $s[ "s{$n}_btn1_text" ] ) ) : ?>
+				<a <?php
+ $this->print_render_attribute_string( "s{$n}_b1" ); ?>>
+					<?php
+ echo esc_html( $s[ "s{$n}_btn1_text" ] ); ?>
+					<?php
+ if ( ! empty( $s[ "s{$n}_btn1_icon" ] ) ) : ?>
+						<i class="<?php
+ echo $this->icon_class( $s[ "s{$n}_btn1_icon" ] ); ?> text-xs"></i>
+					<?php
+ endif; ?>
 				</a>
-			<?php endif; ?>
+			<?php
+ endif; ?>
 
-			<?php if ( ! empty( $s[ "s{$n}_btn2_text" ] ) ) : ?>
-				<a <?php $this->print_render_attribute_string( "s{$n}_b2" ); ?>><?php echo esc_html( $s[ "s{$n}_btn2_text" ] ); ?></a>
-			<?php endif; ?>
+			<?php
+ if ( ! empty( $s[ "s{$n}_btn2_text" ] ) ) : ?>
+				<a <?php
+ $this->print_render_attribute_string( "s{$n}_b2" ); ?>><?php
+ echo esc_html( $s[ "s{$n}_btn2_text" ] ); ?></a>
+			<?php
+ endif; ?>
 		</div>
 		<?php
 	}
@@ -320,16 +349,22 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 				$t      = $themes[ $n ];
 				$bg_url = ! empty( $s[ "s{$n}_bg" ]['url'] ) ? $s[ "s{$n}_bg" ]['url'] : '';
 				?>
-				<div class="servo-slide<?php echo 1 === $n ? ' active' : ''; ?>" data-i="<?php echo (int) ( $n - 1 ); ?>">
-					<div class="bg-img"<?php echo $bg_url ? ' style="background-image: url(\'' . esc_url( $bg_url ) . '\');"' : ''; ?>></div>
-					<div class="absolute inset-0 <?php echo esc_attr( $t['overlay'] ); ?>"></div>
+				<div class="servo-slide<?php
+ echo 1 === $n ? ' active' : ''; ?>" data-i="<?php
+ echo (int) ( $n - 1 ); ?>">
+					<div class="bg-img"<?php
+ echo $bg_url ? ' style="background-image: url(\'' . esc_url( $bg_url ) . '\');"' : ''; ?>></div>
+					<div class="absolute inset-0 <?php
+ echo esc_attr( $t['overlay'] ); ?>"></div>
 
 					<div class="servo-slide-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-						<?php if ( 1 === $n ) : ?>
+						<?php
+ if ( 1 === $n ) : ?>
 							<div class="grid lg:grid-cols-2 gap-10 items-center">
 								<div>
-									<?php $this->render_text( $s, $n, $t ); ?>
+									<?php
+ $this->render_text( $s, $n, $t ); ?>
 								</div>
 
 								<div class="hidden lg:block">
@@ -341,38 +376,50 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 											}
 											?>
 											<div class="flex items-center gap-4">
-												<div class="w-12 h-12 rounded-2xl <?php echo esc_attr( $card_colors[ $k ]['box'] ); ?> flex items-center justify-center">
-													<?php if ( ! empty( $s[ "s1_f{$k}_icon" ] ) ) : ?>
-														<i class="<?php echo $this->icon_class( $s[ "s1_f{$k}_icon" ] ); ?> <?php echo esc_attr( $card_colors[ $k ]['icon'] ); ?> text-lg"></i>
-													<?php endif; ?>
+												<div class="w-12 h-12 rounded-2xl <?php
+ echo esc_attr( $card_colors[ $k ]['box'] ); ?> flex items-center justify-center">
+													<?php
+ if ( ! empty( $s[ "s1_f{$k}_icon" ] ) ) : ?>
+														<i class="<?php
+ echo $this->icon_class( $s[ "s1_f{$k}_icon" ] ); ?> <?php
+ echo esc_attr( $card_colors[ $k ]['icon'] ); ?> text-lg"></i>
+													<?php
+ endif; ?>
 												</div>
 												<div>
-													<p class="text-white font-semibold"><?php echo esc_html( $s[ "s1_f{$k}_title" ] ); ?></p>
-													<p class="text-slate-400 text-[17px]"><?php echo esc_html( $s[ "s1_f{$k}_text" ] ); ?></p>
+													<p class="text-white font-semibold"><?php
+ echo esc_html( $s[ "s1_f{$k}_title" ] ); ?></p>
+													<p class="text-slate-400 text-[17px]"><?php
+ echo esc_html( $s[ "s1_f{$k}_text" ] ); ?></p>
 												</div>
 											</div>
-										<?php endfor; ?>
+										<?php
+ endfor; ?>
 									</div>
 								</div>
 							</div>
-						<?php else : ?>
+						<?php
+ else : ?>
 							<div class="max-w-2xl">
-								<?php $this->render_text( $s, $n, $t ); ?>
+								<?php
+ $this->render_text( $s, $n, $t ); ?>
 							</div>
-						<?php endif; ?>
+						<?php
+ endif; ?>
 
 					</div>
 				</div>
-			<?php endfor; ?>
+			<?php
+ endfor; ?>
 
 			<div class="hero-nav">
-				<button class="hero-arrow prev" aria-label="Previous slide">
+				<button type="button" class="hero-arrow prev" aria-label="Previous slide">
 					<i class="fas fa-chevron-left text-xs"></i>
 				</button>
-				<button class="servo-dot active" data-i="0"></button>
-				<button class="servo-dot" data-i="1"></button>
-				<button class="servo-dot" data-i="2"></button>
-				<button class="hero-arrow next" aria-label="Next slide">
+				<button type="button" class="servo-dot active" data-i="0"></button>
+				<button type="button" class="servo-dot" data-i="1"></button>
+				<button type="button" class="servo-dot" data-i="2"></button>
+				<button type="button" class="hero-arrow next" aria-label="Next slide">
 					<i class="fas fa-chevron-right text-xs"></i>
 				</button>
 			</div>

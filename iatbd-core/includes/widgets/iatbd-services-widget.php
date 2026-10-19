@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * IATBD Services Section (6 fixed cards, no repeater, no Elementor icon picker)
  *
@@ -12,7 +16,7 @@ class IATBD_Services extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'IATBD Services', 'elementor-test' );
+		return esc_html__( 'IATBD Services', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -80,26 +84,26 @@ class IATBD_Services extends \Elementor\Widget_Base {
 
 		// ---- Section header ----
 		$this->start_controls_section( 'header_section', [
-			'label' => esc_html__( 'Section Header', 'elementor-test' ),
+			'label' => esc_html__( 'Section Header', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'       => esc_html__( 'Small Title', 'elementor-test' ),
+			'label'       => esc_html__( 'Small Title', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Services',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'heading', [
-			'label'       => esc_html__( 'Heading', 'elementor-test' ),
+			'label'       => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Servo services we deliver',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'description', [
-			'label'   => esc_html__( 'Right Side Text', 'elementor-test' ),
+			'label'   => esc_html__( 'Right Side Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'rows'    => 3,
 			'default' => 'From single axis retrofit to multi-axis packaging lines.',
@@ -111,18 +115,18 @@ class IATBD_Services extends \Elementor\Widget_Base {
 		foreach ( $this->get_card_defaults() as $n => $d ) {
 
 			$this->start_controls_section( "card{$n}_section", [
-				'label' => sprintf( esc_html__( 'Card %d', 'elementor-test' ), $n ),
+				'label' => sprintf( esc_html__( 'Card %d', 'iatbd-core' ), $n ),
 				'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 			] );
 
 			$this->add_control( "c{$n}_image", [
-				'label'   => esc_html__( 'Image', 'elementor-test' ),
+				'label'   => esc_html__( 'Image', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::MEDIA,
 				'default' => [ 'url' => $d['image'] ],
 			] );
 
 			$this->add_control( "c{$n}_icon", [
-				'label'       => esc_html__( 'Icon (Font Awesome class)', 'elementor-test' ),
+				'label'       => esc_html__( 'Icon (Font Awesome class)', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['icon'],
 				'placeholder' => 'fas fa-cogs',
@@ -130,14 +134,14 @@ class IATBD_Services extends \Elementor\Widget_Base {
 			] );
 
 			$this->add_control( "c{$n}_title", [
-				'label'       => esc_html__( 'Title', 'elementor-test' ),
+				'label'       => esc_html__( 'Title', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $d['title'],
 				'label_block' => true,
 			] );
 
 			$this->add_control( "c{$n}_desc", [
-				'label'   => esc_html__( 'Description', 'elementor-test' ),
+				'label'   => esc_html__( 'Description', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'    => 4,
 				'default' => $d['desc'],
@@ -179,16 +183,25 @@ class IATBD_Services extends \Elementor\Widget_Base {
 
 				<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
 					<div>
-						<?php if ( ! empty( $s['eyebrow'] ) ) : ?>
-							<p class="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-2"><?php echo esc_html( $s['eyebrow'] ); ?></p>
-						<?php endif; ?>
-						<?php if ( ! empty( $s['heading'] ) ) : ?>
-							<h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white"><?php echo esc_html( $s['heading'] ); ?></h2>
-						<?php endif; ?>
+						<?php
+ if ( ! empty( $s['eyebrow'] ) ) : ?>
+							<p class="text-accent-500 text-xs font-semibold tracking-[0.2em] uppercase mb-2"><?php
+ echo esc_html( $s['eyebrow'] ); ?></p>
+						<?php
+ endif; ?>
+						<?php
+ if ( ! empty( $s['heading'] ) ) : ?>
+							<h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white"><?php
+ echo esc_html( $s['heading'] ); ?></h2>
+						<?php
+ endif; ?>
 					</div>
-					<?php if ( ! empty( $s['description'] ) ) : ?>
-						<p class="text-[17px] text-slate-600 dark:text-slate-300 max-w-sm"><?php echo esc_html( $s['description'] ); ?></p>
-					<?php endif; ?>
+					<?php
+ if ( ! empty( $s['description'] ) ) : ?>
+						<p class="text-[17px] text-slate-600 dark:text-slate-300 max-w-sm"><?php
+ echo esc_html( $s['description'] ); ?></p>
+					<?php
+ endif; ?>
 				</div>
 
 				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -198,22 +211,32 @@ class IATBD_Services extends \Elementor\Widget_Base {
 						?>
 						<article class="svc-card bg-white dark:bg-slate-800/80 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700/80">
 							<div class="relative h-52 sm:h-56 overflow-hidden">
-								<?php if ( $img ) : ?>
-									<img src="<?php echo esc_url( $img ); ?>" alt="" class="iatbd-widget-image" />
-								<?php endif; ?>
+								<?php
+ if ( $img ) : ?>
+									<img src="<?php
+ echo esc_url( $img ); ?>" alt="" class="iatbd-widget-image" />
+								<?php
+ endif; ?>
 								<div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
-								<?php if ( ! empty( $s[ "c{$n}_icon" ] ) ) : ?>
-									<span class="absolute bottom-3 left-3 w-10 h-10 rounded-lg <?php echo esc_attr( $colors[ $n ] ); ?> flex items-center justify-center text-white">
-										<i class="<?php echo $this->icon_class( $s[ "c{$n}_icon" ] ); ?>"></i>
+								<?php
+ if ( ! empty( $s[ "c{$n}_icon" ] ) ) : ?>
+									<span class="absolute bottom-3 left-3 w-10 h-10 rounded-lg <?php
+ echo esc_attr( $colors[ $n ] ); ?> flex items-center justify-center text-white">
+										<i class="<?php
+ echo $this->icon_class( $s[ "c{$n}_icon" ] ); ?>"></i>
 									</span>
-								<?php endif; ?>
+								<?php
+ endif; ?>
 							</div>
 							<div class="p-5">
-								<h3 class="font-display font-semibold text-slate-900 dark:text-white mb-1.5"><?php echo esc_html( $s[ "c{$n}_title" ] ); ?></h3>
-								<p class="text-[17px] text-slate-600 dark:text-slate-300 leading-relaxed"><?php echo esc_html( $s[ "c{$n}_desc" ] ); ?></p>
+								<h3 class="font-display font-semibold text-slate-900 dark:text-white mb-1.5"><?php
+ echo esc_html( $s[ "c{$n}_title" ] ); ?></h3>
+								<p class="text-[17px] text-slate-600 dark:text-slate-300 leading-relaxed"><?php
+ echo esc_html( $s[ "c{$n}_desc" ] ); ?></p>
 							</div>
 						</article>
-					<?php endfor; ?>
+					<?php
+ endfor; ?>
 				</div>
 
 			</div>

@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * IATBD Footer (fixed fields, no repeater, no Elementor icon picker)
  *
@@ -12,7 +16,7 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'IATBD Footer', 'elementor-test' );
+		return esc_html__( 'IATBD Footer', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -43,7 +47,7 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 
 	/** All WordPress menus for the select controls. */
 	private function get_menu_options() {
-		$options = [ '' => esc_html__( '— Select Menu —', 'elementor-test' ) ];
+		$options = [ '' => esc_html__( '— Select Menu —', 'iatbd-core' ) ];
 		$menus   = wp_get_nav_menus();
 		if ( ! empty( $menus ) && ! is_wp_error( $menus ) ) {
 			foreach ( $menus as $menu ) {
@@ -62,22 +66,22 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( "{$prefix}_title", [
-			'label'       => esc_html__( 'Title', 'elementor-test' ),
+			'label'       => esc_html__( 'Title', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => $default_title,
 			'label_block' => true,
 		] );
 
 		$this->add_control( "{$prefix}_menu", [
-			'label'       => esc_html__( 'Select Menu', 'elementor-test' ),
+			'label'       => esc_html__( 'Select Menu', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::SELECT,
 			'options'     => $this->get_menu_options(),
 			'default'     => '',
 			'label_block' => true,
 			'description' => sprintf(
 				/* translators: %s: link to Menus screen */
-				esc_html__( 'Create or edit menus from %s.', 'elementor-test' ),
-				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" target="_blank">' . esc_html__( 'Appearance → Menus', 'elementor-test' ) . '</a>'
+				esc_html__( 'Create or edit menus from %s.', 'iatbd-core' ),
+				'<a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '" target="_blank">' . esc_html__( 'Appearance → Menus', 'iatbd-core' ) . '</a>'
 			),
 		] );
 
@@ -93,12 +97,12 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 
 		// ---- Brand ----
 		$this->start_controls_section( 'brand_section', [
-			'label' => esc_html__( 'Brand', 'elementor-test' ),
+			'label' => esc_html__( 'Brand', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'brand_icon', [
-			'label'       => esc_html__( 'Logo Icon (Font Awesome class)', 'elementor-test' ),
+			'label'       => esc_html__( 'Logo Icon (Font Awesome class)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'fas fa-microchip',
 			'placeholder' => 'fas fa-microchip',
@@ -106,14 +110,14 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'brand_name', [
-			'label'       => esc_html__( 'Brand Name', 'elementor-test' ),
+			'label'       => esc_html__( 'Brand Name', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'IATBD',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'brand_desc', [
-			'label'   => esc_html__( 'Description', 'elementor-test' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'rows'    => 4,
 			'default' => 'Industrial automation — PLC, HMI, VFD, Servo and professional service.',
@@ -122,17 +126,17 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 
 		// ---- Services & Support ----
-		$this->register_links_section( 'svc', esc_html__( 'Column 2 (Services)', 'elementor-test' ), 'Services' );
-		$this->register_links_section( 'sup', esc_html__( 'Column 3 (Support)', 'elementor-test' ), 'Support' );
+		$this->register_links_section( 'svc', esc_html__( 'Column 2 (Services)', 'iatbd-core' ), 'Services' );
+		$this->register_links_section( 'sup', esc_html__( 'Column 3 (Support)', 'iatbd-core' ), 'Support' );
 
 		// ---- Contact ----
 		$this->start_controls_section( 'contact_section', [
-			'label' => esc_html__( 'Column 4 (Contact)', 'elementor-test' ),
+			'label' => esc_html__( 'Column 4 (Contact)', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'con_title', [
-			'label'       => esc_html__( 'Title', 'elementor-test' ),
+			'label'       => esc_html__( 'Title', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Contact',
 			'label_block' => true,
@@ -142,7 +146,7 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 			$n = $i + 1;
 
 			$this->add_control( "con{$n}_icon", [
-				'label'       => sprintf( esc_html__( 'Item %d Icon (Font Awesome class)', 'elementor-test' ), $n ),
+				'label'       => sprintf( esc_html__( 'Item %d Icon (Font Awesome class)', 'iatbd-core' ), $n ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $item[0],
 				'label_block' => true,
@@ -150,7 +154,7 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 			] );
 
 			$this->add_control( "con{$n}_text", [
-				'label'       => sprintf( esc_html__( 'Item %d Text', 'elementor-test' ), $n ),
+				'label'       => sprintf( esc_html__( 'Item %d Text', 'iatbd-core' ), $n ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'default'     => $item[1],
 				'label_block' => true,
@@ -161,26 +165,26 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 
 		// ---- Bottom bar ----
 		$this->start_controls_section( 'bottom_section', [
-			'label' => esc_html__( 'Bottom Bar', 'elementor-test' ),
+			'label' => esc_html__( 'Bottom Bar', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$this->add_control( 'copyright', [
-			'label'       => esc_html__( 'Copyright Text', 'elementor-test' ),
+			'label'       => esc_html__( 'Copyright Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => '© 2026 IATBD. All rights reserved.',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'bottom_link_text', [
-			'label'       => esc_html__( 'Right Link Text', 'elementor-test' ),
+			'label'       => esc_html__( 'Right Link Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => '← Home',
 			'label_block' => true,
 		] );
 
 		$this->add_control( 'bottom_link', [
-			'label'   => esc_html__( 'Right Link URL', 'elementor-test' ),
+			'label'   => esc_html__( 'Right Link URL', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
 			'default' => [ 'url' => '#' ],
 		] );
@@ -204,7 +208,7 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 
 		if ( empty( $items ) || is_wp_error( $items ) ) {
 			if ( \Elementor\Plugin::$instance->editor->is_edit_mode() ) {
-				echo '<p class="text-sm">' . esc_html__( 'Select a menu in the widget settings.', 'elementor-test' ) . '</p>';
+				echo '<p class="text-sm">' . esc_html__( 'Select a menu in the widget settings.', 'iatbd-core' ) . '</p>';
 			}
 			return;
 		}
@@ -225,9 +229,12 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 				}
 				?>
 				<li>
-					<a <?php echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts ?>><?php echo esc_html( $item->title ); ?></a>
+					<a <?php
+ echo $attrs; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts ?>><?php
+ echo esc_html( $item->title ); ?></a>
 				</li>
-			<?php endforeach; ?>
+			<?php
+ endforeach; ?>
 		</ul>
 		<?php
 	}
@@ -250,28 +257,38 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 
 					<div>
 						<div class="flex items-center gap-2.5 mb-4">
-							<?php if ( ! empty( $s['brand_icon'] ) ) : ?>
+							<?php
+ if ( ! empty( $s['brand_icon'] ) ) : ?>
 								<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
-									<i class="<?php echo $this->icon_class( $s['brand_icon'] ); ?> text-white text-xs"></i>
+									<i class="<?php
+ echo $this->icon_class( $s['brand_icon'] ); ?> text-white text-xs"></i>
 								</div>
-							<?php endif; ?>
-							<span class="font-display font-bold text-white"><?php echo esc_html( $s['brand_name'] ); ?></span>
+							<?php
+ endif; ?>
+							<span class="font-display font-bold text-white"><?php
+ echo esc_html( $s['brand_name'] ); ?></span>
 						</div>
-						<p class="text-[17px] leading-relaxed"><?php echo esc_html( $s['brand_desc'] ); ?></p>
+						<p class="text-[17px] leading-relaxed"><?php
+ echo esc_html( $s['brand_desc'] ); ?></p>
 					</div>
 
 					<div>
-						<h4 class="text-white text-sm font-semibold mb-3"><?php echo esc_html( $s['svc_title'] ); ?></h4>
-						<?php $this->render_links( $s, 'svc_menu' ); ?>
+						<h4 class="text-white text-sm font-semibold mb-3"><?php
+ echo esc_html( $s['svc_title'] ); ?></h4>
+						<?php
+ $this->render_links( $s, 'svc_menu' ); ?>
 					</div>
 
 					<div>
-						<h4 class="text-white text-sm font-semibold mb-3"><?php echo esc_html( $s['sup_title'] ); ?></h4>
-						<?php $this->render_links( $s, 'sup_menu' ); ?>
+						<h4 class="text-white text-sm font-semibold mb-3"><?php
+ echo esc_html( $s['sup_title'] ); ?></h4>
+						<?php
+ $this->render_links( $s, 'sup_menu' ); ?>
 					</div>
 
 					<div>
-						<h4 class="text-white text-sm font-semibold mb-3"><?php echo esc_html( $s['con_title'] ); ?></h4>
+						<h4 class="text-white text-sm font-semibold mb-3"><?php
+ echo esc_html( $s['con_title'] ); ?></h4>
 						<ul class="space-y-2 text-sm">
 							<?php
 							for ( $n = 1; $n <= 2; $n++ ) :
@@ -280,22 +297,32 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 								}
 								?>
 								<li>
-									<?php if ( ! empty( $s[ "con{$n}_icon" ] ) ) : ?>
-										<i class="<?php echo $this->icon_class( $s[ "con{$n}_icon" ] ); ?> text-primary-400 mr-2"></i>
-									<?php endif; ?>
-									<?php echo esc_html( $s[ "con{$n}_text" ] ); ?>
+									<?php
+ if ( ! empty( $s[ "con{$n}_icon" ] ) ) : ?>
+										<i class="<?php
+ echo $this->icon_class( $s[ "con{$n}_icon" ] ); ?> text-primary-400 mr-2"></i>
+									<?php
+ endif; ?>
+									<?php
+ echo esc_html( $s[ "con{$n}_text" ] ); ?>
 								</li>
-							<?php endfor; ?>
+							<?php
+ endfor; ?>
 						</ul>
 					</div>
 
 				</div>
 
 				<div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-slate-400">
-					<p><?php echo esc_html( $s['copyright'] ); ?></p>
-					<?php if ( ! empty( $s['bottom_link_text'] ) ) : ?>
-						<a <?php $this->print_render_attribute_string( 'bottom_a' ); ?>><?php echo esc_html( $s['bottom_link_text'] ); ?></a>
-					<?php endif; ?>
+					<p><?php
+ echo esc_html( $s['copyright'] ); ?></p>
+					<?php
+ if ( ! empty( $s['bottom_link_text'] ) ) : ?>
+						<a <?php
+ $this->print_render_attribute_string( 'bottom_a' ); ?>><?php
+ echo esc_html( $s['bottom_link_text'] ); ?></a>
+					<?php
+ endif; ?>
 				</div>
 			</div>
 		</footer>

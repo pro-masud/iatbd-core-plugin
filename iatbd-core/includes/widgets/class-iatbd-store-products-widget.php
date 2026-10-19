@@ -10,9 +10,8 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'Store Products';
+		return esc_html__( 'IATBD Store Products', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-products';
 	}
@@ -195,7 +194,7 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 		$cats   = ! empty( $s['cats'] ) ? $s['cats'] : [];
 		$total  = count( $prods );
 		?>
-		<section id="store-products" class="py-8 sm:py-12" aria-label="Store products">
+		<section id="store-products" class="py-8 sm:py-12" aria-label="Store products" data-store-shop>
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3 mb-6">
 					<div>
@@ -285,90 +284,45 @@ class IATBD_Store_Products_Widget extends \Elementor\Widget_Base {
 			</div>
 		</section>
 
-		<script>
-		(function () {
-			var grid = document.getElementById('store-product-grid');
-			if (!grid || grid.getAttribute('data-bound')) { return; }
-			grid.setAttribute('data-bound', '1');
+		<!-- Store Floating Cart Button -->
+		<button id="store-cart-button" type="button" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-full shadow-2xl transition focus:outline-none focus:ring-4 focus:ring-primary-500/40 cursor-pointer" aria-label="<?php echo esc_attr__( 'Open cart', 'iatbd-core' ); ?>">
+			<i class="fas fa-shopping-cart text-lg"></i>
+			<span class="font-semibold text-sm"><?php echo esc_html__( 'Cart', 'iatbd-core' ); ?></span>
+			<span id="store-cart-count" class="store-cart-count w-5 h-5 rounded-full bg-accent-500 text-white text-xs font-bold flex items-center justify-center">0</span>
+		</button>
 
-			var cards   = [].slice.call(grid.querySelectorAll('.store-product-card'));
-			var search  = document.getElementById('store-search');
-			var sortSel = document.getElementById('store-sort');
-			var minR    = document.getElementById('store-price-min');
-			var maxR    = document.getElementById('store-price-max');
-			var minL    = document.getElementById('store-min-label');
-			var maxL    = document.getElementById('store-max-label');
-			var count   = document.getElementById('store-result-count');
-			var empty   = document.getElementById('store-empty-state');
-			var catWrap = document.getElementById('store-categories');
-			var sym     = <?php echo wp_json_encode( $sym ); ?>;
-			var cat     = 'all';
-			var idle    = ['text-slate-600', 'dark:text-slate-300'];
+		<!-- Store Cart Overlay -->
+		<div id="store-cart-overlay" class="store-cart-overlay fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 transition-opacity" aria-hidden="true"></div>
 
-			function fmt(n) { return sym + ' ' + Number(n).toLocaleString('en-IN'); }
+		<!-- Store Cart Drawer -->
+		<aside id="store-cart-drawer" class="store-cart-drawer fixed top-0 right-0 bottom-0 w-full max-w-md bg-white dark:bg-slate-900 shadow-2xl z-50 flex flex-col transition-transform" aria-label="<?php echo esc_attr__( 'Shopping Cart', 'iatbd-core' ); ?>">
+			<div class="p-4 sm:p-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+				<div class="flex items-center gap-2">
+					<i class="fas fa-shopping-bag text-primary-600 text-lg"></i>
+					<h3 class="font-display font-bold text-lg text-slate-900 dark:text-white"><?php echo esc_html__( 'Your Cart', 'iatbd-core' ); ?></h3>
+				</div>
+				<button id="store-cart-close" type="button" class="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer" aria-label="<?php echo esc_attr__( 'Close cart', 'iatbd-core' ); ?>">
+					<i class="fas fa-times text-base"></i>
+				</button>
+			</div>
 
-			function sorter(mode) {
-				return function (a, b) {
-					if (mode === 'price-asc')  { return a.dataset.price - b.dataset.price; }
-					if (mode === 'price-desc') { return b.dataset.price - a.dataset.price; }
-					if (mode === 'name')       { return a.dataset.name.localeCompare(b.dataset.name); }
-					return a.dataset.order - b.dataset.order;
-				};
-			}
+			<!-- Cart Items -->
+			<div id="store-cart-items" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+				<p class="py-10 text-center text-sm text-slate-500 dark:text-slate-400"><?php echo esc_html__( 'Your cart is empty.', 'iatbd-core' ); ?></p>
+			</div>
 
-			function apply() {
-				var q   = search.value.trim().toLowerCase();
-				var min = Number(minR.value);
-				var max = Number(maxR.value);
-				var shown = 0;
-
-				cards.forEach(function (c) {
-					var p   = Number(c.dataset.price);
-					var hay = (c.dataset.name + ' ' + c.dataset.brand + ' ' + c.dataset.cat).toLowerCase();
-					var ok  = (cat === 'all' || c.dataset.cat === cat) && p >= min && p <= max && (!q || hay.indexOf(q) > -1);
-					c.classList.toggle('hidden', !ok);
-					if (ok) { shown++; }
-				});
-
-				cards.slice().sort(sorter(sortSel.value)).forEach(function (c) { grid.appendChild(c); });
-
-				count.textContent = shown + (shown === 1 ? ' product' : ' products');
-				empty.classList.toggle('hidden', shown !== 0);
-			}
-
-			function labels() {
-				minL.textContent = fmt(minR.value);
-				maxL.textContent = fmt(maxR.value);
-			}
-
-			minR.addEventListener('input', function () {
-				if (Number(minR.value) > Number(maxR.value)) { maxR.value = minR.value; }
-				labels(); apply();
-			});
-			maxR.addEventListener('input', function () {
-				if (Number(maxR.value) < Number(minR.value)) { minR.value = maxR.value; }
-				labels(); apply();
-			});
-			search.addEventListener('input', apply);
-			sortSel.addEventListener('change', apply);
-
-			catWrap.addEventListener('click', function (e) {
-				var btn = e.target.closest('.store-category-btn');
-				if (!btn) { return; }
-				cat = btn.getAttribute('data-category');
-				[].slice.call(catWrap.querySelectorAll('.store-category-btn')).forEach(function (b) {
-					var on = (b === btn);
-					b.classList.toggle('active', on);
-					b.setAttribute('aria-pressed', on ? 'true' : 'false');
-					idle.forEach(function (cl) { b.classList.toggle(cl, !on); });
-				});
-				apply();
-			});
-
-			labels();
-			apply();
-		})();
-		</script>
+			<!-- Cart Footer -->
+			<div class="p-4 sm:p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+				<div class="flex items-center justify-between mb-4">
+					<span class="text-sm font-medium text-slate-600 dark:text-slate-400"><?php echo esc_html__( 'Subtotal:', 'iatbd-core' ); ?></span>
+					<span id="store-cart-total" class="font-display text-xl font-bold text-slate-900 dark:text-white"><?php echo esc_html( $sym ); ?> 0</span>
+				</div>
+				<a id="store-checkout" href="#" class="w-full py-3 px-4 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-semibold text-center block transition shadow-lg shadow-primary-600/20 pointer-events-none opacity-50" aria-disabled="true">
+					<i class="fas fa-paper-plane mr-2"></i> <?php echo esc_html__( 'Order via Email', 'iatbd-core' ); ?>
+				</a>
+				<p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-2"><?php echo esc_html__( 'Cash on Delivery available', 'iatbd-core' ); ?></p>
+			</div>
+		</aside>
 		<?php
 	}
 }

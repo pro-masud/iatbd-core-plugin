@@ -10,9 +10,8 @@ class IATBD_Store_CTA_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'Store CTA';
+		return esc_html__( 'IATBD Store CTA', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-call-to-action';
 	}
@@ -33,7 +32,7 @@ class IATBD_Store_CTA_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'sec_button', [ 'label' => 'Button' ] );
 		$this->add_control( 'btn_icon', [ 'label' => 'Button Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-comment-dots', 'placeholder' => 'fas fa-comment-dots' ] );
 		$this->add_control( 'btn_text', [ 'label' => 'Button Text', 'type' => $T, 'label_block' => true, 'default' => 'Contact IATBD' ] );
-		$this->add_control( 'btn_link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => 'index.html#contact' ] ] );
+		$this->add_control( 'btn_link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#contact' ] ] );
 		$this->end_controls_section();
 	}
 

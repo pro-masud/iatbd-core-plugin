@@ -4,7 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
 
     public function get_name()  { return 'iatbd_benefits'; }
-    public function get_title() { return 'IATBD Benefits'; }
+    public function get_title() {
+		return esc_html__( 'IATBD Benefits', 'iatbd-core' );
+	}
     public function get_icon()  { return 'eicon-bullet-list'; }
     public function get_categories() { return [ 'iatbd-addons' ]; }
 
@@ -13,19 +15,19 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
 
         /* ── Section Header ── */
         $this->start_controls_section( 'section_header', [
-            'label' => __( 'Section Header', 'iatbd' ),
+            'label' => __( 'Section Header', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( 'eyebrow', [
-            'label'   => __( 'Eyebrow Text', 'iatbd' ),
+            'label'   => __( 'Eyebrow Text', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Benefits',
         ] );
 
         $this->add_control( 'heading', [
-            'label'   => __( 'Heading', 'iatbd' ),
+            'label'   => __( 'Heading', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => 'Why teams trust our servo work',
@@ -35,7 +37,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
 
         /* ── Card 1 ── */
         $this->start_controls_section( 'card_1', [
-            'label' => __( 'Card 1', 'iatbd' ),
+            'label' => __( 'Card 1', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
         $this->add_card_controls( 1,
@@ -49,7 +51,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
 
         /* ── Card 2 ── */
         $this->start_controls_section( 'card_2', [
-            'label' => __( 'Card 2', 'iatbd' ),
+            'label' => __( 'Card 2', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
         $this->add_card_controls( 2,
@@ -63,7 +65,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
 
         /* ── Card 3 ── */
         $this->start_controls_section( 'card_3', [
-            'label' => __( 'Card 3', 'iatbd' ),
+            'label' => __( 'Card 3', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
         $this->add_card_controls( 3,
@@ -77,7 +79,7 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
 
         /* ── Card 4 ── */
         $this->start_controls_section( 'card_4', [
-            'label' => __( 'Card 4', 'iatbd' ),
+            'label' => __( 'Card 4', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
         $this->add_card_controls( 4,
@@ -94,38 +96,38 @@ class IATBD_Benefits_Widget extends \Elementor\Widget_Base {
     private function add_card_controls( $n, $default_icon, $default_title, $default_desc, $default_icon_class, $default_hover_class ) {
 
         $this->add_control( "card_{$n}_icon", [
-            'label'       => __( 'Icon Class (Font Awesome)', 'iatbd' ),
+            'label'       => __( 'Icon Class (Font Awesome)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $default_icon,
-            'description' => __( 'e.g. fas fa-crosshairs', 'iatbd' ),
+            'description' => __( 'e.g. fas fa-crosshairs', 'iatbd-core' ),
         ] );
 
         $this->add_control( "card_{$n}_icon_class", [
-            'label'       => __( 'Icon Wrapper Tailwind Classes', 'iatbd' ),
+            'label'       => __( 'Icon Wrapper Tailwind Classes', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $default_icon_class,
-            'description' => __( 'Tailwind classes for icon bg/color', 'iatbd' ),
+            'description' => __( 'Tailwind classes for icon bg/color', 'iatbd-core' ),
         ] );
 
         $this->add_control( "card_{$n}_hover_class", [
-            'label'       => __( 'Card Hover Border Classes', 'iatbd' ),
+            'label'       => __( 'Card Hover Border Classes', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $default_hover_class,
-            'description' => __( 'Tailwind hover border classes', 'iatbd' ),
+            'description' => __( 'Tailwind hover border classes', 'iatbd-core' ),
         ] );
 
         $this->add_control( "card_{$n}_title", [
-            'label'   => __( 'Title', 'iatbd' ),
+            'label'   => __( 'Title', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $default_title,
         ] );
 
         $this->add_control( "card_{$n}_desc", [
-            'label'   => __( 'Description', 'iatbd' ),
+            'label'   => __( 'Description', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXTAREA,
             'default' => $default_desc,
             'rows'    => 3,

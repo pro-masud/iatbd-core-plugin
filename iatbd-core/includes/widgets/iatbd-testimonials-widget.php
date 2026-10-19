@@ -8,14 +8,14 @@ use Elementor\Repeater;
 use Elementor\Utils;
 use Elementor\Widget_Base;
 
-class GC_Testimonials_Slider_Widget extends Widget_Base {
+class IATBD_Testimonials_Slider_Widget extends Widget_Base {
 
 	public function get_name() {
 		return 'gc_testimonials_slider';
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Testimonials Slider', 'softro-core' );
+		return esc_html__( 'IATBD Testimonials Slider', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -34,25 +34,25 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 
 		/* ---------- Header ---------- */
 		$this->start_controls_section( 'section_header', [
-			'label' => esc_html__( 'Header', 'softro-core' ),
+			'label' => esc_html__( 'Header', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'   => esc_html__( 'Small Title', 'softro-core' ),
+			'label'   => esc_html__( 'Small Title', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default' => 'Testimonials',
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Heading', 'softro-core' ),
+			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default' => 'What clients say',
 		] );
 
 		$this->add_control( 'show_badge', [
-			'label'        => esc_html__( 'Show Rating Badge', 'softro-core' ),
+			'label'        => esc_html__( 'Show Rating Badge', 'iatbd-core' ),
 			'type'         => Controls_Manager::SWITCHER,
 			'default'      => 'yes',
 			'return_value' => 'yes',
@@ -60,7 +60,7 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 		] );
 
 		$this->add_control( 'badge_rating', [
-			'label'     => esc_html__( 'Rating Number', 'softro-core' ),
+			'label'     => esc_html__( 'Rating Number', 'iatbd-core' ),
 			'type'      => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default'   => '4.9',
@@ -68,7 +68,7 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 		] );
 
 		$this->add_control( 'badge_label', [
-			'label'     => esc_html__( 'Rating Label', 'softro-core' ),
+			'label'     => esc_html__( 'Rating Label', 'iatbd-core' ),
 			'type'      => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default'   => '· Servo clients',
@@ -79,63 +79,63 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 
 		/* ---------- Testimonials (repeater) ---------- */
 		$this->start_controls_section( 'section_items', [
-			'label' => esc_html__( 'Testimonials', 'softro-core' ),
+			'label' => esc_html__( 'Testimonials', 'iatbd-core' ),
 		] );
 
 		$repeater = new Repeater();
 
 		$repeater->add_control( 'image', [
-			'label'   => esc_html__( 'Photo', 'softro-core' ),
+			'label'   => esc_html__( 'Photo', 'iatbd-core' ),
 			'type'    => Controls_Manager::MEDIA,
 			'default' => [ 'url' => Utils::get_placeholder_image_src() ],
 		] );
 
 		$repeater->add_control( 'name', [
-			'label'       => esc_html__( 'Name', 'softro-core' ),
+			'label'       => esc_html__( 'Name', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Client Name',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'role', [
-			'label'       => esc_html__( 'Role / Company', 'softro-core' ),
+			'label'       => esc_html__( 'Role / Company', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Engineer, Company Ltd.',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'quote', [
-			'label'   => esc_html__( 'Review', 'softro-core' ),
+			'label'   => esc_html__( 'Review', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXTAREA,
 			'rows'    => 4,
 			'default' => 'Write the client review here.',
 		] );
 
 		$repeater->add_control( 'rating', [
-			'label'   => esc_html__( 'Stars', 'softro-core' ),
+			'label'   => esc_html__( 'Stars', 'iatbd-core' ),
 			'type'    => Controls_Manager::SELECT,
 			'default' => '5',
 			'options' => [ '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5' ],
 		] );
 
 		$repeater->add_control( 'tone', [
-			'label'   => esc_html__( 'Role Color', 'softro-core' ),
+			'label'   => esc_html__( 'Role Color', 'iatbd-core' ),
 			'type'    => Controls_Manager::SELECT,
 			'default' => 'primary',
 			'options' => [
-				'primary' => esc_html__( 'Primary', 'softro-core' ),
-				'accent'  => esc_html__( 'Accent', 'softro-core' ),
-				'emerald' => esc_html__( 'Green', 'softro-core' ),
-				'purple'  => esc_html__( 'Purple', 'softro-core' ),
+				'primary' => esc_html__( 'Primary', 'iatbd-core' ),
+				'accent'  => esc_html__( 'Accent', 'iatbd-core' ),
+				'emerald' => esc_html__( 'Green', 'iatbd-core' ),
+				'purple'  => esc_html__( 'Purple', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'items', [
-			'label'       => esc_html__( 'Items', 'softro-core' ),
+			'label'       => esc_html__( 'Items', 'iatbd-core' ),
 			'type'        => Controls_Manager::REPEATER,
 			'fields'      => $repeater->get_controls(),
 			'title_field' => '{{{ name }}} — {{{ role }}}',
-			'button_text' => esc_html__( 'Add Testimonial', 'softro-core' ),
+			'button_text' => esc_html__( 'Add Testimonial', 'iatbd-core' ),
 			'default'     => [
 				[
 					'name'  => 'Hasan Mahmud',
@@ -223,7 +223,7 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 					<?php endif; ?>
 				</div>
 
-				<div class="overflow-hidden" id="testimonial-viewport">
+				<div class="overflow-hidden testimonial-viewport" id="testimonial-viewport">
 					<div class="testimonial-track" id="testimonial-track">
 						<?php foreach ( $items as $item ) : ?>
 							<div class="testimonial-card">
@@ -251,10 +251,14 @@ class GC_Testimonials_Slider_Widget extends Widget_Base {
 					</div>
 				</div>
 
-				<div class="flex justify-center gap-2 mt-8" id="testimonial-dots"></div>
+				<div class="flex justify-center gap-2 mt-8 testimonial-dots" id="testimonial-dots"></div>
 
 			</div>
 		</section>
 		<?php
 	}
+}
+
+if ( ! class_exists( 'GC_Testimonials_Slider_Widget' ) ) {
+	class_alias( 'IATBD_Testimonials_Slider_Widget', 'GC_Testimonials_Slider_Widget' );
 }

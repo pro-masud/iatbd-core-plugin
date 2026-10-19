@@ -4,7 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
 
     public function get_name()       { return 'iatbd_stats_bar'; }
-    public function get_title()      { return 'IATBD Stats Bar'; }
+    public function get_title() {
+		return esc_html__( 'IATBD Stats Bar', 'iatbd-core' );
+	}
     public function get_icon()       { return 'eicon-icon-box'; }
     public function get_categories() { return [ 'iatbd-addons' ]; }
 
@@ -12,27 +14,27 @@ class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
     private function item_controls( $n, $icon, $title, $subtitle ) {
 
         $this->start_controls_section( "item_{$n}", [
-            'label' => __( "Item {$n}", 'iatbd' ),
+            'label' => __( "Item {$n}", 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( "i{$n}_icon", [
-            'label'       => __( 'Icon (Font Awesome class)', 'iatbd' ),
+            'label'       => __( 'Icon (Font Awesome class)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => $icon,
-            'description' => __( 'e.g. fas fa-microchip', 'iatbd' ),
+            'description' => __( 'e.g. fas fa-microchip', 'iatbd-core' ),
         ] );
 
         $this->add_control( "i{$n}_title", [
-            'label'   => __( 'Title', 'iatbd' ),
+            'label'   => __( 'Title', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $title,
         ] );
 
         $this->add_control( "i{$n}_subtitle", [
-            'label'   => __( 'Subtitle', 'iatbd' ),
+            'label'   => __( 'Subtitle', 'iatbd-core' ),
             'type'    => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default' => $subtitle,
@@ -45,12 +47,12 @@ class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
 
         /* ── Section style ── */
         $this->start_controls_section( 'section_style', [
-            'label' => __( 'Section', 'iatbd' ),
+            'label' => __( 'Section', 'iatbd-core' ),
             'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
         ] );
 
         $this->add_control( 'gradient_classes', [
-            'label'       => __( 'Background Gradient (Tailwind)', 'iatbd' ),
+            'label'       => __( 'Background Gradient (Tailwind)', 'iatbd-core' ),
             'type'        => \Elementor\Controls_Manager::TEXT,
             'label_block' => true,
             'default'     => 'from-primary-700 via-primary-600 to-primary-500',
@@ -58,7 +60,7 @@ class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
         ] );
 
         $this->add_control( 'show_pattern', [
-            'label'        => __( 'Show Dot Pattern Overlay', 'iatbd' ),
+            'label'        => __( 'Show Dot Pattern Overlay', 'iatbd-core' ),
             'type'         => \Elementor\Controls_Manager::SWITCHER,
             'label_on'     => 'Yes',
             'label_off'    => 'No',

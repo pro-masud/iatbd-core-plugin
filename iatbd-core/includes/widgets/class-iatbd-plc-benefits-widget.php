@@ -10,9 +10,8 @@ class IATBD_PLC_Benefits_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Benefits';
+		return esc_html__( 'IATBD PLC Benefits', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-gallery-grid';
 	}

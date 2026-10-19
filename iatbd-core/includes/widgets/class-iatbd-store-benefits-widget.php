@@ -10,9 +10,8 @@ class IATBD_Store_Benefits_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'Store Benefits Strip';
+		return esc_html__( 'IATBD Store Benefits Strip', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-icon-box';
 	}

@@ -14,7 +14,7 @@ class GC_FAQ_Accordion_Widget extends Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC FAQ Accordion', 'softro-core' );
+		return esc_html__( 'IATBD FAQ Accordion', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -33,18 +33,18 @@ class GC_FAQ_Accordion_Widget extends Widget_Base {
 
 		/* ---------- Header ---------- */
 		$this->start_controls_section( 'section_header', [
-			'label' => esc_html__( 'Header', 'softro-core' ),
+			'label' => esc_html__( 'Header', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'   => esc_html__( 'Small Title', 'softro-core' ),
+			'label'   => esc_html__( 'Small Title', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default' => 'FAQ',
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Heading', 'softro-core' ),
+			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXT,
 			'label_block' => true,
 			'default' => 'Common questions',
@@ -54,31 +54,31 @@ class GC_FAQ_Accordion_Widget extends Widget_Base {
 
 		/* ---------- FAQ items (repeater) ---------- */
 		$this->start_controls_section( 'section_items', [
-			'label' => esc_html__( 'FAQ Items', 'softro-core' ),
+			'label' => esc_html__( 'FAQ Items', 'iatbd-core' ),
 		] );
 
 		$repeater = new Repeater();
 
 		$repeater->add_control( 'question', [
-			'label'       => esc_html__( 'Question', 'softro-core' ),
+			'label'       => esc_html__( 'Question', 'iatbd-core' ),
 			'type'        => Controls_Manager::TEXT,
 			'default'     => 'Your question here?',
 			'label_block' => true,
 		] );
 
 		$repeater->add_control( 'answer', [
-			'label'   => esc_html__( 'Answer', 'softro-core' ),
+			'label'   => esc_html__( 'Answer', 'iatbd-core' ),
 			'type'    => Controls_Manager::TEXTAREA,
 			'rows'    => 4,
 			'default' => 'Write the answer here.',
 		] );
 
 		$this->add_control( 'items', [
-			'label'       => esc_html__( 'Items', 'softro-core' ),
+			'label'       => esc_html__( 'Items', 'iatbd-core' ),
 			'type'        => Controls_Manager::REPEATER,
 			'fields'      => $repeater->get_controls(),
 			'title_field' => '{{{ question }}}',
-			'button_text' => esc_html__( 'Add Question', 'softro-core' ),
+			'button_text' => esc_html__( 'Add Question', 'iatbd-core' ),
 			'default'     => [
 				[
 					'question' => 'Which servo brands do you support?',

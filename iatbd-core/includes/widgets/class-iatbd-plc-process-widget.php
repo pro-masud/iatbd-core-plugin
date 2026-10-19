@@ -10,9 +10,8 @@ class IATBD_PLC_Process_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Process';
+		return esc_html__( 'IATBD PLC Process', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-flow';
 	}

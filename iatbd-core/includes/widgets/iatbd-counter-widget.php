@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * IATBD Counter Boxes (repeater)
  *
@@ -13,7 +17,7 @@ class IATBD_Counter extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'IATBD Counter Boxes', 'elementor-test' );
+		return esc_html__( 'IATBD Counter Boxes', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -38,20 +42,20 @@ class IATBD_Counter extends \Elementor\Widget_Base {
 	protected function register_controls() {
 
 		$this->start_controls_section( 'counter_section', [
-			'label' => esc_html__( 'Counter Boxes', 'elementor-test' ),
+			'label' => esc_html__( 'Counter Boxes', 'iatbd-core' ),
 			'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
 		] );
 
 		$r = new \Elementor\Repeater();
 
 		$r->add_control( 'target', [
-			'label'   => esc_html__( 'Number', 'elementor-test' ),
+			'label'   => esc_html__( 'Number', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::NUMBER,
 			'default' => 10,
 		] );
 
 		$r->add_control( 'suffix', [
-			'label'       => esc_html__( 'Suffix', 'elementor-test' ),
+			'label'       => esc_html__( 'Suffix', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'label_block' => true,
 			'default'     => '+',
@@ -59,26 +63,26 @@ class IATBD_Counter extends \Elementor\Widget_Base {
 		] );
 
 		$r->add_control( 'label', [
-			'label'       => esc_html__( 'Label', 'elementor-test' ),
+			'label'       => esc_html__( 'Label', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'Label',
 			'label_block' => true,
 		] );
 
 		$r->add_control( 'color', [
-			'label'   => esc_html__( 'Number Color', 'elementor-test' ),
+			'label'   => esc_html__( 'Number Color', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'primary',
 			'options' => [
-				'primary' => esc_html__( 'Primary', 'elementor-test' ),
-				'accent'  => esc_html__( 'Accent', 'elementor-test' ),
-				'emerald' => esc_html__( 'Emerald', 'elementor-test' ),
-				'purple'  => esc_html__( 'Purple', 'elementor-test' ),
+				'primary' => esc_html__( 'Primary', 'iatbd-core' ),
+				'accent'  => esc_html__( 'Accent', 'iatbd-core' ),
+				'emerald' => esc_html__( 'Emerald', 'iatbd-core' ),
+				'purple'  => esc_html__( 'Purple', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'items', [
-			'label'       => esc_html__( 'Items', 'elementor-test' ),
+			'label'       => esc_html__( 'Items', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $r->get_controls(),
 			'title_field' => '{{{ target }}}{{{ suffix }}} — {{{ label }}}',
@@ -122,12 +126,17 @@ class IATBD_Counter extends \Elementor\Widget_Base {
 						$color = isset( $colors[ $item['color'] ] ) ? $colors[ $item['color'] ] : $colors['primary'];
 						?>
 						<div class="count-box bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 p-5 sm:p-6 text-center shadow-lg shadow-slate-200/40 dark:shadow-none">
-							<p class="font-display text-3xl sm:text-4xl font-bold <?php echo esc_attr( $color ); ?>">
-								<span class="counter" data-target="<?php echo esc_attr( $item['target'] ); ?>" data-suffix="<?php echo esc_attr( $item['suffix'] ); ?>">0</span>
+							<p class="font-display text-3xl sm:text-4xl font-bold <?php
+ echo esc_attr( $color ); ?>">
+								<span class="counter" data-target="<?php
+ echo esc_attr( $item['target'] ); ?>" data-suffix="<?php
+ echo esc_attr( $item['suffix'] ); ?>">0</span>
 							</p>
-							<p class="text-[17px] text-slate-600 dark:text-slate-400 mt-1"><?php echo esc_html( $item['label'] ); ?></p>
+							<p class="text-[17px] text-slate-600 dark:text-slate-400 mt-1"><?php
+ echo esc_html( $item['label'] ); ?></p>
 						</div>
-					<?php endforeach; ?>
+					<?php
+ endforeach; ?>
 
 				</div>
 			</div>

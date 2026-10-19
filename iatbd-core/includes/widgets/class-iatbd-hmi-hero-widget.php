@@ -10,9 +10,8 @@ class IATBD_HMI_Hero_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'HMI Hero Slider';
+		return esc_html__( 'IATBD HMI Hero Slider', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-slider-full-screen';
 	}
@@ -101,7 +100,7 @@ class IATBD_HMI_Hero_Widget extends \Elementor\Widget_Base {
 		/* Breadcrumb (same on all slides) */
 		$this->start_controls_section( 'sec_crumb', [ 'label' => 'Breadcrumb' ] );
 		$this->add_control( 'crumb_home_text', [ 'label' => 'Home Text', 'type' => $T, 'label_block' => true, 'default' => 'Home' ] );
-		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => 'index.html' ] ] );
+		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '/' ] ] );
 		$this->end_controls_section();
 
 		/* 3 fixed slide sections */

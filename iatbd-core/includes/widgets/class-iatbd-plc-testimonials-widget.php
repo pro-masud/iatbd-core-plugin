@@ -10,9 +10,8 @@ class IATBD_PLC_Testimonials_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Testimonials';
+		return esc_html__( 'IATBD PLC Testimonials', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-testimonial-carousel';
 	}
@@ -164,7 +163,7 @@ class IATBD_PLC_Testimonials_Widget extends \Elementor\Widget_Base {
 					</div>
 				</div>
 
-				<div class="overflow-hidden" id="testimonial-viewport">
+				<div class="overflow-hidden testimonial-viewport" id="testimonial-viewport">
 					<div class="testimonial-track" id="testimonial-track">
 						<?php
 						if ( ! empty( $s['reviews'] ) ) :
@@ -196,7 +195,7 @@ class IATBD_PLC_Testimonials_Widget extends \Elementor\Widget_Base {
 				</div>
 
 				<!-- Carousel dots -->
-				<div class="flex justify-center gap-2 mt-8" id="testimonial-dots"></div>
+				<div class="flex justify-center gap-2 mt-8 testimonial-dots" id="testimonial-dots"></div>
 			</div>
 		</section>
 		<?php

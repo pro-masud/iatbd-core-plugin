@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Elementor_Test class.
+ * Elementor_Test / IATBD_Core class.
  *
  * The main class that initiates and runs the addon.
  *
@@ -44,7 +44,7 @@ final class Elementor_Test {
 	 * @since 1.0.0
 	 * @access private
 	 * @static
-	 * @var \Elementor_Test\Plugin The single instance of the class.
+	 * @var \Elementor_Test\Elementor_Test The single instance of the class.
 	 */
 	private static $_instance = null;
 
@@ -56,7 +56,7 @@ final class Elementor_Test {
 	 * @since 1.0.0
 	 * @access public
 	 * @static
-	 * @return \Elementor_Test\Plugin An instance of the class.
+	 * @return \Elementor_Test\Elementor_Test An instance of the class.
 	 */
 	public static function instance() {
 
@@ -70,8 +70,7 @@ final class Elementor_Test {
 	/**
 	 * Constructor
 	 *
-	 * Perform some compatibility checks to make sure basic requirements are meet.
-	 * If all compatibility checks pass, initialize the functionality.
+	 * Perform compatibility checks and initialize.
 	 *
 	 * @since 1.0.0
 	 * @access public
@@ -112,8 +111,6 @@ final class Elementor_Test {
 			return false;
 		}
 
-		add_action( 'elementor/elements/categories_registered', [$this, 'add_elementor_widget_categories'] );
-
 		return true;
 
 	}
@@ -132,9 +129,9 @@ final class Elementor_Test {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'elementor-test' ),
-			'<strong>' . esc_html__( 'Elementor Test Addon', 'elementor-test' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'elementor-test' ) . '</strong>'
+			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'iatbd-core' ),
+			'<strong>' . esc_html__( 'IATBD Core', 'iatbd-core' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'iatbd-core' ) . '</strong>'
 		);
 
 		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
@@ -155,9 +152,9 @@ final class Elementor_Test {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-test' ),
-			'<strong>' . esc_html__( 'Elementor Test Addon', 'elementor-test' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'elementor-test' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'iatbd-core' ),
+			'<strong>' . esc_html__( 'IATBD Core', 'iatbd-core' ) . '</strong>',
+			'<strong>' . esc_html__( 'Elementor', 'iatbd-core' ) . '</strong>',
 			 self::MINIMUM_ELEMENTOR_VERSION
 		);
 
@@ -179,9 +176,9 @@ final class Elementor_Test {
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'elementor-test' ),
-			'<strong>' . esc_html__( 'Elementor Test Addon', 'elementor-test' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'elementor-test' ) . '</strong>',
+			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'iatbd-core' ),
+			'<strong>' . esc_html__( 'IATBD Core', 'iatbd-core' ) . '</strong>',
+			'<strong>' . esc_html__( 'PHP', 'iatbd-core' ) . '</strong>',
 			 self::MINIMUM_PHP_VERSION
 		);
 
@@ -204,68 +201,81 @@ final class Elementor_Test {
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 		add_action( 'elementor/controls/register', [ $this, 'register_controls' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_frontend_assets' ] );
-		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_assets' ] );
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_assets' ] );
 		
+		/* Register elementor widget categories */ 
+		add_action( 'elementor/elements/categories_registered', [ $this, 'add_elementor_widget_categories' ] );
+	}
 
-		/* add action elementor test widgets */ 
-		add_action( 'elementor/elements/categories_registered', [$this, 'add_elementor_widget_categories'] );
+	/**
+	 * Get base URL for plugin assets
+	 */
+	private function get_asset_url( $path = '' ) {
+		if ( defined( 'IATBD_CORE_URL' ) ) {
+			return IATBD_CORE_URL . ltrim( $path, '/' );
+		}
+		return plugin_dir_url( dirname( __FILE__ ) ) . ltrim( $path, '/' );
 	}
 
 	public function enqueue_frontend_assets() {
 
-	    wp_enqueue_style(
-        'iatbd-core-all-icon', '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
-        [],
-        time()
-    );
-	    wp_enqueue_style(
-        'iatbd-core-all-icon', '//fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap',
-        [],
-        time()
-    );
-
-    wp_enqueue_style(
-        'iatbd-core-style',
-        plugin_dir_url(__DIR__) . 'assets/css/style.css',
-        [],
-        time()
-    );
-
-    wp_enqueue_style(
-        'iatbd-core-custom-style',
-        plugin_dir_url(__DIR__) . 'assets/css/custom.css',
-        [ 'iatbd-core-style' ],
-        time()
-    );
-
-
-    wp_enqueue_script(
-        'iatbd-core-script',
-        plugin_dir_url(__DIR__) . 'assets/js/custom.js',
-        [],
-        time(),
-        false
-    );
-}
-
-	public function enqueue_admin_assets( $hook ) {
-		if ( 'toplevel_page_iatbd-demo' !== $hook ) {
-			return;
-		}
-
+		// Font Awesome 6
 		wp_enqueue_style(
-			'iatbd-core-style',
-			plugin_dir_url(__DIR__) . 'assets/css/style.css',
+			'iatbd-core-fontawesome',
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
 			[],
-			time()
+			'6.5.1'
 		);
 
+		// Google Fonts (Inter + Space Grotesk) - separate unique handle
+		wp_enqueue_style(
+			'iatbd-core-fonts',
+			'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap',
+			[],
+			null
+		);
+
+		// Core plugin Tailwind styles
+		wp_enqueue_style(
+			'iatbd-core-style',
+			$this->get_asset_url( 'assets/css/style.css' ),
+			[],
+			self::VERSION
+		);
+
+		// Custom addon animations and overrides
+		wp_enqueue_style(
+			'iatbd-core-custom-style',
+			$this->get_asset_url( 'assets/css/custom.css' ),
+			[ 'iatbd-core-style' ],
+			self::VERSION
+		);
+
+		// Addon scripts
 		wp_enqueue_script(
 			'iatbd-core-script',
-			plugin_dir_url(__DIR__) . 'assets/js/custom.js',
+			$this->get_asset_url( 'assets/js/custom.js' ),
+			[ 'jquery' ],
+			self::VERSION,
+			true
+		);
+	}
+
+	/**
+	 * Enqueue assets inside Elementor Editor preview
+	 */
+	public function enqueue_editor_assets() {
+		wp_enqueue_style(
+			'iatbd-core-style',
+			$this->get_asset_url( 'assets/css/style.css' ),
 			[],
-			time(),
-			false
+			self::VERSION
+		);
+		wp_enqueue_style(
+			'iatbd-core-custom-style',
+			$this->get_asset_url( 'assets/css/custom.css' ),
+			[ 'iatbd-core-style' ],
+			self::VERSION
 		);
 	}
 
@@ -317,8 +327,15 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/iatbd-solutions-widget.php' );
 		require_once( __DIR__ . '/widgets/class-gc-ai-automation.php' );
 		require_once( __DIR__ . '/widgets/class-gc-industrial-cta.php' );
+		require_once( __DIR__ . '/widgets/class-gc-contact-section.php' );
 
-		$widgets_manager->register( new \Widget_1() );
+		// Header & Footer
+		if ( class_exists( '\IATBD_Header_Widget' ) ) {
+			$widgets_manager->register( new \IATBD_Header_Widget() );
+		} elseif ( class_exists( '\Widget_1' ) ) {
+			$widgets_manager->register( new \Widget_1() );
+		}
+
 		$widgets_manager->register( new \IATBD_Footer() );
 		$widgets_manager->register( new \IATBD_Servo_Hero() );
 		$widgets_manager->register( new \IATBD_Counter() );
@@ -327,41 +344,52 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Brands() );
 		$widgets_manager->register( new \IATBD_Process() );
 		$widgets_manager->register( new \IATBD_Benefits_Widget() );
-		$widgets_manager->register( new \GC_Testimonials_Slider_Widget() );
+
+		if ( class_exists( '\IATBD_Testimonials_Slider_Widget' ) ) {
+			$widgets_manager->register( new \IATBD_Testimonials_Slider_Widget() );
+		} elseif ( class_exists( '\GC_Testimonials_Slider_Widget' ) ) {
+			$widgets_manager->register( new \GC_Testimonials_Slider_Widget() );
+		}
+
 		$widgets_manager->register( new \GC_FAQ_Accordion_Widget() );
 		$widgets_manager->register( new \GC_Related_Services_Widget() );
 		$widgets_manager->register( new \GC_Contact_CTA_Widget() );
 
+		// PLC Widgets
 		$widgets_manager->register( new \IATBD_PLC_Hero_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_Stats_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_Overview_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_Services_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_Process_Widget() );
-		$widgets_manager->register( new \IATBD_PLC_Benefits_Widget () );
+		$widgets_manager->register( new \IATBD_PLC_Benefits_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_Testimonials_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_FAQ_Widget() );
 		$widgets_manager->register( new \IATBD_PLC_Related_Widget() );
+
+		// Store Widgets
 		$widgets_manager->register( new \IATBD_Store_Hero_Widget() );
 		$widgets_manager->register( new \IATBD_Store_Benefits_Widget() );
 		$widgets_manager->register( new \IATBD_Store_Products_Widget() );
 		$widgets_manager->register( new \IATBD_Store_CTA_Widget() );
+
+		// HMI Widgets
 		$widgets_manager->register( new \IATBD_HMI_Hero_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Stats_Widget() );
-
 		$widgets_manager->register( new \IATBD_HMI_Overview_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Services_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Process_Widget() );
 		$widgets_manager->register( new \IATBD_HMI_Benefits_Widget() );
 
+		// Shared & Extra Widgets
 		$widgets_manager->register( new \IATBD_Hero_Slider_Widget() );
 		$widgets_manager->register( new \IATBD_Stats_Bar_Widget() );
 		$widgets_manager->register( new \IATBD_Solutions_Widget() );
 		$widgets_manager->register( new \GC_AI_Automation_Widget() );
 		$widgets_manager->register( new \GC_Industrial_CTA_Widget() );
-	}
-	
 
-	
+		// Register the GC_Contact_Section_Widget if it exists
+		$widgets_manager->register( new \GC_Contact_Section_Widget() );
+	}
 
 	/**
 	 * Register Controls
@@ -373,31 +401,39 @@ final class Elementor_Test {
 	 * @param \Elementor\Controls_Manager $controls_manager Elementor controls manager.
 	 */
 	public function register_controls( $controls_manager ) {
-
-		// require_once( __DIR__ . '/includes/controls/control-1.php' );
-		// require_once( __DIR__ . '/includes/controls/control-2.php' );
-
-		// $controls_manager->register( new \Control_1() );
-		// $controls_manager->register( new \Control_2() );
-
+		// Reserved for custom Elementor controls if needed
 	}
 
 	/**
-	 * Register categores
+	 * Register categories
 	 * 
-	 * Load widgets files and register new Elementor widgets.
+	 * Load widgets categories for Elementor.
 	 * 
-	 * Fired by `elementor/widgets/register` action hook.
-	 * */ 
+	 * Fired by `elementor/elements/categories_registered` action hook.
+	 */ 
 	public function add_elementor_widget_categories( $elements_manager ) {
 
 		$elements_manager->add_category(
 			'iatbd-addons',
 			[
-				'title' => esc_html__( 'IATBD Addons', 'elementor-test' ),
-				'icon' => 'fa fa-plug',
+				'title' => esc_html__( 'IATBD Addons', 'iatbd-core' ),
+				'icon'  => 'fa fa-plug',
 			]
-		);	
+		);
+
+		// Fallback category alias so legacy GC widgets are never uncategorized
+		$elements_manager->add_category(
+			'gc_widgets',
+			[
+				'title' => esc_html__( 'IATBD Extra Widgets', 'iatbd-core' ),
+				'icon'  => 'fa fa-cubes',
+			]
+		);
 	}
 	
+}
+
+// Global class alias for backward compatibility
+if ( ! class_exists( 'IATBD_Core' ) ) {
+	class_alias( '\Elementor_Test\Elementor_Test', 'IATBD_Core' );
 }

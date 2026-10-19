@@ -10,9 +10,8 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return 'PLC Hero Slider';
+		return esc_html__( 'IATBD PLC Hero Slider', 'iatbd-core' );
 	}
-
 	public function get_icon() {
 		return 'eicon-slider-full-screen';
 	}
@@ -100,7 +99,7 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 		/* Breadcrumb (same on all slides) */
 		$this->start_controls_section( 'sec_crumb', [ 'label' => 'Breadcrumb' ] );
 		$this->add_control( 'crumb_home_text', [ 'label' => 'Home Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'Home' ] );
-		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => 'index.html' ] ] );
+		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '/' ] ] );
 		$this->add_control( 'crumb_mid_text', [ 'label' => 'Middle Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'Services' ] );
 		$this->add_control( 'crumb_current_text', [ 'label' => 'Current Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'PLC Service' ] );
 		$this->end_controls_section();
@@ -169,6 +168,7 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 			$p     = 's' . $i . '_';
 			$t     = isset( $themes[ $s[ $p . 'theme' ] ] ) ? $themes[ $s[ $p . 'theme' ] ] : $themes['primary'];
 			$bg    = ! empty( $s[ $p . 'bg' ]['url'] ) ? $s[ $p . 'bg' ]['url'] : '';
+			$tag   = ( 1 === $i ) ? 'h1' : 'h2';
 			?>
 			<div class="plc-hero-slide<?php echo 1 === $i ? ' active' : ''; ?>" data-index="<?php echo esc_attr( $i - 1 ); ?>">
 				<div class="slide-bg" style="background-image: url('<?php echo esc_url( $bg ); ?>');"></div>
@@ -185,9 +185,9 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 						<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-sm font-medium mb-5 <?php echo esc_attr( $t['badge'] ); ?>">
 							<i class="<?php echo esc_attr( $s[ $p . 'b_icon' ] ); ?>"></i> <?php echo esc_html( $s[ $p . 'badge' ] ); ?>
 						</div>
-						<h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+						<<?php echo $tag; ?> class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
 							<?php echo esc_html( $s[ $p . 'h1' ] ); ?> <span class="<?php echo esc_attr( $t['highlight'] ); ?>"><?php echo esc_html( $s[ $p . 'h2' ] ); ?></span><br /><?php echo esc_html( $s[ $p . 'h3' ] ); ?>
-						</h1>
+						</<?php echo $tag; ?>>
 						<p class="text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl"><?php echo esc_html( $s[ $p . 'desc' ] ); ?></p>
 						<div class="flex flex-wrap gap-3">
 							<a<?php echo $this->link_attrs( $s[ $p . 'btn1_link' ] ); ?> class="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-full shadow-lg transition hover:scale-105 <?php echo esc_attr( $t['btn'] ); ?>">
@@ -204,7 +204,7 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 
 			<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2.5">
 				<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-					<button class="plc-hero-dot<?php echo 1 === $i ? ' active' : ''; ?>" data-index="<?php echo esc_attr( $i - 1 ); ?>" aria-label="Slide <?php echo esc_attr( $i ); ?>"></button>
+					<button type="button" class="plc-hero-dot<?php echo 1 === $i ? ' active' : ''; ?>" data-index="<?php echo esc_attr( $i - 1 ); ?>" aria-label="Slide <?php echo esc_attr( $i ); ?>"></button>
 				<?php endfor; ?>
 			</div>
 		</section>
