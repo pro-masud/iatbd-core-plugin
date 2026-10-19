@@ -18,7 +18,7 @@ class GC_Blog_Single_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Blog Single', 'softro-core' );
+		return esc_html__( 'IATBD Blog Single', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -26,7 +26,7 @@ class GC_Blog_Single_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -359,7 +359,7 @@ class GC_Blog_Single_Widget extends \Elementor\Widget_Base {
 
 		if ( ! $post ) {
 			if ( $is_editor ) {
-				echo '<p>' . esc_html__( 'GC Blog Single: no post found. Set a Post ID or use this widget in a Single Post template.', 'softro-core' ) . '</p>';
+				echo '<p>' . esc_html__( 'IATBD Blog Single: no post found. Set a Post ID or use this widget in a Single Post template.', 'iatbd-core' ) . '</p>';
 			}
 			return;
 		}
@@ -699,10 +699,10 @@ class GC_Blog_Single_Widget extends \Elementor\Widget_Base {
 										<?php endif; ?>
 										<?php echo esc_html( $s['sb_search_heading'] ); ?>
 									</h3>
-									<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="GET" class="relative">
+									<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="GET" class="relative gc-sidebar-search-form">
 										<input type="hidden" name="post_type" value="post" />
-										<input type="text" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="<?php echo esc_attr( $s['sb_search_placeholder'] ); ?>" class="w-full h-11 pl-4 pr-11 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-primary-500" />
-										<button type="submit" aria-label="Search" class="absolute right-1.5 top-1.5 w-8 h-8 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xs hover:bg-primary-500 transition">
+										<input type="text" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="<?php echo esc_attr( $s['sb_search_placeholder'] ); ?>" class="gc-sidebar-search-input w-full h-11 pl-4 pr-11 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-primary-500" />
+										<button type="submit" aria-label="Search" class="gc-sidebar-search-btn absolute right-1.5 top-1.5 w-8 h-8 rounded-lg bg-primary-600 text-white flex items-center justify-center text-xs hover:bg-primary-500 transition">
 											<i class="fas fa-arrow-right"></i>
 										</button>
 									</form>

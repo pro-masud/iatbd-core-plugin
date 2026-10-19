@@ -15,7 +15,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Blog Archive', 'softro-core' );
+		return esc_html__( 'IATBD Blog Archive', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -45,60 +45,60 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Hero ---------- */
 		$this->start_controls_section( 'section_hero', [
-			'label' => esc_html__( 'Hero', 'softro-core' ),
+			'label' => esc_html__( 'Hero', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'header_offset', [
-			'label'        => esc_html__( 'Top spacing for fixed header', 'softro-core' ),
+			'label'        => esc_html__( 'Top spacing for fixed header', 'iatbd-core' ),
 			'type'         => \Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default'      => 'yes',
-			'description'  => esc_html__( 'Adds pt-24 / sm:pt-28 and pb-20 like the original main wrapper. Turn off if your theme already adds it.', 'softro-core' ),
+			'description'  => esc_html__( 'Adds pt-24 / sm:pt-28 and pb-20 like the original main wrapper. Turn off if your theme already adds it.', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'hero_show', [
-			'label'        => esc_html__( 'Show Hero', 'softro-core' ),
+			'label'        => esc_html__( 'Show Hero', 'iatbd-core' ),
 			'type'         => \Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default'      => 'yes',
 		] );
 
 		$this->add_control( 'breadcrumb_show', [
-			'label'        => esc_html__( 'Show Breadcrumb Pill', 'softro-core' ),
+			'label'        => esc_html__( 'Show Breadcrumb Pill', 'iatbd-core' ),
 			'type'         => \Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default'      => 'yes',
 		] );
 
 		$this->add_control( 'crumb_home_text', [
-			'label'     => esc_html__( 'Home Text', 'softro-core' ),
+			'label'     => esc_html__( 'Home Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
 			'default'   => 'Home',
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
 
 		$this->add_control( 'crumb_home_link', [
-			'label'     => esc_html__( 'Home Link', 'softro-core' ),
+			'label'     => esc_html__( 'Home Link', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::URL,
 			'default'   => [ 'url' => '/' ],
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
 
 		$this->add_control( 'crumb_current_text', [
-			'label'     => esc_html__( 'Current Page Text', 'softro-core' ),
+			'label'     => esc_html__( 'Current Page Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
 			'default'   => 'Blog',
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
 
 		$this->add_control( 'hero_heading', [
-			'label'   => esc_html__( 'Heading', 'softro-core' ),
+			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Our All Blog',
 		] );
 
 		$this->add_control( 'hero_subtitle', [
-			'label'   => esc_html__( 'Subtitle', 'softro-core' ),
+			'label'   => esc_html__( 'Subtitle', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'default' => 'Explore the latest strategies, innovations, and agency thought leadership.',
 		] );
@@ -107,11 +107,11 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Query ---------- */
 		$this->start_controls_section( 'section_query', [
-			'label' => esc_html__( 'Blog Query', 'softro-core' ),
+			'label' => esc_html__( 'Blog Query', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'posts_per_page', [
-			'label'   => esc_html__( 'Posts Per Page', 'softro-core' ),
+			'label'   => esc_html__( 'Posts Per Page', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::NUMBER,
 			'min'     => 1,
 			'max'     => 60,
@@ -119,7 +119,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'categories', [
-			'label'       => esc_html__( 'Categories (empty = all)', 'softro-core' ),
+			'label'       => esc_html__( 'Categories (empty = all)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::SELECT2,
 			'multiple'    => true,
 			'label_block' => true,
@@ -127,30 +127,30 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'orderby', [
-			'label'   => esc_html__( 'Order By', 'softro-core' ),
+			'label'   => esc_html__( 'Order By', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'date',
 			'options' => [
-				'date'          => esc_html__( 'Date', 'softro-core' ),
-				'modified'      => esc_html__( 'Last Modified', 'softro-core' ),
-				'title'         => esc_html__( 'Title', 'softro-core' ),
-				'rand'          => esc_html__( 'Random', 'softro-core' ),
-				'comment_count' => esc_html__( 'Comment Count', 'softro-core' ),
+				'date'          => esc_html__( 'Date', 'iatbd-core' ),
+				'modified'      => esc_html__( 'Last Modified', 'iatbd-core' ),
+				'title'         => esc_html__( 'Title', 'iatbd-core' ),
+				'rand'          => esc_html__( 'Random', 'iatbd-core' ),
+				'comment_count' => esc_html__( 'Comment Count', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'order', [
-			'label'   => esc_html__( 'Order', 'softro-core' ),
+			'label'   => esc_html__( 'Order', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'DESC',
 			'options' => [
-				'DESC' => esc_html__( 'Newest / Descending', 'softro-core' ),
-				'ASC'  => esc_html__( 'Oldest / Ascending', 'softro-core' ),
+				'DESC' => esc_html__( 'Newest / Descending', 'iatbd-core' ),
+				'ASC'  => esc_html__( 'Oldest / Ascending', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'empty_text', [
-			'label'   => esc_html__( 'No Posts Message', 'softro-core' ),
+			'label'   => esc_html__( 'No Posts Message', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'No blog posts found.',
 		] );
@@ -159,42 +159,42 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Card ---------- */
 		$this->start_controls_section( 'section_card', [
-			'label' => esc_html__( 'Blog Card', 'softro-core' ),
+			'label' => esc_html__( 'Blog Card', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'featured_mode', [
-			'label'   => esc_html__( 'Featured Badge On', 'softro-core' ),
+			'label'   => esc_html__( 'Featured Badge On', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'first',
 			'options' => [
-				'none'   => esc_html__( 'None', 'softro-core' ),
-				'first'  => esc_html__( 'First post on page 1', 'softro-core' ),
-				'sticky' => esc_html__( 'Sticky posts', 'softro-core' ),
+				'none'   => esc_html__( 'None', 'iatbd-core' ),
+				'first'  => esc_html__( 'First post on page 1', 'iatbd-core' ),
+				'sticky' => esc_html__( 'Sticky posts', 'iatbd-core' ),
 			],
 		] );
 
 		$this->add_control( 'featured_text', [
-			'label'     => esc_html__( 'Badge Text', 'softro-core' ),
+			'label'     => esc_html__( 'Badge Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
 			'default'   => 'Featured',
 			'condition' => [ 'featured_mode!' => 'none' ],
 		] );
 
 		$this->add_control( 'date_icon', [
-			'label'   => esc_html__( 'Date Icon Class (Font Awesome)', 'softro-core' ),
+			'label'   => esc_html__( 'Date Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'far fa-calendar-alt',
 		] );
 
 		$this->add_control( 'date_format', [
-			'label'       => esc_html__( 'Date Format', 'softro-core' ),
+			'label'       => esc_html__( 'Date Format', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'default'     => 'M d, Y',
-			'description' => esc_html__( 'PHP date format, e.g. M d, Y', 'softro-core' ),
+			'description' => esc_html__( 'PHP date format, e.g. M d, Y', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'excerpt_words', [
-			'label'   => esc_html__( 'Excerpt Words', 'softro-core' ),
+			'label'   => esc_html__( 'Excerpt Words', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::NUMBER,
 			'min'     => 5,
 			'max'     => 80,
@@ -202,47 +202,47 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'read_more_text', [
-			'label'   => esc_html__( 'Button Text', 'softro-core' ),
+			'label'   => esc_html__( 'Button Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'Read More',
 		] );
 
 		$this->add_control( 'read_more_icon', [
-			'label'   => esc_html__( 'Button Icon Class (Font Awesome)', 'softro-core' ),
+			'label'   => esc_html__( 'Button Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
 			'default' => 'fas fa-arrow-right',
 		] );
 
 		$this->add_control( 'fallback_image', [
-			'label'       => esc_html__( 'Fallback Image URL', 'softro-core' ),
+			'label'       => esc_html__( 'Fallback Image URL', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
 			'placeholder' => 'https://...',
-			'description' => esc_html__( 'Used when a post has no featured image.', 'softro-core' ),
+			'description' => esc_html__( 'Used when a post has no featured image.', 'iatbd-core' ),
 		] );
 
 		$this->end_controls_section();
 
 		/* ---------- Pagination ---------- */
 		$this->start_controls_section( 'section_pagination', [
-			'label' => esc_html__( 'Pagination', 'softro-core' ),
+			'label' => esc_html__( 'Pagination', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'pagination_show', [
-			'label'        => esc_html__( 'Show Pagination', 'softro-core' ),
+			'label'        => esc_html__( 'Show Pagination', 'iatbd-core' ),
 			'type'         => \Elementor\Controls_Manager::SWITCHER,
 			'return_value' => 'yes',
 			'default'      => 'yes',
 		] );
 
 		$this->add_control( 'prev_text', [
-			'label'     => esc_html__( 'Previous Text', 'softro-core' ),
+			'label'     => esc_html__( 'Previous Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
 			'default'   => 'Prev',
 			'condition' => [ 'pagination_show' => 'yes' ],
 		] );
 
 		$this->add_control( 'next_text', [
-			'label'     => esc_html__( 'Next Text', 'softro-core' ),
+			'label'     => esc_html__( 'Next Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
 			'default'   => 'Next',
 			'condition' => [ 'pagination_show' => 'yes' ],
@@ -407,7 +407,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<?php if ( 'yes' === $s['pagination_show'] && $total > 1 ) : ?>
-						<nav class="flex items-center justify-center gap-2 mt-12 sm:mt-16 flex-wrap" aria-label="<?php esc_attr_e( 'Blog pagination', 'softro-core' ); ?>">
+						<nav class="flex items-center justify-center gap-2 mt-12 sm:mt-16 flex-wrap" aria-label="<?php esc_attr_e( 'Blog pagination', 'iatbd-core' ); ?>">
 
 							<?php if ( $paged > 1 ) : ?>
 								<a href="<?php echo esc_url( get_pagenum_link( $paged - 1 ) ); ?>" class="<?php echo esc_attr( $btn_nav ); ?>">

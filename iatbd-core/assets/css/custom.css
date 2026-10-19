@@ -1261,3 +1261,248 @@ footer,
   width: 28px;
   background: #fff;
 }
+
+/* =====================================================================
+ * Search Results Widget - Search Form & Input Styling
+ * ===================================================================== */
+.gc-search-form,
+.gc-search-results-widget form[role="search"],
+.elementor-widget-gc_search_results form[role="search"] {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 36rem !important; /* max-w-xl */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 2rem !important;
+}
+
+.gc-search-input-wrap,
+.gc-search-results-widget form[role="search"] .relative,
+.elementor-widget-gc_search_results form[role="search"] .relative {
+  position: relative !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Search Icon inside Hero Search Input */
+.gc-search-icon,
+.gc-search-results-widget form[role="search"] i.absolute,
+.elementor-widget-gc_search_results form[role="search"] i.absolute {
+  position: absolute !important;
+  left: 1.125rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #94a3b8 !important;
+  font-size: 0.9375rem !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+}
+.dark .gc-search-icon,
+.dark .gc-search-results-widget form[role="search"] i.absolute,
+.dark .elementor-widget-gc_search_results form[role="search"] i.absolute {
+  color: #64748b !important;
+}
+
+/* Search Input inside Search Results Widget */
+.gc-search-input,
+.gc-search-results-widget form[role="search"] input[type="search"],
+.gc-search-results-widget form[role="search"] input[type="text"],
+.elementor-widget-gc_search_results form[role="search"] input[type="search"],
+.elementor-widget-gc_search_results form[role="search"] input[type="text"] {
+  display: block !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 3.5rem !important; /* h-14 = 56px */
+  min-height: 3.5rem !important;
+  padding-left: 3rem !important; /* pl-11 equivalent */
+  padding-right: 8.5rem !important; /* pr-32 equivalent */
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  border-radius: 1rem !important; /* rounded-2xl */
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04) !important;
+  font-family: inherit !important;
+  font-size: 0.9375rem !important;
+  line-height: 1.5 !important;
+  color: #0f172a !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+/* Hide WebKit native search decorations and cancel button */
+.gc-search-input::-webkit-search-decoration,
+.gc-search-input::-webkit-search-cancel-button,
+.gc-search-input::-webkit-search-results-button,
+.gc-search-input::-webkit-search-results-decoration,
+.gc-search-results-widget form[role="search"] input::-webkit-search-decoration,
+.gc-search-results-widget form[role="search"] input::-webkit-search-cancel-button,
+.elementor-widget-gc_search_results form[role="search"] input::-webkit-search-cancel-button {
+  -webkit-appearance: none !important;
+  display: none !important;
+}
+
+/* Search Input Placeholders */
+.gc-search-input::placeholder,
+.gc-search-results-widget form[role="search"] input::placeholder,
+.elementor-widget-gc_search_results form[role="search"] input::placeholder {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+/* Search Input Focus */
+.gc-search-input:focus,
+.gc-search-results-widget form[role="search"] input[type="search"]:focus,
+.gc-search-results-widget form[role="search"] input[type="text"]:focus,
+.elementor-widget-gc_search_results form[role="search"] input[type="search"]:focus,
+.elementor-widget-gc_search_results form[role="search"] input[type="text"]:focus {
+  border-color: #1a6af5 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(26, 106, 245, 0.2), 0 2px 4px rgba(15, 23, 42, 0.06) !important;
+}
+
+/* Dark mode Search Input */
+.dark .gc-search-input,
+.dark .gc-search-results-widget form[role="search"] input[type="search"],
+.dark .gc-search-results-widget form[role="search"] input[type="text"],
+.dark .elementor-widget-gc_search_results form[role="search"] input[type="search"],
+.dark .elementor-widget-gc_search_results form[role="search"] input[type="text"] {
+  background-color: #0f172a !important; /* dark:bg-slate-900 */
+  border-color: #334155 !important; /* dark:border-slate-800/700 */
+  color: #f8fafc !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .gc-search-input:focus,
+.dark .gc-search-results-widget form[role="search"] input[type="search"]:focus,
+.dark .gc-search-results-widget form[role="search"] input[type="text"]:focus,
+.dark .elementor-widget-gc_search_results form[role="search"] input[type="search"]:focus,
+.dark .elementor-widget-gc_search_results form[role="search"] input[type="text"]:focus {
+  border-color: #338bff !important;
+  box-shadow: 0 0 0 3px rgba(51, 139, 255, 0.25) !important;
+}
+
+.dark .gc-search-input::placeholder,
+.dark .gc-search-results-widget form[role="search"] input::placeholder,
+.dark .elementor-widget-gc_search_results form[role="search"] input::placeholder {
+  color: #64748b !important;
+}
+
+/* Search Submit Button inside Search Results Widget */
+.gc-search-btn,
+.gc-search-results-widget form[role="search"] button[type="submit"],
+.elementor-widget-gc_search_results form[role="search"] button[type="submit"] {
+  position: absolute !important;
+  right: 0.5rem !important; /* right-2 */
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 2.5rem !important; /* h-10 = 40px */
+  min-height: 2.5rem !important;
+  padding-left: 1.25rem !important; /* px-5 */
+  padding-right: 1.25rem !important;
+  border-radius: 0.75rem !important; /* rounded-xl */
+  background-color: #1a6af5 !important; /* primary-600 */
+  color: #ffffff !important;
+  font-family: inherit !important;
+  font-size: 0.875rem !important; /* text-sm */
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 4px 14px rgba(26, 106, 245, 0.25) !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  z-index: 10 !important;
+  transition: all 0.2s ease !important;
+}
+
+.gc-search-btn:hover,
+.gc-search-results-widget form[role="search"] button[type="submit"]:hover,
+.elementor-widget-gc_search_results form[role="search"] button[type="submit"]:hover {
+  background-color: #1454e1 !important;
+  transform: translateY(-50%) translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(26, 106, 245, 0.35) !important;
+}
+
+.gc-search-btn:active,
+.gc-search-results-widget form[role="search"] button[type="submit"]:active,
+.elementor-widget-gc_search_results form[role="search"] button[type="submit"]:active {
+  transform: translateY(-50%) !important;
+}
+
+/* =====================================================================
+ * Blog Single Sidebar Search Form & Input Styling
+ * ===================================================================== */
+.gc-sidebar-search-form {
+  position: relative !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.gc-sidebar-search-input {
+  display: block !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  height: 2.75rem !important; /* h-11 */
+  min-height: 2.75rem !important;
+  padding-left: 1rem !important;
+  padding-right: 2.75rem !important;
+  border-radius: 0.75rem !important;
+  background-color: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.gc-sidebar-search-input:focus {
+  border-color: #1a6af5 !important;
+  box-shadow: 0 0 0 3px rgba(26, 106, 245, 0.2) !important;
+  outline: none !important;
+}
+
+.dark .gc-sidebar-search-input {
+  background-color: rgba(30, 41, 59, 0.8) !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+.dark .gc-sidebar-search-input:focus {
+  border-color: #338bff !important;
+  box-shadow: 0 0 0 3px rgba(51, 139, 255, 0.25) !important;
+}
+
+.gc-sidebar-search-btn {
+  position: absolute !important;
+  right: 0.375rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 0.5rem !important;
+  background-color: #1a6af5 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.gc-sidebar-search-btn:hover {
+  background-color: #1454e1 !important;
+}
+

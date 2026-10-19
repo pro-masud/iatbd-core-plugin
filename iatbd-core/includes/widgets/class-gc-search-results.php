@@ -16,7 +16,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Search Results', 'softro-core' );
+		return esc_html__( 'IATBD Search Results', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -415,7 +415,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 			$this->add_link_attributes( 'crumb_home', $s['crumb_home_link'] );
 		}
 		?>
-		<div<?php echo $wrap_class ? ' class="' . esc_attr( $wrap_class ) . '"' : ''; ?>>
+		<div class="gc-search-results-widget<?php echo $wrap_class ? ' ' . esc_attr( $wrap_class ) : ''; ?>">
 
 			<!-- HERO -->
 			<section class="relative overflow-hidden pt-8 pb-10 sm:pb-12 text-center">
@@ -449,16 +449,16 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 					<?php endif; ?>
 
 					<?php if ( 'yes' === $s['form_show'] ) : ?>
-						<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="GET" role="search" class="mt-8 max-w-xl mx-auto">
+						<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="GET" role="search" class="gc-search-form mt-8 max-w-xl mx-auto">
 							<?php if ( 1 === count( $types ) ) : ?>
 								<input type="hidden" name="post_type" value="<?php echo esc_attr( $types[0] ); ?>" />
 							<?php endif; ?>
-							<div class="relative">
+							<div class="gc-search-input-wrap relative">
 								<?php if ( ! empty( $s['form_icon'] ) ) : ?>
-									<i class="<?php echo esc_attr( $s['form_icon'] ); ?> absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
+									<i class="<?php echo esc_attr( $s['form_icon'] ); ?> gc-search-icon absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
 								<?php endif; ?>
-								<input type="search" name="s" value="<?php echo esc_attr( $term ); ?>" placeholder="<?php echo esc_attr( $s['form_placeholder'] ); ?>" class="w-full h-14 pl-11 pr-32 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-primary-500" />
-								<button type="submit" class="absolute right-2 top-2 h-10 px-5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold shadow-lg shadow-primary-500/20 transition">
+								<input type="search" name="s" value="<?php echo esc_attr( $term ); ?>" placeholder="<?php echo esc_attr( $s['form_placeholder'] ); ?>" class="gc-search-input w-full h-14 pl-11 pr-32 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-sm text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-primary-500" />
+								<button type="submit" class="gc-search-btn absolute right-2 top-2 h-10 px-5 rounded-xl bg-primary-600 hover:bg-primary-500 text-white text-sm font-semibold shadow-lg shadow-primary-500/20 transition">
 									<?php echo esc_html( $s['form_button'] ); ?>
 								</button>
 							</div>
@@ -536,7 +536,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 					</div>
 
 					<?php if ( 'yes' === $s['pagination_show'] && $total > 1 ) : ?>
-						<nav class="flex items-center justify-center gap-2 mt-12 sm:mt-16 flex-wrap" aria-label="<?php esc_attr_e( 'Search pagination', 'softro-core' ); ?>">
+						<nav class="flex items-center justify-center gap-2 mt-12 sm:mt-16 flex-wrap" aria-label="<?php esc_attr_e( 'Search pagination', 'iatbd-core' ); ?>">
 
 							<?php if ( $paged > 1 ) : ?>
 								<a href="<?php echo esc_url( get_pagenum_link( $paged - 1 ) ); ?>" class="<?php echo esc_attr( $btn_nav ); ?>">
