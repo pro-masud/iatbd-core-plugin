@@ -352,6 +352,8 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-gc-blog-single.php' );
 		require_once( __DIR__ . '/widgets/class-gc-search-results.php' );
 		require_once( __DIR__ . '/widgets/class-gc-maintenance-hero.php' );
+		require_once( __DIR__ . '/widgets/class-gc-stats-bar.php' );
+		require_once( __DIR__ . '/widgets/gc-service-cards-widget.php' );
 
 		// Header & Footer
 		if ( class_exists( '\IATBD_Header_Widget' ) ) {
@@ -419,6 +421,8 @@ final class Elementor_Test {
 
 
 		$widgets_manager->register( new \GC_Maintenance_Hero_Widget() );
+		$widgets_manager->register( new \GC_Stats_Bar_Widget() );
+		$widgets_manager->register( new \GC_Service_Cards_Widget() );
 	}
 
 	/**
