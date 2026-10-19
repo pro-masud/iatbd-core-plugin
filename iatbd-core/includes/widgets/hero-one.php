@@ -150,7 +150,8 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			$this->add_control( "s{$n}_btn1_link", [
 				'label'   => esc_html__( 'Button 1 Link', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::URL,
-				'default' => [ 'url' => $d['btn1_url'] ],
+			'label_block' => true,
+			'default' => [ 'url' => $d['btn1_url'] ],
 			] );
 
 			$this->add_control( "s{$n}_btn1_icon", [
@@ -172,7 +173,8 @@ class IATBD_Servo_Hero extends \Elementor\Widget_Base {
 			$this->add_control( "s{$n}_btn2_link", [
 				'label'   => esc_html__( 'Button 2 Link', 'iatbd-core' ),
 				'type'    => \Elementor\Controls_Manager::URL,
-				'default' => [ 'url' => $d['btn2_url'] ],
+			'label_block' => true,
+			'default' => [ 'url' => $d['btn2_url'] ],
 			] );
 
 			// Slide 1 only: right-side feature card.

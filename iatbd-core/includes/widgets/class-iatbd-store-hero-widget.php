@@ -61,7 +61,9 @@ class IATBD_Store_Hero_Widget extends \Elementor\Widget_Base {
 		$rep->add_control( 'title', [ 'label' => 'Heading', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => '' ] );
 		$rep->add_control( 'desc', [ 'label' => 'Description', 'type' => \Elementor\Controls_Manager::TEXTAREA, 'default' => '' ] );
 		$rep->add_control( 'btn', [ 'label' => 'Button Text', 'type' => $T, 'label_block' => true, 'default' => '' ] );
-		$rep->add_control( 'link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#store-products' ] ] );
+		$rep->add_control( 'link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => '#store-products' ] ] );
 
 		$defaults = [];
 		foreach ( $this->default_items() as $d ) {

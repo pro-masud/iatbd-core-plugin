@@ -63,12 +63,14 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'eyebrow', [
 			'label'   => esc_html__( 'Eyebrow', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'GET IN TOUCH',
 		] );
 
 		$this->add_control( 'heading', [
 			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'How can we help?',
 		] );
 
@@ -90,6 +92,7 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$channels->add_control( 'icon', [
 			'label'       => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'fas fa-phone-alt',
 			'placeholder' => 'fas fa-phone-alt',
 		] );
@@ -97,24 +100,28 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$channels->add_control( 'label', [
 			'label'   => esc_html__( 'Label', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Call us',
 		] );
 
 		$channels->add_control( 'title', [
 			'label'   => esc_html__( 'Title', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => '+880 1XXX-XXXXXX',
 		] );
 
 		$channels->add_control( 'text', [
 			'label'   => esc_html__( 'Small Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Speak with our service team',
 		] );
 
 		$channels->add_control( 'link', [
 			'label'         => esc_html__( 'Link', 'iatbd-core' ),
 			'type'          => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'placeholder'   => 'tel:+8801XXXXXXXXX',
 			'default'       => [ 'url' => 'tel:+8801XXXXXXXXX' ],
 			'show_external' => true,
@@ -185,12 +192,14 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'tips_icon', [
 			'label'   => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'fas fa-gears',
 		] );
 
 		$this->add_control( 'tips_title', [
 			'label'   => esc_html__( 'Title', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Helpful details to include',
 		] );
 
@@ -199,6 +208,7 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$tips->add_control( 'text', [
 			'label'   => esc_html__( 'Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => '',
 		] );
 
@@ -224,12 +234,14 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'form_eyebrow', [
 			'label'   => esc_html__( 'Eyebrow', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'SEND A MESSAGE',
 		] );
 
 		$this->add_control( 'form_heading', [
 			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Tell us about your project',
 		] );
 
@@ -243,6 +255,7 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'form_icon', [
 			'label'       => esc_html__( 'Header Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'fas fa-paper-plane',
 			'description' => esc_html__( 'Leave empty to hide the icon badge.', 'iatbd-core' ),
 		] );
@@ -250,6 +263,7 @@ class GC_Contact_Section_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'form_anchor', [
 			'label'       => esc_html__( 'Anchor ID', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'message',
 			'description' => esc_html__( 'Used for #message links. No # sign.', 'iatbd-core' ),
 		] );

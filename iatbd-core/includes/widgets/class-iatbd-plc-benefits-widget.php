@@ -99,7 +99,9 @@ class IATBD_PLC_Benefits_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'sec_cta', [ 'label' => 'Button' ] );
 		$this->add_control( 'cta_text', [ 'label' => 'Button Text', 'type' => $T, 'label_block' => true, 'default' => 'Discuss Your Project' ] );
 		$this->add_control( 'cta_icon', [ 'label' => 'Button Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-arrow-right', 'placeholder' => 'fas fa-arrow-right' ] );
-		$this->add_control( 'cta_link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#contact' ] ] );
+		$this->add_control( 'cta_link', [ 'label' => 'Button Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => '#contact' ] ] );
 		$this->end_controls_section();
 	}
 

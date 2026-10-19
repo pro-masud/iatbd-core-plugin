@@ -186,6 +186,7 @@ class IATBD_Footer extends \Elementor\Widget_Base {
 		$this->add_control( 'bottom_link', [
 			'label'   => esc_html__( 'Right Link URL', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '#' ],
 		] );
 

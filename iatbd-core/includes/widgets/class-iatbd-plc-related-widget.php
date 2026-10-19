@@ -73,7 +73,9 @@ class IATBD_PLC_Related_Widget extends \Elementor\Widget_Base {
 			$this->add_control( $p . 'icon', [ 'label' => 'Icon Class', 'type' => $T, 'label_block' => true, 'default' => $d[1], 'placeholder' => 'fas fa-cog' ] );
 			$this->add_control( $p . 'title', [ 'label' => 'Title', 'type' => $T, 'label_block' => true, 'default' => $d[2] ] );
 			$this->add_control( $p . 'sub', [ 'label' => 'Subtitle', 'type' => $T, 'label_block' => true, 'default' => $d[3] ] );
-			$this->add_control( $p . 'link', [ 'label' => 'Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => $d[4] ] ] );
+			$this->add_control( $p . 'link', [ 'label' => 'Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => $d[4] ] ] );
 			$this->end_controls_section();
 		}
 	}

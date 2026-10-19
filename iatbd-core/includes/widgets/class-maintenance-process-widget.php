@@ -10,7 +10,7 @@ class IATBD_Maintenance_Process_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Maintenance Process', 'iatbd-addons' );
+		return esc_html__('IATBD Maintenance Process', 'iatbd-core');
 	}
 
 	public function get_icon() {
@@ -25,24 +25,27 @@ class IATBD_Maintenance_Process_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Heading ---------- */
 		$this->start_controls_section( 'section_heading', [
-			'label' => esc_html__( 'Heading', 'iatbd-addons' ),
+			'label' => esc_html__('Heading', 'iatbd-core'),
 		] );
 
 		$this->add_control( 'section_id', [
-			'label'   => esc_html__( 'Section ID', 'iatbd-addons' ),
+			'label'   => esc_html__('Section ID', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'process',
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'   => esc_html__( 'Eyebrow', 'iatbd-addons' ),
+			'label'   => esc_html__('Eyebrow', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'How It Works',
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Heading', 'iatbd-addons' ),
+			'label'   => esc_html__('Heading', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Simple Maintenance Process',
 		] );
 
@@ -71,23 +74,25 @@ class IATBD_Maintenance_Process_Widget extends \Elementor\Widget_Base {
 		foreach ( $steps as $i => $step ) {
 
 			$this->start_controls_section( 'section_step_' . $i, [
-				'label' => sprintf( esc_html__( 'Step %d', 'iatbd-addons' ), $i ),
+				'label' => sprintf( esc_html__('Step %d', 'iatbd-core'), $i ),
 			] );
 
 			$this->add_control( 'step_' . $i . '_number', [
-				'label'   => esc_html__( 'Number', 'iatbd-addons' ),
+				'label'   => esc_html__('Number', 'iatbd-core'),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => (string) $i,
+			'label_block' => true,
+			'default' => (string) $i,
 			] );
 
 			$this->add_control( 'step_' . $i . '_title', [
-				'label'   => esc_html__( 'Title', 'iatbd-addons' ),
+				'label'   => esc_html__('Title', 'iatbd-core'),
 				'type'    => \Elementor\Controls_Manager::TEXT,
-				'default' => $step['title'],
+			'label_block' => true,
+			'default' => $step['title'],
 			] );
 
 			$this->add_control( 'step_' . $i . '_desc', [
-				'label'   => esc_html__( 'Description', 'iatbd-addons' ),
+				'label'   => esc_html__('Description', 'iatbd-core'),
 				'type'    => \Elementor\Controls_Manager::TEXTAREA,
 				'rows'    => 3,
 				'default' => $step['desc'],

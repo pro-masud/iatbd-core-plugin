@@ -99,7 +99,9 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 		/* Breadcrumb (same on all slides) */
 		$this->start_controls_section( 'sec_crumb', [ 'label' => 'Breadcrumb' ] );
 		$this->add_control( 'crumb_home_text', [ 'label' => 'Home Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'Home' ] );
-		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '/' ] ] );
+		$this->add_control( 'crumb_home_link', [ 'label' => 'Home Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => '/' ] ] );
 		$this->add_control( 'crumb_mid_text', [ 'label' => 'Middle Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'Services' ] );
 		$this->add_control( 'crumb_current_text', [ 'label' => 'Current Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'PLC Service' ] );
 		$this->end_controls_section();
@@ -136,11 +138,15 @@ class IATBD_PLC_Hero_Widget extends \Elementor\Widget_Base {
 
 			$this->add_control( $p . 'btn1_icon', [ 'label' => 'Button 1 Icon Class', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => $d['btn1_icon'], 'separator' => 'before' ] );
 			$this->add_control( $p . 'btn1_text', [ 'label' => 'Button 1 Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => $d['btn1_text'] ] );
-			$this->add_control( $p . 'btn1_link', [ 'label' => 'Button 1 Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => $d['btn1_link'] ] ] );
+			$this->add_control( $p . 'btn1_link', [ 'label' => 'Button 1 Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => $d['btn1_link'] ] ] );
 
 			$this->add_control( $p . 'btn2_icon', [ 'label' => 'Button 2 Icon Class', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'fas fa-list', 'separator' => 'before' ] );
 			$this->add_control( $p . 'btn2_text', [ 'label' => 'Button 2 Text', 'type' => \Elementor\Controls_Manager::TEXT, 'label_block' => true, 'default' => 'All Services' ] );
-			$this->add_control( $p . 'btn2_link', [ 'label' => 'Button 2 Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#services-list' ] ] );
+			$this->add_control( $p . 'btn2_link', [ 'label' => 'Button 2 Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => '#services-list' ] ] );
 
 			$this->end_controls_section();
 		}

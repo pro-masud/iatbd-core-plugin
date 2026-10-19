@@ -16,7 +16,7 @@ class GC_Service_Cards_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Service Cards', 'softro-core' );
+		return esc_html__( 'IATBD Service Cards', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -24,7 +24,7 @@ class GC_Service_Cards_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -67,36 +67,39 @@ class GC_Service_Cards_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Heading ---------- */
 		$this->start_controls_section( 'section_heading', [
-			'label' => esc_html__( 'Section Heading', 'softro-core' ),
+			'label' => esc_html__( 'Section Heading', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'anchor_id', [
-			'label'       => esc_html__( 'Anchor ID', 'softro-core' ),
+			'label'       => esc_html__( 'Anchor ID', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'services',
-			'description' => esc_html__( 'Used for #services links. No # sign. Leave empty for none.', 'softro-core' ),
+			'description' => esc_html__( 'Used for #services links. No # sign. Leave empty for none.', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'   => esc_html__( 'Eyebrow', 'softro-core' ),
+			'label'   => esc_html__( 'Eyebrow', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Maintenance Services',
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Heading', 'softro-core' ),
+			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Preventive Maintenance for Critical Assets',
 		] );
 
 		$this->add_control( 'description', [
-			'label'   => esc_html__( 'Description', 'softro-core' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'default' => 'Structured checks and care for the equipment that drives your production — so small issues never become line-stopping failures.',
 		] );
 
 		$this->add_control( 'columns', [
-			'label'   => esc_html__( 'Columns (desktop)', 'softro-core' ),
+			'label'   => esc_html__( 'Columns (desktop)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => '2',
 			'options' => [
@@ -110,71 +113,75 @@ class GC_Service_Cards_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Cards ---------- */
 		$this->start_controls_section( 'section_cards', [
-			'label' => esc_html__( 'Service Cards', 'softro-core' ),
+			'label' => esc_html__( 'Service Cards', 'iatbd-core' ),
 		] );
 
 		$r = new \Elementor\Repeater();
 
 		$r->add_control( 'image', [
-			'label'   => esc_html__( 'Image', 'softro-core' ),
+			'label'   => esc_html__( 'Image', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::MEDIA,
 			'default' => [ 'url' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80' ],
 		] );
 
 		$r->add_control( 'icon', [
-			'label'     => esc_html__( 'Icon Class (Font Awesome)', 'softro-core' ),
+			'label'     => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'fas fa-tachometer-alt',
 			'separator' => 'before',
 		] );
 
 		$r->add_control( 'icon_style', [
-			'label'   => esc_html__( 'Icon Color', 'softro-core' ),
+			'label'   => esc_html__( 'Icon Color', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'primary',
 			'options' => [
-				'primary' => esc_html__( 'Primary', 'softro-core' ),
-				'orange'  => esc_html__( 'Orange', 'softro-core' ),
-				'emerald' => esc_html__( 'Emerald', 'softro-core' ),
-				'rose'    => esc_html__( 'Rose', 'softro-core' ),
+				'primary' => esc_html__( 'Primary', 'iatbd-core' ),
+				'orange'  => esc_html__( 'Orange', 'iatbd-core' ),
+				'emerald' => esc_html__( 'Emerald', 'iatbd-core' ),
+				'rose'    => esc_html__( 'Rose', 'iatbd-core' ),
 			],
 		] );
 
 		$r->add_control( 'title', [
-			'label'   => esc_html__( 'Title', 'softro-core' ),
+			'label'   => esc_html__( 'Title', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'VFD Maintenance',
 		] );
 
 		$r->add_control( 'text', [
-			'label'   => esc_html__( 'Description', 'softro-core' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'default' => 'Thermal inspection, capacitor health, cooling system, terminals and parameter backup for reliable long-term drive performance.',
 		] );
 
 		$r->add_control( 'checklist', [
-			'label'       => esc_html__( 'Checklist', 'softro-core' ),
+			'label'       => esc_html__( 'Checklist', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXTAREA,
 			'rows'        => 5,
 			'default'     => "Cleaning & dust removal\nFan & heat-sink inspection\nTerminal torque & connection check\nParameter backup & health report",
-			'description' => esc_html__( 'One item per line.', 'softro-core' ),
+			'description' => esc_html__( 'One item per line.', 'iatbd-core' ),
 		] );
 
 		$r->add_control( 'link_text', [
-			'label'     => esc_html__( 'Link Text', 'softro-core' ),
+			'label'     => esc_html__( 'Link Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Learn more about VFD service',
 			'separator' => 'before',
 		] );
 
 		$r->add_control( 'link', [
-			'label'   => esc_html__( 'Link', 'softro-core' ),
+			'label'   => esc_html__( 'Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '/vfd-service/' ],
 		] );
 
 		$this->add_control( 'cards', [
-			'label'       => esc_html__( 'Cards', 'softro-core' ),
+			'label'       => esc_html__( 'Cards', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $r->get_controls(),
 			'title_field' => '{{{ title }}}',

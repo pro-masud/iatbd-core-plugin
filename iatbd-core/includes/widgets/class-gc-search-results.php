@@ -58,6 +58,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'fallback_image', [
 			'label'       => 'Fallback Image URL',
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'description' => 'Used when a result has no featured image.',
 		] );
 
@@ -76,6 +77,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'crumb_home_text', [
 			'label'     => 'Home Text',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Home',
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
@@ -83,6 +85,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'crumb_home_link', [
 			'label'     => 'Home Link',
 			'type'      => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default'   => [ 'url' => '/' ],
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
@@ -90,6 +93,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'crumb_current_text', [
 			'label'     => 'Current Page Text',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Search',
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
@@ -97,12 +101,14 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'heading_prefix', [
 			'label'   => 'Heading (with search term)',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Search Results for:',
 		] );
 
 		$this->add_control( 'heading_empty', [
 			'label'   => 'Heading (no search term)',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Search Our Blog',
 		] );
 
@@ -140,6 +146,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'form_icon', [
 			'label'     => 'Input Icon Class',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'fas fa-search',
 			'condition' => [ 'form_show' => 'yes' ],
 		] );
@@ -147,6 +154,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'form_placeholder', [
 			'label'     => 'Placeholder',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Search articles, topics, services...',
 			'condition' => [ 'form_show' => 'yes' ],
 		] );
@@ -154,6 +162,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'form_button', [
 			'label'     => 'Button Text',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Search',
 			'condition' => [ 'form_show' => 'yes' ],
 		] );
@@ -213,12 +222,14 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'date_icon', [
 			'label'   => 'Date Icon Class',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'far fa-calendar-alt',
 		] );
 
 		$this->add_control( 'date_format', [
 			'label'   => 'Date Format',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'M d, Y',
 		] );
 
@@ -233,12 +244,14 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'read_more_text', [
 			'label'   => 'Button Text',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Read More',
 		] );
 
 		$this->add_control( 'read_more_icon', [
 			'label'   => 'Button Icon Class',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'fas fa-arrow-right',
 		] );
 
@@ -257,6 +270,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'prev_text', [
 			'label'     => 'Previous Text',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Prev',
 			'condition' => [ 'pagination_show' => 'yes' ],
 		] );
@@ -264,6 +278,7 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'next_text', [
 			'label'     => 'Next Text',
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Next',
 			'condition' => [ 'pagination_show' => 'yes' ],
 		] );
@@ -276,12 +291,14 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'empty_icon', [
 			'label'   => 'Icon Class',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'fas fa-magnifying-glass',
 		] );
 
 		$this->add_control( 'empty_title', [
 			'label'   => 'Title',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'No results found',
 		] );
 
@@ -294,12 +311,14 @@ class GC_Search_Results_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'empty_btn_text', [
 			'label'   => 'Button Text',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Browse All Blog',
 		] );
 
 		$this->add_control( 'empty_btn_link', [
 			'label'   => 'Button Link',
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '/blog/' ],
 		] );
 

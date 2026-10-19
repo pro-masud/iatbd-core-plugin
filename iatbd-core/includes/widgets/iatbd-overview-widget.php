@@ -146,6 +146,7 @@ class IATBD_Overview extends \Elementor\Widget_Base {
 		$this->add_control( 'link_url', [
 			'label'   => esc_html__( 'Link URL', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '#contact' ],
 		] );
 

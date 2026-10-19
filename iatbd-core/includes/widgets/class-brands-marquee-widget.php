@@ -10,7 +10,7 @@ class IATBD_Brands_Marquee_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'Brands Marquee', 'iatbd-addons' );
+		return esc_html__('IATBD Brands Marquee', 'iatbd-core');
 	}
 
 	public function get_icon() {
@@ -25,24 +25,27 @@ class IATBD_Brands_Marquee_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Heading ---------- */
 		$this->start_controls_section( 'section_heading', [
-			'label' => esc_html__( 'Heading', 'iatbd-addons' ),
+			'label' => esc_html__('Heading', 'iatbd-core'),
 		] );
 
 		$this->add_control( 'section_id', [
-			'label'   => esc_html__( 'Section ID', 'iatbd-addons' ),
+			'label'   => esc_html__('Section ID', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'brands',
 		] );
 
 		$this->add_control( 'eyebrow', [
-			'label'   => esc_html__( 'Eyebrow', 'iatbd-addons' ),
+			'label'   => esc_html__('Eyebrow', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Multi-Brand Coverage',
 		] );
 
 		$this->add_control( 'heading', [
-			'label'   => esc_html__( 'Heading', 'iatbd-addons' ),
+			'label'   => esc_html__('Heading', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'We Maintain All Major Brands',
 		] );
 
@@ -50,11 +53,11 @@ class IATBD_Brands_Marquee_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Banner ---------- */
 		$this->start_controls_section( 'section_banner', [
-			'label' => esc_html__( 'Banner', 'iatbd-addons' ),
+			'label' => esc_html__('Banner', 'iatbd-core'),
 		] );
 
 		$this->add_control( 'banner_image', [
-			'label'   => esc_html__( 'Image', 'iatbd-addons' ),
+			'label'   => esc_html__('Image', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::MEDIA,
 			'default' => [
 				'url' => 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=1200&q=80',
@@ -62,20 +65,23 @@ class IATBD_Brands_Marquee_Widget extends \Elementor\Widget_Base {
 		] );
 
 		$this->add_control( 'banner_alt', [
-			'label'   => esc_html__( 'Image Alt', 'iatbd-addons' ),
+			'label'   => esc_html__('Image Alt', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Industrial maintenance',
 		] );
 
 		$this->add_control( 'banner_title', [
-			'label'   => esc_html__( 'Title', 'iatbd-addons' ),
+			'label'   => esc_html__('Title', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Trusted across factories in Bangladesh',
 		] );
 
 		$this->add_control( 'banner_subtitle', [
-			'label'   => esc_html__( 'Subtitle', 'iatbd-addons' ),
+			'label'   => esc_html__('Subtitle', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Siemens • ABB • Delta • Schneider • Mitsubishi • and more',
 		] );
 
@@ -83,27 +89,30 @@ class IATBD_Brands_Marquee_Widget extends \Elementor\Widget_Base {
 
 		/* ---------- Brands (Repeater) ---------- */
 		$this->start_controls_section( 'section_brands', [
-			'label' => esc_html__( 'Brands', 'iatbd-addons' ),
+			'label' => esc_html__('Brands', 'iatbd-core'),
 		] );
 
 		$repeater = new \Elementor\Repeater();
 
 		$repeater->add_control( 'name', [
-			'label'   => esc_html__( 'Brand Name', 'iatbd-addons' ),
+			'label'   => esc_html__('Brand Name', 'iatbd-core'),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Siemens',
 		] );
 
 		$repeater->add_control( 'icon_class', [
-			'label'       => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-addons' ),
+			'label'       => esc_html__('Icon Class (Font Awesome)', 'iatbd-core'),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'fas fa-bolt',
 			'placeholder' => 'fas fa-bolt',
 		] );
 
 		$repeater->add_control( 'icon_color_class', [
-			'label'       => esc_html__( 'Icon Color Class', 'iatbd-addons' ),
+			'label'       => esc_html__('Icon Color Class', 'iatbd-core'),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'text-primary-500',
 			'placeholder' => 'text-red-500',
 		] );
@@ -133,7 +142,7 @@ class IATBD_Brands_Marquee_Widget extends \Elementor\Widget_Base {
 		}
 
 		$this->add_control( 'brands', [
-			'label'       => esc_html__( 'Brand Items', 'iatbd-addons' ),
+			'label'       => esc_html__('Brand Items', 'iatbd-core'),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $repeater->get_controls(),
 			'default'     => $default_items,

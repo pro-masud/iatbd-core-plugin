@@ -72,6 +72,7 @@ class IATBD_Header_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'logo_link', [
 			'label'   => esc_html__( 'Logo Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '#' ],
 		] );
 
@@ -117,6 +118,7 @@ class IATBD_Header_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'cta_link', [
 			'label'   => esc_html__( 'Button Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '#contact' ],
 		] );
 

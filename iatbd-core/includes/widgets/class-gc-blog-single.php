@@ -105,16 +105,19 @@ class GC_Blog_Single_Widget extends \Elementor\Widget_Base {
 		$r->add_control( 'icon', [
 			'label'   => 'Icon Class (Font Awesome)',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'fab fa-linkedin-in',
 		] );
 		$r->add_control( 'label', [
 			'label'   => 'Aria Label',
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'LinkedIn',
 		] );
 		$r->add_control( 'link', [
 			'label'   => 'Link',
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '#' ],
 		] );
 		$this->add_control( $id, [

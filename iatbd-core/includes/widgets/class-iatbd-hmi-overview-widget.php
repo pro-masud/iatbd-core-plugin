@@ -48,7 +48,9 @@ class IATBD_HMI_Overview_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section( 'sec_link', [ 'label' => 'Link' ] );
 		$this->add_control( 'link_text', [ 'label' => 'Link Text', 'type' => $T, 'label_block' => true, 'default' => 'Start a project' ] );
 		$this->add_control( 'link_icon', [ 'label' => 'Link Icon Class', 'type' => $T, 'label_block' => true, 'default' => 'fas fa-arrow-right', 'placeholder' => 'fas fa-arrow-right' ] );
-		$this->add_control( 'link_url', [ 'label' => 'Link', 'type' => \Elementor\Controls_Manager::URL, 'default' => [ 'url' => '#contact' ] ] );
+		$this->add_control( 'link_url', [ 'label' => 'Link', 'type' => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
+			'default' => [ 'url' => '#contact' ] ] );
 		$this->end_controls_section();
 
 		/* Image + floating card */

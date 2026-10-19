@@ -357,6 +357,7 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-brands-marquee-widget.php' );
 		require_once( __DIR__ . '/widgets/class-repair-brands-marquee-widget.php' );
 		require_once( __DIR__ . '/widgets/class-maintenance-process-widget.php' );
+		require_once( __DIR__ . '/widgets/class-preventive-maintenance-widget.php' );
 
 		// Header & Footer
 		if ( class_exists( '\IATBD_Header_Widget' ) ) {
@@ -429,6 +430,7 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Brands_Marquee_Widget() );
 		$widgets_manager->register( new \IATBD_Repair_Brands_Marquee_Widget() );
 		$widgets_manager->register( new \IATBD_Maintenance_Process_Widget() );
+		$widgets_manager->register( new \IATBD_Preventive_Maintenance_Widget() );
 	}
 
 	/**

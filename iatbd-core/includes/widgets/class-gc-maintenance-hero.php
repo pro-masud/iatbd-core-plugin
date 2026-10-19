@@ -17,7 +17,7 @@ class GC_Maintenance_Hero_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Maintenance Hero Slider', 'softro-core' );
+		return esc_html__( 'IATBD Maintenance Hero Slider', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -25,7 +25,7 @@ class GC_Maintenance_Hero_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -55,95 +55,104 @@ class GC_Maintenance_Hero_Widget extends \Elementor\Widget_Base {
 	protected function register_controls() {
 
 		$this->start_controls_section( 'section_slides', [
-			'label' => esc_html__( 'Slides', 'softro-core' ),
+			'label' => esc_html__( 'Slides', 'iatbd-core' ),
 		] );
 
 		$r = new \Elementor\Repeater();
 
 		$r->add_control( 'bg_image', [
-			'label'   => esc_html__( 'Background Image', 'softro-core' ),
+			'label'   => esc_html__( 'Background Image', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::MEDIA,
 			'default' => [ 'url' => 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80' ],
 		] );
 
 		$r->add_control( 'style', [
-			'label'   => esc_html__( 'Color Style', 'softro-core' ),
+			'label'   => esc_html__( 'Color Style', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => 'accent',
 			'options' => [
-				'accent'  => esc_html__( 'Accent (orange)', 'softro-core' ),
-				'primary' => esc_html__( 'Primary', 'softro-core' ),
+				'accent'  => esc_html__( 'Accent (orange)', 'iatbd-core' ),
+				'primary' => esc_html__( 'Primary', 'iatbd-core' ),
 			],
 		] );
 
 		$r->add_control( 'badge_icon', [
-			'label'     => esc_html__( 'Badge Icon Class (Font Awesome)', 'softro-core' ),
+			'label'     => esc_html__( 'Badge Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'fas fa-calendar-check',
 			'separator' => 'before',
 		] );
 
 		$r->add_control( 'badge_text', [
-			'label'   => esc_html__( 'Badge Text', 'softro-core' ),
+			'label'   => esc_html__( 'Badge Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'PREVENTIVE & PREDICTIVE MAINTENANCE',
 		] );
 
 		$r->add_control( 'heading_1', [
-			'label'     => esc_html__( 'Heading Line 1', 'softro-core' ),
+			'label'     => esc_html__( 'Heading Line 1', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Keep Your Drives Running',
 			'separator' => 'before',
 		] );
 
 		$r->add_control( 'heading_2', [
-			'label'       => esc_html__( 'Heading Line 2 (colored)', 'softro-core' ),
+			'label'       => esc_html__( 'Heading Line 2 (colored)', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'Before They Fail',
-			'description' => esc_html__( 'Leave empty for a single-line heading.', 'softro-core' ),
+			'description' => esc_html__( 'Leave empty for a single-line heading.', 'iatbd-core' ),
 		] );
 
 		$r->add_control( 'description', [
-			'label'   => esc_html__( 'Description', 'softro-core' ),
+			'label'   => esc_html__( 'Description', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXTAREA,
 			'default' => 'Scheduled maintenance for VFD, PLC, HMI and Servo systems. We clean, inspect, measure, backup parameters and catch problems early — so production stays online.',
 		] );
 
 		$r->add_control( 'btn1_text', [
-			'label'     => esc_html__( 'Primary Button Text', 'softro-core' ),
+			'label'     => esc_html__( 'Primary Button Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Schedule Maintenance',
 			'separator' => 'before',
 		] );
 
 		$r->add_control( 'btn1_icon', [
-			'label'   => esc_html__( 'Primary Button Icon Class', 'softro-core' ),
+			'label'   => esc_html__( 'Primary Button Icon Class', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'fas fa-arrow-right',
 		] );
 
 		$r->add_control( 'btn1_link', [
-			'label'   => esc_html__( 'Primary Button Link', 'softro-core' ),
+			'label'   => esc_html__( 'Primary Button Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '/contact/' ],
 		] );
 
 		$r->add_control( 'btn2_text', [
-			'label'       => esc_html__( 'Secondary Button Text', 'softro-core' ),
+			'label'       => esc_html__( 'Secondary Button Text', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'What We Cover',
-			'description' => esc_html__( 'Leave empty to hide the secondary button.', 'softro-core' ),
+			'description' => esc_html__( 'Leave empty to hide the secondary button.', 'iatbd-core' ),
 			'separator'   => 'before',
 		] );
 
 		$r->add_control( 'btn2_link', [
-			'label'   => esc_html__( 'Secondary Button Link', 'softro-core' ),
+			'label'   => esc_html__( 'Secondary Button Link', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default' => [ 'url' => '#services' ],
 		] );
 
 		$this->add_control( 'slides', [
-			'label'       => esc_html__( 'Slides', 'softro-core' ),
+			'label'       => esc_html__( 'Slides', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $r->get_controls(),
 			'title_field' => '{{{ heading_1 }}}',

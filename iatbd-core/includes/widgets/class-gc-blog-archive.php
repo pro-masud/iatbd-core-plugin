@@ -73,6 +73,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'crumb_home_text', [
 			'label'     => esc_html__( 'Home Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Home',
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
@@ -80,6 +81,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'crumb_home_link', [
 			'label'     => esc_html__( 'Home Link', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::URL,
+			'label_block' => true,
 			'default'   => [ 'url' => '/' ],
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
@@ -87,6 +89,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'crumb_current_text', [
 			'label'     => esc_html__( 'Current Page Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Blog',
 			'condition' => [ 'breadcrumb_show' => 'yes' ],
 		] );
@@ -94,6 +97,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'hero_heading', [
 			'label'   => esc_html__( 'Heading', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Our All Blog',
 		] );
 
@@ -152,6 +156,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'empty_text', [
 			'label'   => esc_html__( 'No Posts Message', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'No blog posts found.',
 		] );
 
@@ -176,6 +181,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'featured_text', [
 			'label'     => esc_html__( 'Badge Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Featured',
 			'condition' => [ 'featured_mode!' => 'none' ],
 		] );
@@ -183,12 +189,14 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'date_icon', [
 			'label'   => esc_html__( 'Date Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'far fa-calendar-alt',
 		] );
 
 		$this->add_control( 'date_format', [
 			'label'       => esc_html__( 'Date Format', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'     => 'M d, Y',
 			'description' => esc_html__( 'PHP date format, e.g. M d, Y', 'iatbd-core' ),
 		] );
@@ -204,18 +212,21 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'read_more_text', [
 			'label'   => esc_html__( 'Button Text', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Read More',
 		] );
 
 		$this->add_control( 'read_more_icon', [
 			'label'   => esc_html__( 'Button Icon Class (Font Awesome)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'fas fa-arrow-right',
 		] );
 
 		$this->add_control( 'fallback_image', [
 			'label'       => esc_html__( 'Fallback Image URL', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'placeholder' => 'https://...',
 			'description' => esc_html__( 'Used when a post has no featured image.', 'iatbd-core' ),
 		] );
@@ -237,6 +248,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'prev_text', [
 			'label'     => esc_html__( 'Previous Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Prev',
 			'condition' => [ 'pagination_show' => 'yes' ],
 		] );
@@ -244,6 +256,7 @@ class GC_Blog_Archive_Widget extends \Elementor\Widget_Base {
 		$this->add_control( 'next_text', [
 			'label'     => esc_html__( 'Next Text', 'iatbd-core' ),
 			'type'      => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default'   => 'Next',
 			'condition' => [ 'pagination_show' => 'yes' ],
 		] );

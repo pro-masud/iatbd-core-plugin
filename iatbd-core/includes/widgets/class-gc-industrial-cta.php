@@ -130,7 +130,8 @@ class GC_Industrial_CTA_Widget extends \Elementor\Widget_Base {
 			[
 				'label'       => esc_html__( 'Link', 'iatbd-core' ),
 				'type'        => \Elementor\Controls_Manager::URL,
-				'placeholder' => 'https://your-link.com',
+			'label_block' => true,
+			'placeholder' => 'https://your-link.com',
 				'default'     => [
 					'url' => '#',
 				],

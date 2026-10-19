@@ -15,7 +15,7 @@ class GC_Stats_Bar_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_title() {
-		return esc_html__( 'GC Stats Bar', 'softro-core' );
+		return esc_html__( 'IATBD Stats Bar 2', 'iatbd-core' );
 	}
 
 	public function get_icon() {
@@ -23,7 +23,7 @@ class GC_Stats_Bar_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_categories() {
-		return [ 'gc_widgets' ];
+		return [ 'iatbd-addons', 'gc_widgets' ];
 	}
 
 	public function get_keywords() {
@@ -46,11 +46,11 @@ class GC_Stats_Bar_Widget extends \Elementor\Widget_Base {
 	protected function register_controls() {
 
 		$this->start_controls_section( 'section_stats', [
-			'label' => esc_html__( 'Stats', 'softro-core' ),
+			'label' => esc_html__( 'Stats', 'iatbd-core' ),
 		] );
 
 		$this->add_control( 'columns', [
-			'label'   => esc_html__( 'Columns (desktop)', 'softro-core' ),
+			'label'   => esc_html__( 'Columns (desktop)', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::SELECT,
 			'default' => '4',
 			'options' => [
@@ -65,19 +65,21 @@ class GC_Stats_Bar_Widget extends \Elementor\Widget_Base {
 		$r = new \Elementor\Repeater();
 
 		$r->add_control( 'value', [
-			'label'   => esc_html__( 'Value', 'softro-core' ),
+			'label'   => esc_html__( 'Value', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => '300+',
 		] );
 
 		$r->add_control( 'label', [
-			'label'   => esc_html__( 'Label', 'softro-core' ),
+			'label'   => esc_html__( 'Label', 'iatbd-core' ),
 			'type'    => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
 			'default' => 'Maintenance Visits Completed',
 		] );
 
 		$this->add_control( 'stats', [
-			'label'       => esc_html__( 'Items', 'softro-core' ),
+			'label'       => esc_html__( 'Items', 'iatbd-core' ),
 			'type'        => \Elementor\Controls_Manager::REPEATER,
 			'fields'      => $r->get_controls(),
 			'title_field' => '{{{ value }}} - {{{ label }}}',
