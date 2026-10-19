@@ -354,6 +354,9 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-gc-maintenance-hero.php' );
 		require_once( __DIR__ . '/widgets/class-gc-stats-bar.php' );
 		require_once( __DIR__ . '/widgets/gc-service-cards-widget.php' );
+		require_once( __DIR__ . '/widgets/class-brands-marquee-widget.php' );
+		require_once( __DIR__ . '/widgets/class-repair-brands-marquee-widget.php' );
+		require_once( __DIR__ . '/widgets/class-maintenance-process-widget.php' );
 
 		// Header & Footer
 		if ( class_exists( '\IATBD_Header_Widget' ) ) {
@@ -423,6 +426,9 @@ final class Elementor_Test {
 		$widgets_manager->register( new \GC_Maintenance_Hero_Widget() );
 		$widgets_manager->register( new \GC_Stats_Bar_Widget() );
 		$widgets_manager->register( new \GC_Service_Cards_Widget() );
+		$widgets_manager->register( new \IATBD_Brands_Marquee_Widget() );
+		$widgets_manager->register( new \IATBD_Repair_Brands_Marquee_Widget() );
+		$widgets_manager->register( new \IATBD_Maintenance_Process_Widget() );
 	}
 
 	/**
