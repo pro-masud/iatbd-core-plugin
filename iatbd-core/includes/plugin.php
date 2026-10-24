@@ -358,6 +358,11 @@ final class Elementor_Test {
 		require_once( __DIR__ . '/widgets/class-repair-brands-marquee-widget.php' );
 		require_once( __DIR__ . '/widgets/class-maintenance-process-widget.php' );
 		require_once( __DIR__ . '/widgets/class-preventive-maintenance-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-core-services-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-brand-logos-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-home-store-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-cta-banner-widget.php' );
+		require_once( __DIR__ . '/widgets/class-iatbd-home-contact-widget.php' );
 
 		// Header & Footer
 		if ( class_exists( '\IATBD_Header_Widget' ) ) {
@@ -431,6 +436,11 @@ final class Elementor_Test {
 		$widgets_manager->register( new \IATBD_Repair_Brands_Marquee_Widget() );
 		$widgets_manager->register( new \IATBD_Maintenance_Process_Widget() );
 		$widgets_manager->register( new \IATBD_Preventive_Maintenance_Widget() );
+		$widgets_manager->register( new \IATBD_Core_Services_Widget() );
+		$widgets_manager->register( new \IATBD_Brand_Logos_Widget() );
+		$widgets_manager->register( new \IATBD_Home_Store_Widget() );
+		$widgets_manager->register( new \IATBD_CTA_Banner_Widget() );
+		$widgets_manager->register( new \IATBD_Home_Contact_Widget() );
 	}
 
 	/**

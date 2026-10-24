@@ -14,5 +14,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-// Delegate loading to iatbd-core.php
-require_once __DIR__ . '/iatbd-core.php';
+if ( ! defined( 'IATBD_CORE_VERSION' ) ) {
+	define( 'IATBD_CORE_VERSION', '1.0.0' );
+}
+if ( ! defined( 'IATBD_CORE_FILE' ) ) {
+	define( 'IATBD_CORE_FILE', __FILE__ );
+}
+if ( ! defined( 'IATBD_CORE_PATH' ) ) {
+	define( 'IATBD_CORE_PATH', plugin_dir_path( __FILE__ ) );
+}
+if ( ! defined( 'IATBD_CORE_URL' ) ) {
+	define( 'IATBD_CORE_URL', plugin_dir_url( __FILE__ ) );
+}
+
+if ( ! function_exists( 'iatbd_core_load_plugin' ) ) {
+	function iatbd_core_load_plugin() {
+		// Load main plugin class
+		require_once IATBD_CORE_PATH . 'includes/plugin.php';
+
+		// Run the plugin instance
+		if ( class_exists( '\Elementor_Test\Elementor_Test' ) ) {
+			\Elementor_Test\Elementor_Test::instance();
+		}
+	}
+	add_action( 'plugins_loaded', 'iatbd_core_load_plugin' );
+}
+

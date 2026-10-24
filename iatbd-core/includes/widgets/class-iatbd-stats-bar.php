@@ -1,120 +1,283 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) exit;
+/**
+ * IATBD Stats Bar / Counter Widget
+ * Elementor widget: animated stats counter strip with background pattern.
+ *
+ * @package IATBD_Core
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 class IATBD_Stats_Bar_Widget extends \Elementor\Widget_Base {
 
-    public function get_name()       { return 'iatbd_stats_bar'; }
-    public function get_title() {
-		return esc_html__( 'IATBD Stats Bar', 'iatbd-core' );
+	public function get_name() {
+		return 'iatbd_stats_bar';
 	}
-    public function get_icon()       { return 'eicon-icon-box'; }
-    public function get_categories() { return [ 'iatbd-addons' ]; }
 
-    /* ── Helper: controls for one item ── */
-    private function item_controls( $n, $icon, $title, $subtitle ) {
+	public function get_title() {
+		return esc_html__( 'IATBD Stats Counter', 'iatbd-core' );
+	}
 
-        $this->start_controls_section( "item_{$n}", [
-            'label' => __( "Item {$n}", 'iatbd-core' ),
-            'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-        ] );
+	public function get_icon() {
+		return 'eicon-counter';
+	}
 
-        $this->add_control( "i{$n}_icon", [
-            'label'       => __( 'Icon (Font Awesome class)', 'iatbd-core' ),
-            'type'        => \Elementor\Controls_Manager::TEXT,
-            'label_block' => true,
-            'default'     => $icon,
-            'description' => __( 'e.g. fas fa-microchip', 'iatbd-core' ),
-        ] );
+	public function get_categories() {
+		return [ 'iatbd-addons' ];
+	}
 
-        $this->add_control( "i{$n}_title", [
-            'label'   => __( 'Title', 'iatbd-core' ),
-            'type'    => \Elementor\Controls_Manager::TEXT,
-            'label_block' => true,
-            'default' => $title,
-        ] );
+	public function get_keywords() {
+		return [ 'counter', 'stats', 'numbers', 'clients', 'projects', 'experience', 'iatbd' ];
+	}
 
-        $this->add_control( "i{$n}_subtitle", [
-            'label'   => __( 'Subtitle', 'iatbd-core' ),
-            'type'    => \Elementor\Controls_Manager::TEXT,
-            'label_block' => true,
-            'default' => $subtitle,
-        ] );
+	protected function register_controls() {
 
-        $this->end_controls_section();
-    }
+		/* ---------- Section Settings ---------- */
+		$this->start_controls_section( 'section_settings', [
+			'label' => esc_html__( 'Section Styling', 'iatbd-core' ),
+		] );
 
-    protected function register_controls() {
+		$this->add_control( 'gradient_classes', [
+			'label'       => esc_html__( 'Background Gradient (Tailwind)', 'iatbd-core' ),
+			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
+			'default'     => 'from-primary-700 via-primary-600 to-primary-500',
+			'description' => esc_html__( 'Tailwind gradient classes (applied with bg-gradient-to-r).', 'iatbd-core' ),
+		] );
 
-        /* ── Section style ── */
-        $this->start_controls_section( 'section_style', [
-            'label' => __( 'Section', 'iatbd-core' ),
-            'tab'   => \Elementor\Controls_Manager::TAB_CONTENT,
-        ] );
+		$this->add_control( 'show_pattern', [
+			'label'        => esc_html__( 'Show Pattern Overlay', 'iatbd-core' ),
+			'type'         => \Elementor\Controls_Manager::SWITCHER,
+			'return_value' => 'yes',
+			'default'      => 'yes',
+		] );
 
-        $this->add_control( 'gradient_classes', [
-            'label'       => __( 'Background Gradient (Tailwind)', 'iatbd-core' ),
-            'type'        => \Elementor\Controls_Manager::TEXT,
-            'label_block' => true,
-            'default'     => 'from-primary-700 via-primary-600 to-primary-500',
-            'description' => 'Tailwind gradient classes (without bg-gradient-to-r)',
-        ] );
+		$this->end_controls_section();
 
-        $this->add_control( 'show_pattern', [
-            'label'        => __( 'Show Dot Pattern Overlay', 'iatbd-core' ),
-            'type'         => \Elementor\Controls_Manager::SWITCHER,
-            'label_on'     => 'Yes',
-            'label_off'    => 'No',
-            'return_value' => 'yes',
-            'default'      => 'yes',
-        ] );
+		/* ---------- Stats Repeater ---------- */
+		$this->start_controls_section( 'section_items', [
+			'label' => esc_html__( 'Counter Items', 'iatbd-core' ),
+		] );
 
-        $this->end_controls_section();
+		$repeater = new \Elementor\Repeater();
 
-        /* ── 4 items ── */
-        $this->item_controls( 1, 'fas fa-microchip',  'Machine data',       'PLC, HMI and drive signals' );
-        $this->item_controls( 2, 'fas fa-wave-square', 'Early alerts',       'Condition monitoring' );
-        $this->item_controls( 3, 'fas fa-eye',         'Visual inspection',  'Automated quality checks' );
-        $this->item_controls( 4, 'fas fa-chart-line',  'Production insight', 'Clearer process trends' );
-    }
+		$repeater->add_control( 'icon', [
+			'label'       => esc_html__( 'Icon Class (Font Awesome)', 'iatbd-core' ),
+			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
+			'default'     => 'fas fa-users',
+			'placeholder' => 'fas fa-users',
+		] );
 
-    protected function render() {
-        $s = $this->get_settings_for_display();
+		$repeater->add_control( 'is_counter', [
+			'label'        => esc_html__( 'Animated Counter Number?', 'iatbd-core' ),
+			'type'         => \Elementor\Controls_Manager::SWITCHER,
+			'return_value' => 'yes',
+			'default'      => 'yes',
+			'description'  => esc_html__( 'Turn OFF if displaying static text like "24/7".', 'iatbd-core' ),
+		] );
 
-        $items = [];
-        for ( $n = 1; $n <= 4; $n++ ) {
-            $items[] = [
-                'icon'     => esc_attr( $s["i{$n}_icon"] ),
-                'title'    => esc_html( $s["i{$n}_title"] ),
-                'subtitle' => esc_html( $s["i{$n}_subtitle"] ),
-            ];
-        }
+		$repeater->add_control( 'target', [
+			'label'     => esc_html__( 'Target Number', 'iatbd-core' ),
+			'type'      => \Elementor\Controls_Manager::NUMBER,
+			'default'   => 100,
+			'condition' => [
+				'is_counter' => 'yes',
+			],
+		] );
 
-        $gradient      = esc_attr( $s['gradient_classes'] );
-        $show_pattern  = $s['show_pattern'] === 'yes';
-        ?>
+		$repeater->add_control( 'suffix', [
+			'label'       => esc_html__( 'Number Suffix', 'iatbd-core' ),
+			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
+			'default'     => '+',
+			'placeholder' => '+ or %',
+			'condition'   => [
+				'is_counter' => 'yes',
+			],
+		] );
 
-        <section class="relative py-12 bg-gradient-to-r <?php echo $gradient; ?> overflow-hidden">
+		$repeater->add_control( 'static_text', [
+			'label'       => esc_html__( 'Static Value', 'iatbd-core' ),
+			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
+			'default'     => '24/7',
+			'condition'   => [
+				'is_counter!' => 'yes',
+			],
+		] );
 
-            <?php if ( $show_pattern ) : ?>
-            <div class="iatbd-stats-dot-pattern absolute inset-0 opacity-10 pointer-events-none"></div>
-            <?php endif; ?>
+		$repeater->add_control( 'label', [
+			'label'       => esc_html__( 'Label Text', 'iatbd-core' ),
+			'type'        => \Elementor\Controls_Manager::TEXT,
+			'label_block' => true,
+			'default'     => 'Happy Clients',
+		] );
 
-            <div class="max-w-6xl mx-auto px-4 relative z-10">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+		$this->add_control( 'items', [
+			'label'       => esc_html__( 'Items List', 'iatbd-core' ),
+			'type'        => \Elementor\Controls_Manager::REPEATER,
+			'fields'      => $repeater->get_controls(),
+			'title_field' => '{{{ label }}}',
+			'default'     => [
+				[
+					'icon'       => 'fas fa-users',
+					'is_counter' => 'yes',
+					'target'     => 100,
+					'suffix'     => '+',
+					'label'      => 'Happy Clients',
+				],
+				[
+					'icon'       => 'fas fa-award',
+					'is_counter' => 'yes',
+					'target'     => 10,
+					'suffix'     => '+',
+					'label'      => 'Years Experience',
+				],
+				[
+					'icon'       => 'fas fa-project-diagram',
+					'is_counter' => 'yes',
+					'target'     => 250,
+					'suffix'     => '+',
+					'label'      => 'Projects Done',
+				],
+				[
+					'icon'        => 'fas fa-headset',
+					'is_counter'  => '',
+					'static_text' => '24/7',
+					'label'       => 'Support Available',
+				],
+			],
+		] );
 
-                    <?php foreach ( $items as $item ) : ?>
-                    <div class="text-white">
-                        <i class="<?php echo $item['icon']; ?> text-2xl mb-3"></i>
-                        <p class="font-semibold"><?php echo $item['title']; ?></p>
-                        <p class="text-sm text-primary-100"><?php echo $item['subtitle']; ?></p>
-                    </div>
-                    <?php endforeach; ?>
+		$this->end_controls_section();
+	}
 
-                </div>
-            </div>
+	protected function render() {
+		$s            = $this->get_settings_for_display();
+		$items        = ! empty( $s['items'] ) ? $s['items'] : [];
+		$gradient     = ! empty( $s['gradient_classes'] ) ? $s['gradient_classes'] : 'from-primary-700 via-primary-600 to-primary-500';
+		$show_pattern = 'yes' === $s['show_pattern'];
+		$wid          = $this->get_id();
+		$wrapper_id   = 'stats-bar-' . esc_attr( $wid );
+		?>
+		<section id="<?php echo esc_attr( $wrapper_id ); ?>" class="relative py-16 bg-gradient-to-r <?php echo esc_attr( $gradient ); ?> overflow-hidden">
 
-        </section>
+			<?php if ( $show_pattern ) : ?>
+				<div
+					class="absolute inset-0 opacity-10 pointer-events-none"
+					style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
+				></div>
+			<?php endif; ?>
 
-        <?php
-    }
+			<div class="max-w-6xl mx-auto px-4 relative z-10">
+				<div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 text-center">
+
+					<?php
+					foreach ( $items as $item ) :
+						$icon       = ! empty( $item['icon'] ) ? $item['icon'] : 'fas fa-chart-bar';
+						$is_counter = ! empty( $item['is_counter'] ) && 'yes' === $item['is_counter'];
+						$target     = isset( $item['target'] ) ? (int) $item['target'] : 0;
+						$suffix     = isset( $item['suffix'] ) ? $item['suffix'] : '+';
+						$static     = ! empty( $item['static_text'] ) ? $item['static_text'] : '24/7';
+						$label      = ! empty( $item['label'] ) ? $item['label'] : '';
+						?>
+						<div class="group count-box">
+							<div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-white/15 mb-4 group-hover:bg-white/25 transition">
+								<i class="<?php echo esc_attr( $icon ); ?> text-2xl text-white"></i>
+							</div>
+
+							<?php if ( $is_counter ) : ?>
+								<p
+									class="counter-value text-4xl sm:text-5xl font-display font-bold text-white mb-1"
+									data-target="<?php echo esc_attr( $target ); ?>"
+									data-suffix="<?php echo esc_attr( $suffix ); ?>"
+								>
+									0
+								</p>
+							<?php else : ?>
+								<p class="text-4xl sm:text-5xl font-display font-bold text-white mb-1">
+									<?php echo esc_html( $static ); ?>
+								</p>
+							<?php endif; ?>
+
+							<?php if ( ! empty( $label ) ) : ?>
+								<p class="text-primary-100 font-medium text-sm sm:text-base">
+									<?php echo esc_html( $label ); ?>
+								</p>
+							<?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+
+				</div>
+			</div>
+
+		</section>
+
+		<script>
+		(function() {
+			function initStatsCounters_<?php echo esc_attr( $wid ); ?>() {
+				var scope = document.getElementById('<?php echo esc_js( $wrapper_id ); ?>');
+				if (!scope) return;
+
+				var counters = scope.querySelectorAll('.counter-value[data-target]');
+				if (!counters.length) return;
+
+				function runAnimation() {
+					counters.forEach(function(el) {
+						if (el.getAttribute('data-counted') === 'true') return;
+						el.setAttribute('data-counted', 'true');
+
+						var target = parseFloat(el.getAttribute('data-target')) || 0;
+						var suffix = el.getAttribute('data-suffix') || '';
+						var duration = 1800;
+						var startTime = null;
+
+						function step(currentTime) {
+							if (!startTime) startTime = currentTime;
+							var progress = Math.min((currentTime - startTime) / duration, 1);
+							var ease = 1 - Math.pow(1 - progress, 3);
+							var currentVal = Math.floor(ease * target);
+							el.textContent = currentVal + suffix;
+
+							if (progress < 1) {
+								requestAnimationFrame(step);
+							} else {
+								el.textContent = target + suffix;
+							}
+						}
+						requestAnimationFrame(step);
+					});
+				}
+
+				if ('IntersectionObserver' in window) {
+					var observer = new IntersectionObserver(function(entries) {
+						if (entries[0] && entries[0].isIntersecting) {
+							runAnimation();
+							observer.disconnect();
+						}
+					}, { threshold: 0.2 });
+					observer.observe(scope);
+				} else {
+					runAnimation();
+				}
+			}
+
+			if (window.elementorFrontend && window.elementorFrontend.hooks) {
+				elementorFrontend.hooks.addAction('frontend/element_ready/iatbd_stats_bar.default', function() {
+					initStatsCounters_<?php echo esc_attr( $wid ); ?>();
+				});
+			}
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initStatsCounters_<?php echo esc_attr( $wid ); ?>);
+			} else {
+				initStatsCounters_<?php echo esc_attr( $wid ); ?>();
+			}
+		})();
+		</script>
+		<?php
+	}
 }

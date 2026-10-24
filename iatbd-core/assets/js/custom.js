@@ -137,6 +137,15 @@
       dataKey: "slideTo",
       interval: 5000,
     });
+    initHeroSlider({
+      containerSelector: ".hero-slider",
+      slideSelector: ".hero-slide",
+      dotSelector: ".slider-dot",
+      dataKey: "index",
+      interval: 5000,
+      previousSelector: ".slider-arrow.prev",
+      nextSelector: ".slider-arrow.next",
+    });
     initDesktopDropdowns();
     initCounters();
     initTestimonials();
@@ -378,20 +387,17 @@
         startStoreHero();
       }),
     );
-    store
-      .querySelector("#store-hero-prev")
-      ?.addEventListener("click", () => {
-        showSlide(slideIndex - 1);
-        startStoreHero();
-      });
-    store
-      .querySelector("#store-hero-next")
-      ?.addEventListener("click", () => {
-        showSlide(slideIndex + 1);
-        startStoreHero();
-      });
+    store.querySelector("#store-hero-prev")?.addEventListener("click", () => {
+      showSlide(slideIndex - 1);
+      startStoreHero();
+    });
+    store.querySelector("#store-hero-next")?.addEventListener("click", () => {
+      showSlide(slideIndex + 1);
+      startStoreHero();
+    });
 
-    const storeHeroSection = store.querySelector(".store-hero-slide")?.parentElement;
+    const storeHeroSection =
+      store.querySelector(".store-hero-slide")?.parentElement;
     if (storeHeroSection) {
       storeHeroSection.addEventListener("mouseenter", stopStoreHero);
       storeHeroSection.addEventListener("mouseleave", startStoreHero);
@@ -599,8 +605,10 @@
   }
 
   function initCounters() {
-    const counters = [...document.querySelectorAll(".counter")];
-    const firstCounter = document.querySelector(".count-box");
+    const counters = [...document.querySelectorAll(".counter, .counter-value")];
+    const firstCounter = document.querySelector(
+      ".count-box, .counter-value, .counter",
+    );
     if (
       !counters.length ||
       !firstCounter ||
@@ -617,7 +625,9 @@
         observer.disconnect();
         counters.forEach((counter) => {
           const target = Number(counter.dataset.target);
-          const suffix = counter.dataset.suffix || "";
+          if (Number.isNaN(target)) return;
+          const suffix =
+            counter.dataset.suffix !== undefined ? counter.dataset.suffix : "+";
           const startTime = performance.now();
           const duration = 1600;
           const tick = (now) => {
@@ -630,7 +640,7 @@
           requestAnimationFrame(tick);
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.2 },
     );
     observer.observe(firstCounter);
   }
@@ -1001,4 +1011,3 @@
   window.shareArticle = shareArticle;
   window.copyArticleLink = copyArticleLink;
 })();
-
